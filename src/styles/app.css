@@ -1050,6 +1050,10 @@ a.name-link:focus-visible {
 .domain-section > .section-lede {
   margin: calc(-1 * var(--s3)) 0 var(--s5);
 }
+.section-link {
+  margin-top: var(--s4);
+  font-weight: 600;
+}
 .study-rows {
   list-style: none;
   padding: 0;

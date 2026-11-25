@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import { GAP_BRIEF } from "../data";
+import { GAP_BRIEF, PAPERS } from "../data";
 import { EvidenceList } from "../components/EvidenceList";
 import { PageHeader } from "../components/PageHeader";
 import { Tabs } from "../components/Tabs";
@@ -21,7 +21,7 @@ export function Findings() {
     <>
       <PageHeader
         title="Findings"
-        lede="What the studies agree on, where their estimates diverge, and the gap none of them closes."
+        lede={`What the ${PAPERS.length} studies agree on, where their numbers split, and what none of them measures.`}
       />
       <div className="wrap page-body">
         <Tabs label="Findings" tabs={TABS} active={tab} onChange={(key) => setParams({ tab: key }, { replace: true })}>

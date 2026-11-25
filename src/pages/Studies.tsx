@@ -46,7 +46,7 @@ export function Studies() {
 
   return (
     <>
-      <PageHeader title="Studies" lede="Every study in the review. Filter, sort, and open any study for its full record." />
+      <PageHeader title="Studies" lede={`Search and filter all ${PAPERS.length} records.`} />
       <div className="wrap page-body studies-layout">
         <button
           type="button"

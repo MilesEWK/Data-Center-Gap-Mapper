@@ -17,7 +17,7 @@ export function Contradictions() {
     <>
       <PageHeader
         title="Contradictions"
-        lede="Pairs of studies whose estimates conflict, and the methodological reason for each conflict."
+        lede={`${GAP_BRIEF.contradictionMatrix.length} places where two studies report different figures for the same thing, and the method choice behind each split.`}
       />
       <div className="wrap page-body">
         <div className="segmented" role="group" aria-label="Filter by domain">

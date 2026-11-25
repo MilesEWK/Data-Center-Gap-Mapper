@@ -22,7 +22,7 @@ function TwoLine({ text }: { text: string }) {
 }
 
 /** Studies × limitation tags. A filled square means the study carries the tag. */
-export function GapMap({ id = "gap-map" }: { id?: string }) {
+export function GapMap({ id = "gap-map", showHint = true }: { id?: string; showHint?: boolean }) {
   return (
     <figure className="gapmap" id={id} aria-labelledby={`${id}-title`} tabIndex={-1}>
       <figcaption className="gapmap-caption">
@@ -36,7 +36,7 @@ export function GapMap({ id = "gap-map" }: { id?: string }) {
             <span className="gm-cell" aria-hidden="true" />
             Does not
           </span>
-          <span className="gm-key-hint">Select a column name to list those studies.</span>
+          {showHint && <span className="gm-key-hint">Select a column name to list those studies.</span>}
         </p>
       </figcaption>
 

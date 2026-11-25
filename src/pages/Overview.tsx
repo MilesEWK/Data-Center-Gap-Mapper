@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { GAP_BRIEF, PAPERS } from "../data";
+import { GAP_BRIEF } from "../data";
 import { DOMAIN_SLUGS } from "../domains";
 import { DomainCard } from "../components/DomainCard";
 import { DomainStripe } from "../components/DomainStripe";
@@ -29,7 +29,7 @@ export function Overview() {
               See the gap map
             </button>
             <Link to="/studies" className="btn btn-secondary">
-              Browse the {PAPERS.length} studies
+              Browse studies
             </Link>
           </div>
         </div>

@@ -10,7 +10,7 @@ export function BlindSpots() {
     <>
       <PageHeader
         title="Blind spots"
-        lede="Which limitations recur across the studies, and which combinations of data source and domain no study covers."
+        lede="Recurring weaknesses in how these studies collect and count their data."
       />
       <div className="wrap page-body">
         <section aria-labelledby="bs-tags" className="section-block">
@@ -20,12 +20,12 @@ export function BlindSpots() {
         </section>
 
         <section className="section-block">
-          <GapMap id="gap-map-full" />
+          <GapMap id="gap-map-full" showHint={false} />
         </section>
 
         <section aria-labelledby="bs-xtab" className="section-block">
           <h2 id="bs-xtab">Dataset type by impact category</h2>
-          <p className="section-lede">Select a number to list those studies.</p>
+          <p className="section-lede">Each non-zero count opens the matching studies.</p>
           <CrossTab />
         </section>
       </div>

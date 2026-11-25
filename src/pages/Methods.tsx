@@ -12,7 +12,7 @@ export function Methods() {
   useTitle("Methods");
   return (
     <>
-      <PageHeader title="Methods" lede="How studies were found, coded, and compared, and what this review cannot tell you." />
+      <PageHeader title="Methods" lede="How studies were chosen, coded, and checked." />
       <div className="wrap page-body">
         <section aria-labelledby="m-how" className="section-block reading">
           <h2 id="m-how">How the review was done</h2>

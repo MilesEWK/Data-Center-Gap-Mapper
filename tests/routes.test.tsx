@@ -89,6 +89,52 @@ describe("resolved data", () => {
   });
 });
 
+describe("page copy", () => {
+  const pages = [
+    "/",
+    "/findings",
+    "/contradictions",
+    ...Object.keys(DOMAIN_SLUGS).map((s) => `/domains/${s}`),
+    "/blind-spots",
+    "/studies",
+    "/methods",
+    ...raw.map((p) => `/studies/${p.id}`),
+  ];
+  // Helper and intro text lives in these classes; the shared footer is deliberately excluded.
+  const helperClasses = ["page-lede", "section-lede", "figure-desc", "gm-key-hint", "filter-logic", "table-note"];
+  const strip = (h: string) => h.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&#x27;/g, "'").trim();
+  const helpersOn = (html: string) =>
+    helperClasses.flatMap((c) =>
+      [...html.matchAll(new RegExp(`<(p|span) class="${c}"[^>]*>([\\s\\S]*?)</\\1>`, "g"))].map((m) => strip(m[2])),
+    );
+
+  it("no helper sentence appears on more than one page", () => {
+    // Guard against a vacuous pass: the extractor must find the known intro and helper lines.
+    const blind = helpersOn(render("/blind-spots"));
+    expect(blind).toContain("Recurring weaknesses in how these studies collect and count their data.");
+    expect(blind).toContain("Select a bar to list those studies.");
+    expect(helpersOn(render("/"))).toContain("Select a column name to list those studies.");
+    const seen = new Map<string, string>();
+    for (const path of pages) {
+      for (const text of new Set(helpersOn(render(path)))) {
+        expect(seen.get(text), `"${text}" on ${seen.get(text)} and ${path}`).toBeUndefined();
+        seen.set(text, path);
+      }
+    }
+  });
+
+  it('no section text starts with "This section" or "Below"', () => {
+    for (const path of pages) {
+      for (const text of helpersOn(render(path))) expect(text, path).not.toMatch(/^(This section|Below)\b/);
+    }
+  });
+
+  it('"Open study" appears at most once per card', () => {
+    const html = render("/methods");
+    for (const li of html.split("<li").slice(1)) expect(li.split("Open study").length - 1).toBeLessThanOrEqual(1);
+  });
+});
+
 describe("domain pages", () => {
   it.each(Object.entries(DOMAIN_SLUGS))("/domains/%s study count equals a direct filter", (slug, category) => {
     const direct = raw.filter((p) => p.impact_category === category);
