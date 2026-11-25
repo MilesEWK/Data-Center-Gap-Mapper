@@ -1,6 +1,6 @@
 # Literature Review & Citation Gap Mapper: US Hyperscale Data Center Impacts on Grid, Water, and Fiscal Systems
 
-**Version:** 1.0 (Batch 1 + Batch 2; n = 9 studies)
+**Version:** 1.1 (Batch 1 + Batch 2 + update v4; n = 15 studies)
 **Extraction date:** 2026-11-24
 **Repository contents:** `src/data/papers.json` (structured extraction dataset), `src/data/brief.ts` (research gap brief data module), `README.md` (methodology), and a React + TypeScript + Vite app in `src/` that renders both
 
@@ -68,6 +68,12 @@ Full texts were retrieved by web search and direct page fetch. Uploaded project 
 | EPRI (2026) | Utility-sector research institute; extracted from a summary brief, not the full white paper; no page numbers visible | Only scenario study in the set that uses state-level project pipeline data |
 | REMI / U.S. Chamber (2026) | Commissioned by an industry-aligned business association | Extracted as the representative gross-economic-multiplier study; its own gross-vs.-net caveat is recorded |
 | Mytton (2021) | Full text retrieved from the author's open-access republication because the publisher page could not be fetched | Same CC-BY article text |
+| Martin & Peskoe / Harvard ELI (2025) | Legal-analysis paper from a law school program, with policy recommendations; no original quantitative model | Only source built from utility rate proceedings (nearly 50 reviewed); flagged as legal and policy analysis, as REMI was flagged for its sponsor |
+| Ceres (2026) | Published by an investor-advocacy nonprofit; counts water withdrawals (including hydropower), not consumption | Only multi-state estimate of water withdrawn for data center electricity; flagged as an advocacy source, as REMI was |
+| PJM Market Monitor (2026) | Only Section 1 (Introduction) of the Q3 2026 State of the Market report was retrieved; the $29.4 billion figure rests on separate auction analyses not reviewed | Only source quantifying capacity-market costs attributed to data center load |
+| UT COMPASS (2026) | Living white paper (first published December 2025, last updated August 2026); the August 2026 version was extracted | Only scenario projection of Texas data center water to 2040 |
+| Cook / HARC (2026) | States its 2030 water range three different ways (pp. 4, 6, 12); all three are recorded | Only Texas estimate reporting both withdrawal and consumption at power plants |
+| Justice & Shepherd (2025), Georgia | Full report dated December 2025; the DOAA summary is marked revised January 2026, and a revised full text was not confirmed | Only net fiscal evaluation in the set built on state revenue data for 34 data centers |
 
 ---
 
@@ -121,7 +127,7 @@ Full texts were retrieved by web search and direct page fetch. Uploaded project 
 3. **Validation.** `src/data/papers.json` was parsed with a JSON parser, and every record was checked for key order, enum membership, tag count (1–3), and integer `year`. `src/data/brief.ts` type-checks under `tsc --strict`.
 4. **Unresolved values.** Items that could not be confirmed from retrieved text are listed as `UNKNOWN` in `GAP_BRIEF.unresolved` and are not imputed.
 
-### 3.4 Included Studies (n = 9)
+### 3.4 Included Studies (n = 15)
 
 | # | `id` | Impact category | Dataset type | Tags |
 |---|---|---|---|---|
@@ -134,6 +140,12 @@ Full texts were retrieved by web search and direct page fetch. Uploaded project 
 | 7 | `jlarc_2024` | Multi-Impact | Public Fiscal / Tax Records | Pre-AI Compute Baseline; Gross vs. Net Fiscal & Ratepayer Accounting |
 | 8 | `tarczynska_2025` | Economic & Tax Policy | Public Fiscal / Tax Records | Missing or Self-Reported Facility Data; Gross vs. Net Fiscal & Ratepayer Accounting |
 | 9 | `remi_2026` | Economic & Tax Policy | Engineering / Top-Down Model | Gross vs. Net Fiscal & Ratepayer Accounting |
+| 10 | `martin_2025` | Economic & Tax Policy | Utility / Grid Filings | Gross vs. Net Fiscal & Ratepayer Accounting; Missing or Self-Reported Facility Data |
+| 11 | `pjm_imm_2026` | Multi-Impact | Utility / Grid Filings | Bottom-Up vs. Queue Modeling Divergence; Missing or Self-Reported Facility Data |
+| 12 | `justice_2025` | Economic & Tax Policy | Public Fiscal / Tax Records | Gross vs. Net Fiscal & Ratepayer Accounting; Missing or Self-Reported Facility Data |
+| 13 | `compass_2026` | Water Consumption | Engineering / Top-Down Model | Missing or Self-Reported Facility Data |
+| 14 | `cook_2026` | Water Consumption | Engineering / Top-Down Model | Missing or Self-Reported Facility Data |
+| 15 | `ceres_2026` | Water Consumption | Utility / Grid Filings | Missing or Self-Reported Facility Data |
 
 ---
 

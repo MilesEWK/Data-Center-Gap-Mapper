@@ -156,6 +156,32 @@ export const GAP_BRIEF: GapBrief = {
         "A small statewide share can hide local strain. JLARC's own utility-level data show data centers at up to 21% of some utilities' water use, which supports watershed-level rather than state-level assessment.",
     },
     {
+      domain: "Water Consumption",
+      studyA: "Cook / HARC (2026)",
+      claimA: "About 25 billion gallons in 2025 (0.4% of Texas water use), on-site cooling plus power-plant consumption; 29-161 billion gallons by 2030 (0.5-2.7%) (pp. 4, 6)",
+      studyB: "UT COMPASS (2026)",
+      claimB: "About 33 billion gallons in 2025 (0.6% of statewide demand); averages of 225 billion gallons in 2030 (3.7%) and 348 billion gallons in 2040 (5.8%) (Table 7, pp. 24-25)",
+      methodologicalReason:
+        "Capacity and rate assumptions. HARC scales 9,567 MW of existing capacity and ERCOT's 22,175-77,965 MW 2030 forecasts by national LBNL water rates and EIA power-plant water data. COMPASS assumes 8 GW for 2025 and 40-70 GW for 2030, and varies facility efficiency and grid mix. COMPASS calls the two 2025 totals consistent in magnitude; the gap opens in the projections.",
+      whatEachMeasured:
+        "HARC multiplies current and forecast data center power demand by LBNL cooling-water rates, then adds the water Texas power plants consumed per MWh in 2023, under four power-supply scenarios. COMPASS models scenarios from assumed capacity, facility efficiency (utilization, PUE, and WUE), and three representative grid mixes, and reports the average across them.",
+      whyItMatters:
+        "Both studies put today's share under 1% of Texas water use. For 2030, the capacity assumption moves the answer several-fold, so any projection should be cited with the capacity it assumes. COMPASS also warns its totals should not be added to statewide demand, because power-plant water may already be counted in the steam-electric category.",
+    },
+    {
+      domain: "Water Consumption",
+      studyA: "Ceres (2026)",
+      claimA: "Electricity for data centers in seven states drew an estimated 3.4 trillion gallons of water withdrawals in 2024, including hydropower (pp. 2, 7)",
+      studyB: "Shehabi et al. (2024)",
+      claimB: "Indirect water footprint of nearly 800 billion liters for all US data centers in 2023 (p. 58)",
+      methodologicalReason:
+        "Withdrawal vs. footprint boundary. Ceres counts every gallon power plants withdraw, including water passing through hydropower dams, and assigns data centers each state's EPRI electricity share. LBNL reports an indirect water footprint calculated with a single grid mix. Seven states holding about half of US data centers come out many times larger than LBNL's national figure.",
+      whatEachMeasured:
+        "Ceres adds up 2024 withdrawals at 1,434 water-using power plants in seven states, using EIA-reported data where available and WRI estimates for the rest, then attributes a share to data centers. LBNL estimates the water associated with US data center electricity in 2023 by applying one grid mix to its national electricity estimate.",
+      whyItMatters:
+        "Withdrawals show how much water a power supply depends on; consumption shows how much is lost to the local system. HARC's Texas figures show how far apart the two can be: the grid serving Texas data centers withdraws about 1,067 billion gallons a year but consumes about 17 billion. Setting Ceres' total beside a consumption figure overstates use by an order of magnitude.",
+    },
+    {
       domain: "Economic & Tax Policy",
       studyA: "REMI / U.S. Chamber (2026)",
       claimA: "Five-year gross county tax revenue of about $96 million (Franklin County, OH) to $174 million (Dallas County, TX) per 50 MW facility",
@@ -180,6 +206,19 @@ export const GAP_BRIEF: GapBrief = {
         "REMI counts every job its model links to the facility across the state economy, including supplier and consumer-spending jobs, while assuming only 50 on-site workers. Tarczynska divides each state's disclosed subsidy cost by the jobs the company promised.",
       whyItMatters:
         "Both statistics are accurate within their boundaries, but they answer different questions. Citing 740 jobs alongside a $1-2 million subsidy per promised job without explaining the boundary misleads in either direction.",
+    },
+    {
+      domain: "Economic & Tax Policy",
+      studyA: "REMI / U.S. Chamber (2026)",
+      claimA: "Five-year gross county tax revenue of about $96 million (Franklin County, OH) to $174 million (Dallas County, TX) per 50 MW facility",
+      studyB: "Justice & Shepherd (2025)",
+      claimB: "Net fiscal impact of -$432.6 million in 2025: $474.2 million in forgone state tax revenue against $34.6 million (construction) and $6.9 million (operations) in added collections after a 30% 'but for' attribution (pp. 4-5)",
+      methodologicalReason:
+        "Gross vs. net, and attribution. REMI totals the taxes one hypothetical facility would generate, before exemptions or abatements, and treats all of its activity as new. Georgia subtracts the revenue forgone through the exemption and credits only the 30% of data center activity its econometric model attributes to the incentive.",
+      whatEachMeasured:
+        "REMI simulates a single 50 MW facility in four counties and reports the county tax it would generate over five years. Georgia uses Department of Revenue data on 34 data centers to compare the state sales tax given up with the state tax collected on the share of activity the exemption caused.",
+      whyItMatters:
+        "A gross revenue figure cannot show whether an incentive pays for itself. Georgia finds the exemption does not on a fiscal basis, while still reporting about $2.86 of value-added impact per $1 forgone; the two results should be cited together, each with its boundary.",
     },
   ],
 
@@ -215,6 +254,21 @@ export const GAP_BRIEF: GapBrief = {
           "Grid supply skews fossil: more than 56% fossil-fuel share of data center electricity; least-cost procurement under current policy favors natural gas; meeting half of Virginia's unconstrained demand requires one 1,500 MW gas plant every two years for 15 years (p. iv).",
         citations: ["guidi_2024", "epri_2026", "jlarc_2024"],
       },
+      {
+        point:
+          "In Texas, power-plant water exceeds on-site cooling water: HARC estimates about 17 billion gallons consumed at power plants versus about 8 billion gallons for on-site cooling (p. 10), and COMPASS finds indirect use often takes the major share of the total (p. 26).",
+        citations: ["cook_2026", "compass_2026"],
+      },
+      {
+        point:
+          "State sales tax exemptions for data centers return less revenue than they cost: Georgia forgoes $474.2 million in 2025 against $34.6 million plus $6.9 million in added collections (pp. 4-5), consistent with Virginia's 48 cents per $1.",
+        citations: ["justice_2025", "jlarc_2024"],
+      },
+      {
+        point:
+          "Grid costs for data centers reach other customers: PJM's Market Monitor attributes an irreversible $29.4 billion increase in capacity costs to data center load (p. 51); PJM assigned about half of $5 billion in transmission, driven by generator retirements and data center load growth, to Virginia utilities, with Maryland utilities placing an average of 66% of transmission costs on residential ratepayers (p. 15).",
+        citations: ["pjm_imm_2026", "martin_2025"],
+      },
     ],
     divergence: [
       {
@@ -241,6 +295,16 @@ export const GAP_BRIEF: GapBrief = {
         point:
           "Job counts split on boundary: 740 economy-wide operational jobs vs. $1-$2.1 million subsidy cost per promised job.",
         citations: ["remi_2026", "tarczynska_2025"],
+      },
+      {
+        point:
+          "Texas data center water projections for 2030 span 29-161 billion gallons (HARC) to an average of 225 billion gallons (COMPASS), driven mainly by the capacity each study assumes; both put 2025 use under 1% of state water.",
+        citations: ["cook_2026", "compass_2026"],
+      },
+      {
+        point:
+          "Indirect water figures differ by an order of magnitude with the measure used: Ceres reports 3.4 trillion gallons of withdrawals for seven states in 2024, while HARC shows the grid serving Texas data centers withdraws about 1,067 billion gallons but consumes about 17 billion.",
+        citations: ["ceres_2026", "cook_2026", "shehabi_2024"],
       },
     ],
     primaryGap: {
@@ -272,6 +336,16 @@ export const GAP_BRIEF: GapBrief = {
             "Temporal blind spot: Siddik's baseline is 2018 and Mytton's US water figure rests on 2014 data, both before AI-era compute; JLARC says its averages likely underestimate recent years (p. 15).",
           citations: ["siddik_2021", "mytton_2021", "jlarc_2024"],
         },
+        {
+          point:
+            "The new sources share the facility-data problem: PJM's Market Monitor calls data center load forecasts largely unsubstantiated (pp. 1-2), Georgia reports no verified statewide data center load (p. 9), COMPASS had no operator-reported water data (p. 24), and Ceres relies on self-reported EIA data and WRI estimates for 1,240 of 1,434 plants (pp. 18-19).",
+          citations: ["pjm_imm_2026", "justice_2025", "compass_2026", "ceres_2026"],
+        },
+        {
+          point:
+            "Ratepayer costs and fiscal returns are measured in separate studies, never for the same facilities: Georgia's evaluation leaves grid and water strain unquantified (p. 9), PJM's Monitor quantifies capacity costs but not tax effects, and Harvard ELI finds verifying cost isolation all but impossible (pp. 1-2).",
+          citations: ["justice_2025", "pjm_imm_2026", "martin_2025"],
+        },
       ],
     },
   },
@@ -281,6 +355,10 @@ export const GAP_BRIEF: GapBrief = {
     "shehabi_2024: the report gives 2023 electricity use as 176 TWh (p. 7) and as approximately 178 TWh (p. 58); the source is internally inconsistent.",
     "shehabi_2024: no 2028 direct-water total for all US data centers is reported (hyperscale only, 60-124 billion L), so the 2028 comparison with li_2023 stays partial.",
     "remi_2026: authorship differs across the REMI page (U.S. Department of Commerce), the study text (Curtis Dubay, U.S. Chamber), and the Chamber page (no author, dated October 15, 2026).",
+    "pjm_imm_2026: only Section 1 (Introduction) of the Q3 2026 State of the Market report was retrieved; the $29.4 billion figure rests on the Monitor's separate auction analyses, which were not reviewed.",
+    "cook_2026: the 2030 range is stated three ways in the same report: 29-161 billion gallons (98-494 kAF) on p. 4, 29-161 billion gallons (88-494 kAF) on p. 6, and 23-161 billion gallons (71-494 kAF), 0.4-2.7%, on p. 12.",
+    "ceres_2026: drought exposure is given both as 46% of water-using power plants and as 44% of electricity generated using water (p. 3).",
+    "justice_2025: the full report reviewed is dated December 2025, while the DOAA summary is marked revised January 2026; whether the full report text was also revised was not confirmed.",
   ],
 };
 

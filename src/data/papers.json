@@ -147,5 +147,104 @@
       "Gross vs. Net Fiscal & Ratepayer Accounting"
     ],
     "verbatim_quote_with_page": "\"These figures are approximate gross revenue estimates, rather than net fiscal benefits.\" (Section: Data Center Tax Revenue and Fiscal Impacts; no PDF page numbers on the REMI web page)"
+  },
+  {
+    "id": "martin_2025",
+    "citation": "Martin, E., & Peskoe, A. (2025). Extracting Profits from the Public: How Utility Ratepayers Are Paying for Big Tech's Power. Harvard Law School, Environmental and Energy Law Program, Electricity Law Initiative.",
+    "year": 2025,
+    "impact_category": "Economic & Tax Policy",
+    "region": "United States (state public utility commission and federal proceedings; examples from the PJM region, including Virginia and Maryland)",
+    "dataset_type": "Utility / Grid Filings",
+    "research_question": "How are utilities shifting the costs of data centers' electricity use onto other ratepayers through special contracts, tariffs, transmission cost allocation, and co-location arrangements?",
+    "methodology": "Legal and regulatory analysis based on a review of nearly 50 regulatory proceedings about data centers' rates (p. 2), including 40 state PUC proceedings about special contracts with data centers (p. 11), plus PJM transmission cost allocation and FERC co-location proceedings (pp. 15, 20-21). No original quantitative model.",
+    "key_findings": "Regulators frequently approve data center special contracts in short and conclusory orders, with few or no other parties participating and with confidential treatment of the contracts (p. 11). In December 2023 PJM approved $5 billion of transmission projects driven in part by data center load growth; about half of the cost was assigned to Virginia utilities and about 10% to Maryland utilities (p. 15). Maryland's three investor-owned utilities assign an average of 66% of transmission costs to residential ratepayers, and the larger Virginia investor-owned utility puts more than half in residential rates (p. 15). Exelon estimated that a single proposed nuclear co-location arrangement would shift $58 million to $140 million of transmission and distribution charges to other ratepayers; generators dispute the estimate (p. 20). Litigation showed Duke Energy planned to shift the cost of a $325 million special-contract discount to its other ratepayers (p. 13; the contract was not identified as a data center contract). Total quantified ratepayer cost shift: Not reported.",
+    "stated_limitations": "The authors state that verifying utility claims that data center costs are isolated from other ratepayers is all but impossible, because cost attribution is imprecise and contracts are often confidential (pp. 1-2). They acknowledge that a data center under a special contract could, in theory, be overpaying (p. 13). Utilities often decline to disclose facility-specific load forecasts as proprietary (p. 5). The co-location cost-shift figure is Exelon's estimate and is disputed by generators (p. 20). Written as legal and policy analysis with recommendations, not as a neutral audit.",
+    "limitation_tags": [
+      "Gross vs. Net Fiscal & Ratepayer Accounting",
+      "Missing or Self-Reported Facility Data"
+    ],
+    "verbatim_quote_with_page": "\"Hiding subsidies for trillion-dollar companies in power prices increases utility profits by raising costs for American consumers.\" (p. 1)"
+  },
+  {
+    "id": "pjm_imm_2026",
+    "citation": "Monitoring Analytics, LLC (Independent Market Monitor for PJM) (2026). 2026 Quarterly State of the Market Report for PJM: January through September. Section 1: Introduction.",
+    "year": 2026,
+    "impact_category": "Multi-Impact",
+    "region": "PJM Interconnection region",
+    "dataset_type": "Utility / Grid Filings",
+    "research_question": "How competitive and reliable were PJM's wholesale power markets in the first nine months of 2026, and what has including forecast data center load in the capacity market cost customers?",
+    "methodology": "Independent Market Monitor review of PJM energy and capacity market results for January through September 2026, compared with the same period of 2025 (pp. 1-3). Data center cost impacts draw on the Monitor's analyses of the 2025/2026 through 2028/2029 Base Residual Auctions (p. 51). Only Section 1 (Introduction) was retrieved and reviewed.",
+    "key_findings": "The results of the 2025/2026, 2026/2027, 2027/2028, and 2028/2029 capacity markets were not competitive, primarily because forecast data center demand was included (p. 1). Including data center load in the capacity market auctions has resulted in an irreversible total increase in capacity costs of $29.4 billion for all customers (pp. 1, 51). The total cost of wholesale power rose 40.9%, from $79.19 to $111.61 per MWh, between the first nine months of 2025 and of 2026; $9.95 per MWh (9.8%) of the 2026 cost is attributed to including data center load in the capacity market (p. 3). The 2029/2030 auction is expected to add another $5 billion to $10 billion of data center related costs (p. 1). PJM's capacity shortfall grew from 208.7 MW in the 2026/2027 auction to 6,516.6 MW in 2027/2028 and 6,831.3 MW in 2028/2029 (p. 1).",
+    "stated_limitations": "The Monitor describes data center load forecasts as largely based on unsubstantiated forecasts, and notes the 2029/2030 auction will use a 2026 load forecast that includes data centers already canceled or unlikely to reach projected demand (pp. 1-2). The $29.4 billion figure comes from the Monitor's auction analyses rather than observed customer bills. Only Section 1 of the report was retrieved. Facility-level data center load: Not reported.",
+    "limitation_tags": [
+      "Bottom-Up vs. Queue Modeling Divergence",
+      "Missing or Self-Reported Facility Data"
+    ],
+    "verbatim_quote_with_page": "\"the inclusion of data center load in the capacity market auctions has resulted in an irreversible total increase in capacity costs of $29.4 billion\" (p. 51)"
+  },
+  {
+    "id": "justice_2025",
+    "citation": "Justice, J. S., & Shepherd, T. L. (2025). Tax Incentive Evaluation: Georgia Data Center Sales & Use Tax Exemption. University of Georgia, Carl Vinson Institute of Government, for the Georgia Department of Audits and Accounts (DOAA summary revised January 2026).",
+    "year": 2025,
+    "impact_category": "Economic & Tax Policy",
+    "region": "Georgia (statewide; local property tax sample from four metro Atlanta projects)",
+    "dataset_type": "Public Fiscal / Tax Records",
+    "research_question": "What revenue does Georgia forgo through its data center sales and use tax exemption, and what economic impact and return on investment does the exemption produce?",
+    "methodology": "Statutory tax incentive evaluation under SB 366 (p. 2). Georgia Department of Revenue data on 34 data centers using or applying for the exemption, plus a nationwide Aterio database of active, under-construction, and announced data centers (pp. 2-3). An econometric 'but for' model attributes 30% of data center activity to the exemption (p. 3). IMPLAN 2023 input-output modeling of construction and operations, 2018-2030, with some years estimated rather than reported (pp. 3-5). Local property tax analysis combines four metro Atlanta projects (nine buildings, $6.5 billion investment) into one representative complex (p. 46).",
+    "key_findings": "Forgone state tax revenue was $474.2 million in 2025, projected to reach $866.7 million in 2030 (Table A, p. 5). After the 30% 'but for' adjustment, added state tax collections in 2025 were $34.6 million from construction and equipment and $6.9 million from operations, for a net fiscal impact of -$432.6 million (Table A, p. 5). Net fiscal impact ranges from -$17.0 million in 2018 to -$780.2 million in 2030 (p. 4). The projected overall 2018-2030 return on investment is 186.3%, or about $2.86 of value-added impact per $1 of forgone revenue, versus $1.32 under an alternate-use scenario (p. 7). A representative metro Atlanta complex valued at $2.28 billion would owe $33.6 million a year in local property tax; the average abatement was 17.3%, leaving $27.8 million collected (pp. 46-47). Additional data centers could raise statewide electricity demand by 49% between 2025 and 2030 (p. 45).",
+    "stated_limitations": "The 30% 'but for' attribution differs substantially from the 2022 predecessor study, which assumed 90% of data center activity was due to the exemption; the 2022 study lacked Department of Revenue data and relied on external sources (pp. 2-3, 6). Some years use Institute estimates instead of reported data because of unfiled and amended annual reports (pp. 3-4). Projections assume current construction trends continue, and changes in AI investment could produce substantially different results (p. 7). Complete and verified statewide data center electricity use is not yet publicly available (p. 9), and the electricity projections cannot address local or seasonal supply imbalances (p. 44). Local abatement data covers four metro Atlanta projects, and available data cannot show how effective abatements were in attracting them (pp. 46, 48). Grid and water strain are described as intangible effects and are not quantified (p. 9). Water volumes: Not reported.",
+    "limitation_tags": [
+      "Gross vs. Net Fiscal & Ratepayer Accounting",
+      "Missing or Self-Reported Facility Data"
+    ],
+    "verbatim_quote_with_page": "\"The net fiscal impact of Georgia’s High-Tech Data Center Equipment Exemption ranges from -$17.0 million in 2018 to -$780.2 million in 2030.\" (p. 4)"
+  },
+  {
+    "id": "compass_2026",
+    "citation": "COMPASS Research Consortium, Bureau of Economic Geology, University of Texas at Austin (2026). Water Use Requirements for Data Centers in Texas: A White Paper on the Evolving Demands of Water Use in Data Center Infrastructure in Texas. Originally published December 2025; last updated August 2026.",
+    "year": 2026,
+    "impact_category": "Water Consumption",
+    "region": "Texas (statewide; ERCOT-based grid scenarios)",
+    "dataset_type": "Engineering / Top-Down Model",
+    "research_question": "How much direct and indirect water could Texas data centers use from 2025 to 2040, and how does that compare with statewide water demand?",
+    "methodology": "Screening-level, scenario-based engineering assessment (p. 24). An assumed 8 GW of capacity for 2025 and capacity scenarios of 40-70 GW for 2030 and 60-110 GW for 2040; three facility-performance cases varying utilization, PUE, and WUE; and three representative ERCOT grid-mix scenarios for indirect water (pp. 25-26). Shares are compared against the 2022 Texas Water Development Board State Water Plan (p. 24). Uses publicly available assumptions rather than operator data (p. 24).",
+    "key_findings": "Average total (direct plus indirect) water use of 33 billion gallons in 2025 (0.6% of statewide demand), 225 billion gallons in 2030 (3.7%), and 348 billion gallons in 2040 (5.8%); direct water alone is 13 billion gallons (0.2%), 90 billion gallons (1.5%), and 139 billion gallons (2.3%) (Table 7, pp. 24-25). Under ERCOT's adjusted 2030 capacity estimate of 22 GW, total water use is about 91 billion gallons (1.5%); under the 78 GW transmission-provider estimate it is about 319 billion gallons (5.3%) (p. 25). The 2025 total is described as consistent in magnitude with an independent assessment of 25 billion gallons, or 0.4% (p. 4). Indirect water use often takes the major share of the total (p. 26).",
+    "stated_limitations": "Estimates are indicative rather than predictive (p. 25). Assumed data center capacity is the single largest source of uncertainty; for 2030, transmission providers reported 78 GW of prospective large-load capacity while ERCOT's adjusted estimate is 22 GW (p. 26). Facility-level, operator-reported water-use data were not available (p. 24). Indirect water may already be counted in the State Water Plan's steam-electric category, so totals should not be added to statewide demand (p. 26). 2025 shares are expressed against the Plan's 2020 estimate because the Plan has no 2025 column (p. 24).",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data"
+    ],
+    "verbatim_quote_with_page": "\"average total water use increases from 33 billion gallons per year in 2025 (0.6% of statewide demand) to 225 billion gallons in 2030 (3.7%)\" (p. 25)"
+  },
+  {
+    "id": "cook_2026",
+    "citation": "Cook, M. (2026). Thirsty Data and the Lone Star State: The Impact of Data Center Growth on Texas' Water Supply. Houston Advanced Research Center (HARC) White Paper.",
+    "year": 2026,
+    "impact_category": "Water Consumption",
+    "region": "Texas (statewide; select regional estimates)",
+    "dataset_type": "Engineering / Top-Down Model",
+    "research_question": "How much water do Texas data centers consume directly and through electricity generation today, and how could that change by 2030 under different power-supply choices?",
+    "methodology": "Top-down estimate. Existing capacity of about 9,567 MW across 464 Texas facilities from Baxtel (p. 7). Direct water at LBNL's 2023 rate of 95 gal/MWh; indirect water from 2023 Texas power plant withdrawal and consumption data reported to the EIA on forms 923 and 860 (p. 10). 2030 projections use ERCOT's adjusted (22,175 MW) and transmission-provider (77,965 MW) data center forecasts, LBNL's 2028 rate of 119-127 gal/MWh, and four power-supply scenarios (pp. 11-12). Shares are compared with the 2022 State Water Plan (p. 10).",
+    "key_findings": "Existing Texas data centers consume an estimated 25 billion gallons (77 thousand acre-feet) of water in 2025, or 0.4% of total water use, combining on-site cooling and power-plant consumption (pp. 4, 6). Direct cooling is about 8 billion gallons (0.1%) and power-plant consumption about 17 billion gallons (0.3%), while the grid power supplying the data centers withdraws about 1,067 billion gallons a year (p. 10). By 2030, demand could reach 29-161 billion gallons, 0.5-2.7% of total annual water use (pp. 4, 6). Power supply choice changes the result: new grid power cuts water use 54% and onsite natural gas combined-cycle power 30% compared with current grid power (p. 13). Texas' State Water Plan does not include projected demand growth for data centers (p. 4).",
+    "stated_limitations": "Transparency issues have made data center water use difficult to determine (p. 6), and data center water and energy information is significantly limited (p. 5). Estimates apply LBNL national water rates to capacity figures rather than facility data (pp. 10-11). Carbon capture is not included (p. 11). The report states the 2030 range three ways: 29-161 billion gallons (98-494 kAF) on p. 4, 29-161 billion gallons (88-494 kAF) on p. 6, and 23-161 billion gallons (71-494 kAF), or 0.4-2.7%, on p. 12.",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data"
+    ],
+    "verbatim_quote_with_page": "\"In this paper, we estimate that Texas data centers in 2025 will consume a total of 25 billion gallons (Bgal) of water\" (p. 6)"
+  },
+  {
+    "id": "ceres_2026",
+    "citation": "Ceres (2026). Water Behind the Watts: The Hidden Risk of Powering Data Centers. Ceres, August 2026.",
+    "year": 2026,
+    "impact_category": "Water Consumption",
+    "region": "Seven states: Virginia, Texas, California, Illinois, Georgia, Ohio, and Arizona (about 50% of US data centers)",
+    "dataset_type": "Utility / Grid Filings",
+    "research_question": "How much freshwater is withdrawn to generate the electricity that powers data centers in seven major states, and how exposed are those power plants to water stress and drought?",
+    "methodology": "Power plant analysis of 2024 EIA forms 860 and 923. Of 3,907 plants with active 2024 generation, 1,434 water-using plants were analyzed; 194 reported water data to EIA and 1,240 were estimated with WRI technology-specific withdrawal factors (pp. 6, 18). Water is attributed to data centers using EPRI's 2024 state-level estimates of data centers' electricity share (pp. 6, 18). Water stress from WRI Aqueduct 4.0 and drought from the 2024 U.S. Drought Monitor (p. 18). Measures withdrawals, not consumption, and counts hydropower as a withdrawal (pp. 2, 6, 18).",
+    "key_findings": "Powering data centers in the seven states used an estimated 3.4 trillion gallons of water withdrawals in 2024, ranging from 25 billion gallons in Ohio to 1.4 trillion gallons in California (p. 7). 78% of the electricity in the states analyzed came from power plants that use water to operate, and Ohio, Georgia, and Virginia each generated over 90% of their electricity from water-intensive thermal plants (p. 3). 66% of water-using power plants were exposed to medium-high to extremely high water stress (p. 3). On-site data center water and water consumption: Not reported (the analysis covers withdrawals for purchased electricity only).",
+    "stated_limitations": "Findings are directional estimates, not precise measurements (p. 18). Water data is self-reported to EIA and not independently verified, and plants without reported data use WRI national-average factors (pp. 18-19). Embedded water is estimated from state-level generation rather than balancing-authority dispatch and is attributed where electricity is generated, so exporting states may be overstated and importing states such as Virginia and California understated (p. 19). Behind-the-meter generation, water sources, and seasonal variation are outside scope (p. 6). The key findings page gives drought exposure both as 46% of water-using plants and as 44% of electricity generated using water (p. 3). Published by an investor-advocacy nonprofit.",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data"
+    ],
+    "verbatim_quote_with_page": "\"Powering data centers used an estimated 3.4 trillion gallons of water withdrawals in 2024, applying EPRI state estimates.\" (p. 7)"
   }
 ]

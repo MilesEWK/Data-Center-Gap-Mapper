@@ -15,11 +15,15 @@ const HASH_PATH = new URL("./data.hash", import.meta.url);
 // Independent read of the raw file, so tests don't only check the app's own import path.
 const raw = JSON.parse(readFileSync(PAPERS_PATH, "utf8")) as Paper[];
 
+// The original review had 9 studies; update v4 (Part 2) added 6 verified sources.
+const ORIGINAL_STUDIES = 9;
+const ADDED_IN_V4 = 6;
+
 describe("papers.json", () => {
-  it("contains 9 papers with unique ids", () => {
-    expect(PAPERS).toHaveLength(9);
-    expect(raw).toHaveLength(9);
-    expect(new Set(PAPERS.map((p) => p.id)).size).toBe(9);
+  it(`contains ${ORIGINAL_STUDIES + ADDED_IN_V4} papers with unique ids`, () => {
+    expect(PAPERS).toHaveLength(ORIGINAL_STUDIES + ADDED_IN_V4);
+    expect(raw).toHaveLength(PAPERS.length);
+    expect(new Set(PAPERS.map((p) => p.id)).size).toBe(PAPERS.length);
   });
 
   it("matches the SHA-256 recorded in tests/data.hash", () => {
