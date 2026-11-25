@@ -111,7 +111,8 @@
     "stated_limitations": "The energy model does not explicitly include the social cost of carbon (p. 29). The economic model omits externalities such as health and environmental costs from carbon emissions (p. 14). Average economic impacts likely underestimate more recent years because the industry is growing (p. 15). Water figures come from data shared by local utilities, at annual, monthly, or daily resolution depending on the utility (p. 102).",
     "limitation_tags": [
       "Pre-AI Compute Baseline",
-      "Gross vs. Net Fiscal & Ratepayer Accounting"
+      "Gross vs. Net Fiscal & Ratepayer Accounting",
+      "Indirect Power-Plant Water Excluded"
     ],
     "verbatim_quote_with_page": "\"contribute 74,000 jobs, $5.5 billion in labor income, and $9.1 billion in GDP\" (p. i)"
   },

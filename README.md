@@ -142,7 +142,7 @@ Full texts were retrieved by web search and direct page fetch. Uploaded project 
 | 4 | `siddik_2021` | Multi-Impact | Engineering / Top-Down Model | Pre-AI Compute Baseline; Missing or Self-Reported Facility Data |
 | 5 | `mytton_2021` | Water Consumption | Corporate Sustainability Reports | Missing or Self-Reported Facility Data; Pre-AI Compute Baseline |
 | 6 | `li_2023` | Water Consumption | Corporate Sustainability Reports | Missing or Self-Reported Facility Data |
-| 7 | `jlarc_2024` | Multi-Impact | Public Fiscal / Tax Records | Pre-AI Compute Baseline; Gross vs. Net Fiscal & Ratepayer Accounting |
+| 7 | `jlarc_2024` | Multi-Impact | Public Fiscal / Tax Records | Pre-AI Compute Baseline; Gross vs. Net Fiscal & Ratepayer Accounting; Indirect Power-Plant Water Excluded |
 | 8 | `tarczynska_2025` | Economic & Tax Policy | Public Fiscal / Tax Records | Missing or Self-Reported Facility Data; Gross vs. Net Fiscal & Ratepayer Accounting |
 | 9 | `remi_2026` | Economic & Tax Policy | Engineering / Top-Down Model | Gross vs. Net Fiscal & Ratepayer Accounting |
 | 10 | `martin_2025` | Economic & Tax Policy | Utility / Grid Filings | Gross vs. Net Fiscal & Ratepayer Accounting; Missing or Self-Reported Facility Data |

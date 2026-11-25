@@ -405,6 +405,7 @@ export const GAP_BRIEF: GapBrief = {
     "epri_prices_2026: extracted from arXiv v1 (June 18, 2026); the EPRI brief rounds the 3.5% estimate to roughly 4%, and the brief URL given in the update prompt returned a web page rather than the PDF.",
     "james_2025: pages 6-16 have no text layer and were read from rendered page images; the report gives water stress increases of up to 17% (p. 3) and up to 32% (p. 8), and describes electricity-related water as withdrawals (p. 7) and as consumption (p. 15).",
     "han_2024: extracted from v4 (June 8, 2026); the title changed between versions, and figures may differ from earlier versions.",
+    "han_2024: the paper reports 2023 public health costs of $6.67 billion ($5.03-$8.32 billion) (Table 1, p. 7), while the authors' IEEE Spectrum article gives \"an estimated $6 billion\" for 2023 (wording confirmed from a repost, not the Spectrum page itself); the record keeps the paper's figure.",
     "Batch 4 sources not added: CEPR DP21854 (Scalera, Bosetti & Pecci), PFM's Prince William County fiscal impact analysis, and Karimi et al. (2025, Applied Thermal Engineering 276) could not be retrieved (HTTP 403 or bot check), so no quote could be verified.",
   ],
 };
