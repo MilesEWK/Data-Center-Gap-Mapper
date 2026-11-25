@@ -113,3 +113,26 @@ describe("URL state", () => {
     expect(parseFilters("?cat=Bogus&tag=Nope&sort=foo:up")).toEqual(EMPTY_FILTERS);
   });
 });
+
+describe("review-level limitations", () => {
+  it("classifies every study, and only studies in the set, by source type", async () => {
+    const { SOURCE_TYPE_BY_ID } = await import("../src/data/sourceTypes");
+    expect(Object.keys(SOURCE_TYPE_BY_ID).sort()).toEqual(PAPERS.map((p) => p.id).sort());
+  });
+
+  it("source-type counts sum to the study count", async () => {
+    const { sourceTypeCounts } = await import("../src/lib/review");
+    expect(sourceTypeCounts().reduce((n, t) => n + t.ids.length, 0)).toBe(PAPERS.length);
+  });
+
+  it("counts a state only when the record names it, and not Virginia inside West Virginia", async () => {
+    const { stateCoverage, statesInPaper } = await import("../src/lib/review");
+    for (const { state, ids } of stateCoverage()) {
+      for (const id of ids) {
+        const p = PAPERS.find((x) => x.id === id)!;
+        expect(`${p.region} ${p.key_findings}`).toContain(state);
+      }
+    }
+    expect(statesInPaper({ region: "West Virginia", key_findings: "" })).toEqual(["West Virginia"]);
+  });
+});

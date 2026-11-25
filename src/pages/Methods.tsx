@@ -4,9 +4,32 @@ import { Marked } from "../components/Marked";
 import { PageHeader } from "../components/PageHeader";
 import { StudyLink } from "../components/StudyLink";
 import { unresolvedStudyId } from "../lib/derive";
+import { missingPageLocators, partialAccess, sourceTypeCounts, stateCoverage } from "../lib/review";
+import { studyLabel } from "../data/studyNameMap";
 import { TAG_DEFINITIONS } from "../lib/vocabulary";
 import { useTitle } from "../lib/useTitle";
 import { DATASET_TYPES, IMPACT_CATEGORIES, LIMITATION_TAGS } from "../types";
+
+const types = sourceTypeCounts();
+const [peer, preprint, report] = types;
+const states = stateCoverage();
+const [top, second] = states;
+const partial = partialAccess();
+const noPage = missingPageLocators();
+
+/** "A, B, and C" as study links. */
+function IdList({ ids }: { ids: string[] }) {
+  return (
+    <>
+      {ids.map((id, i) => (
+        <span key={id}>
+          {i > 0 && (i === ids.length - 1 ? (ids.length > 2 ? ", and " : " and ") : ", ")}
+          <StudyLink id={id} label={studyLabel(id)} variant="inline" />
+        </span>
+      ))}
+    </>
+  );
+}
 
 export function Methods() {
   useTitle("Methods");
@@ -46,14 +69,78 @@ export function Methods() {
           <div className="lf-panel">
             <h3 id="m-limits">Limitations</h3>
             <ul>
-              <li>A small, purposive sample rather than an exhaustive database search.</li>
-              <li>Heavy reliance on preprints and institutional or policy reports.</li>
-              <li>Partial full-text access, and missing page locators for some sources.</li>
-              <li>Sub-national evidence is concentrated in Virginia.</li>
+              <li>
+                {PAPERS.length} studies, a purposive sample from targeted retrieval rather than an exhaustive database
+                search; there are no PRISMA screening counts.
+              </li>
+              <li>
+                {peer.ids.length} of {PAPERS.length} are peer-reviewed journal articles; {preprint.ids.length} are
+                preprints or working papers and {report.ids.length} are institutional, government, consultant, or
+                advocacy reports.
+              </li>
+              <li>
+                Partial full-text access for{" "}
+                <IdList ids={partial} />; quotes without a page number for <IdList ids={noPage} />.
+              </li>
+              <li>
+                Sub-national evidence covers {states.length} states, led by {top.state} ({top.ids.length} of{" "}
+                {PAPERS.length} studies){second && <>, then {second.state} ({second.ids.length})</>}.
+              </li>
               <li>No model or audit was independently re-run; values are reported as published.</li>
             </ul>
           </div>
           </div>
+        </section>
+
+        <section aria-labelledby="m-coverage" className="section-block">
+          <h2 id="m-coverage">Source types and coverage</h2>
+          <div className="vocab-grid">
+            <div className="scroll-x">
+              <table className="data-table">
+                <caption>Source types</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Source type</th>
+                    <th scope="col" className="num">
+                      Studies
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {types.map((t) => (
+                    <tr key={t.type}>
+                      <th scope="row">{t.type}</th>
+                      <td className="num">{t.ids.length}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="scroll-x">
+              <table className="data-table">
+                <caption>States with sub-national evidence</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">State</th>
+                    <th scope="col" className="num">
+                      Studies
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {states.map((st) => (
+                    <tr key={st.state}>
+                      <th scope="row">{st.state}</th>
+                      <td className="num">{st.ids.length}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p className="table-note">
+            A state is counted when a study names it in its region or key findings.
+          </p>
         </section>
 
         <section aria-labelledby="m-vocab" className="section-block">
