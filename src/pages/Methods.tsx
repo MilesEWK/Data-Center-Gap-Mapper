@@ -28,7 +28,7 @@ export function Methods() {
           <p>
             Each of the {PAPERS.length} records follows a fixed schema with controlled vocabularies. Values come only from
             explicit source statements. Absent metrics are recorded as “Not reported”, and anything that could not be
-            confirmed is flagged “UNKNOWN” rather than imputed.
+            confirmed is listed under Open issues rather than imputed.
           </p>
           <h3>Gap detection</h3>
           <p>
@@ -122,19 +122,19 @@ export function Methods() {
           </ul>
         </section>
 
-        <section aria-labelledby="unresolved-title" id="unresolved" className="section-block">
-          <h2 id="unresolved-title">Unresolved items</h2>
-          <ul className="unresolved">
+        <section aria-labelledby="open-issues-title" id="open-issues" className="section-block">
+          <h2 id="open-issues-title">Open issues</h2>
+          <ul className="open-issues">
             {GAP_BRIEF.unresolved.map((u) => {
               const id = unresolvedStudyId(u);
               return (
                 <li key={u}>
-                  <span className="badge-unknown">Unknown</span>
-                  <span className="unresolved-text">
+                  <span className="badge-open">Open</span>
+                  <span className="open-issue-text">
                     <Marked text={u} />
                   </span>
                   {id && (
-                    <span className="unresolved-link">
+                    <span className="open-issue-link">
                       <StudyLink id={id} label="Open study" variant="inline" />
                     </span>
                   )}

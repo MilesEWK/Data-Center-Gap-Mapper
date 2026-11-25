@@ -477,14 +477,14 @@ a.name-link:focus-visible {
   color: var(--unknown);
   font-weight: 600;
 }
-.badge-unknown {
+.badge-open {
   display: inline-block;
   flex: none;
   padding: 0 var(--s2);
-  border: 1px solid var(--unknown);
+  border: 1px solid var(--rule);
   border-radius: var(--radius);
-  color: var(--unknown);
-  background: var(--unknown-tint);
+  color: var(--ink-2);
+  background: var(--bg);
   font-size: var(--fs-0);
   font-weight: 600;
   line-height: 1.6;
@@ -493,8 +493,7 @@ a.name-link:focus-visible {
   color: var(--unknown);
   font-weight: 600;
 }
-.callout-unknown,
-.unknown-note {
+.callout-unknown {
   margin-top: var(--s5);
   padding: var(--s3) var(--s4);
   background: var(--unknown-tint);
@@ -502,10 +501,10 @@ a.name-link:focus-visible {
   font-size: var(--fs-1);
   max-width: var(--measure);
 }
-.unknown-note {
-  margin-top: var(--s2);
-  padding: var(--s2) var(--s3);
+.zero-note {
+  margin-top: var(--s1);
   font-size: var(--fs-0);
+  color: var(--ink-2);
 }
 
 /* ---------- Overview ---------- */
@@ -1407,27 +1406,30 @@ th[aria-sort="descending"] .sort-btn {
   gap: var(--s2);
   margin-top: var(--s3);
 }
-.unresolved {
+.open-issues {
   list-style: none;
   padding: 0;
   margin-top: var(--s5);
   max-width: 900px;
+  display: grid;
+  gap: var(--s3);
 }
-.unresolved li {
+.open-issues li {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: baseline;
   gap: var(--s2) var(--s4);
-  padding: var(--s3) 0;
-  border-bottom: 1px solid var(--rule);
+  padding: var(--s3) var(--s4);
+  border-left: 3px solid var(--brand);
+  background: var(--band);
 }
-.unresolved .badge-unknown {
+.open-issues .badge-open {
   justify-self: start;
 }
-.unresolved-text {
+.open-issue-text {
   overflow-wrap: anywhere;
 }
-.unresolved-link {
+.open-issue-link {
   white-space: nowrap;
 }
 
@@ -1551,7 +1553,7 @@ th[aria-sort="descending"] .sort-btn {
   .appears li {
     grid-template-columns: 176px minmax(0, 1fr);
   }
-  .unresolved li {
+  .open-issues li {
     grid-template-columns: auto minmax(0, 1fr) auto;
   }
 }

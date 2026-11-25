@@ -71,6 +71,24 @@ describe("routes", () => {
   });
 });
 
+describe("resolved data", () => {
+  it('no rendered page contains the text "UNKNOWN"', () => {
+    const paths = [
+      "/",
+      "/findings",
+      "/findings?tab=diverge",
+      "/findings?tab=gap",
+      "/contradictions",
+      ...Object.keys(DOMAIN_SLUGS).map((s) => `/domains/${s}`),
+      "/blind-spots",
+      "/studies",
+      "/methods",
+      ...raw.map((p) => `/studies/${p.id}`),
+    ];
+    for (const path of paths) expect(render(path), path).not.toContain("UNKNOWN");
+  });
+});
+
 describe("domain pages", () => {
   it.each(Object.entries(DOMAIN_SLUGS))("/domains/%s study count equals a direct filter", (slug, category) => {
     const direct = raw.filter((p) => p.impact_category === category);

@@ -24,9 +24,7 @@ export function TagBars() {
               </span>
             </Link>
             {count === 0 && (
-              <p className="unknown-note">
-                <span className="unknown-label">Unknown:</span> no study in this set is tagged with this blind spot.
-              </p>
+              <p className="zero-note">No study in this set is tagged with this blind spot.</p>
             )}
           </li>
         );

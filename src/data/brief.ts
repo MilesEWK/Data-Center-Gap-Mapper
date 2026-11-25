@@ -10,6 +10,8 @@ export interface Contradiction {
   studyB: string;
   claimB: string;
   methodologicalReason: string;
+  whatEachMeasured?: string; // plain-language description of what each study counted
+  whyItMatters?: string; // consequence for anyone citing either figure
 }
 
 export interface EvidencePoint {
@@ -44,6 +46,10 @@ export const GAP_BRIEF: GapBrief = {
       claimB: "192.64 TWh, about 4.59% of 2022 US electricity (Sep 2023 to Aug 2024 facilities)",
       methodologicalReason:
         "Shehabi scales up hardware shipment data to an installed base. Guidi models 2,132 individual facilities from footprint data with a uniform 0.75 uptime assumption.",
+      whatEachMeasured:
+        "Shehabi counts servers, storage, and network gear sold into the US market each year, estimates how many are still running, and multiplies by their power draw and facility overhead. Guidi starts from a list of 2,132 named facilities, sizes each from building footprints, and assumes each runs at 75% utilization.",
+      whyItMatters:
+        "Both numbers are defensible, but they are not interchangeable. A citation should name the method: the shipment-based figure (176 TWh) is the federal reference point, while the facility-based figure (192.64 TWh) can be mapped to specific locations and grids.",
     },
     {
       domain: "Grid & Emissions",
@@ -53,6 +59,10 @@ export const GAP_BRIEF: GapBrief = {
       claimB: "Roughly 177-192 TWh in 2024; 184 TWh cited for 2024 (includes cryptocurrency mining)",
       methodologicalReason:
         "System boundary: EPRI includes cryptocurrency mining and small-scale facilities, while LBNL's 176 TWh excludes cryptocurrency. EPRI also uses project data, not shipments.",
+      whatEachMeasured:
+        "LBNL's 2023 total covers conventional data centers and leaves out cryptocurrency mining. EPRI's 2024 range counts small- and large-scale data centers plus cryptocurrency mining, built from state-level project data.",
+      whyItMatters:
+        "Part of the gap is scope, not error. Comparing the two without noting the cryptocurrency boundary makes year-over-year growth look larger than it is.",
     },
     {
       domain: "Grid & Emissions",
@@ -62,6 +72,10 @@ export const GAP_BRIEF: GapBrief = {
       claimB: "About 380-790 TWh in 2030, 9%-17% of US electricity",
       methodologicalReason:
         "Shehabi projects from equipment shipment forecasts. EPRI projects from announced project pipelines, which it calls a pipeline indicator rather than a near-term peak forecast. EPRI describes the two as only roughly consistent through 2028.",
+      whatEachMeasured:
+        "LBNL extends its shipment model to 2028 using scenarios for GPU sales, AI server hours, and cooling efficiency. EPRI tallies projects that are operating, under construction, or announced, and projects to 2030 under different completion assumptions.",
+      whyItMatters:
+        "Planners using the higher pipeline-based range risk overbuilding if announced projects stall; planners using the shipment range risk underbuilding if announcements convert. EPRI itself warns its capacity figures are a pipeline indicator, not a peak-load forecast.",
     },
     {
       domain: "Grid & Emissions",
@@ -71,6 +85,10 @@ export const GAP_BRIEF: GapBrief = {
       claimB: "74 billion kg CO2e (74 Mt) (p. 58)",
       methodologicalReason:
         "Guidi attributes each facility to its eGRID 2022 balancing-authority mix. Shehabi lacks facility-level data and applies a single grid mix (p. 58).",
+      whatEachMeasured:
+        "Guidi assigns each facility the emissions rate of its local balancing authority, which raises the total because many facilities sit on fossil-heavy grids. LBNL applies one average grid mix to all data centers because it has no facility locations.",
+      whyItMatters:
+        "The roughly 30 Mt gap comes from where data centers are, not how much power they use. Any emissions claim should state whether it uses local or national grid intensity.",
     },
     {
       domain: "Grid & Emissions",
@@ -80,6 +98,10 @@ export const GAP_BRIEF: GapBrief = {
       claimB: "3.15 x 10^7 t CO2-eq (about 31.5 Mt), nearly 0.5% of US GHG emissions (§3.3, p. 7)",
       methodologicalReason:
         "Temporal baseline (2018 vs. Sep 2023 to Aug 2024) and attribution method (power control area vs. balancing authority). Siddik notes results are sensitive to the method used to attribute power plants to consumers (§2.2, p. 4).",
+      whatEachMeasured:
+        "Siddik measures 2018 operations, when data centers used about 1.8% of US electricity. Guidi measures facilities operating from September 2023 to August 2024, after AI-driven growth, and uses a finer grid attribution.",
+      whyItMatters:
+        "Most of the threefold difference reflects real growth plus method. Siddik's figure should not be cited as a current estimate.",
     },
     {
       domain: "Water Consumption",
@@ -89,33 +111,49 @@ export const GAP_BRIEF: GapBrief = {
       claimB: "Direct water 66 billion L in 2023 (p. 57)",
       methodologicalReason:
         "Siddik applies a fixed cooling coefficient of 1.8 m3/MWh and assumes all facilities use potable supply. Shehabi models cooling by data center type. The older estimate is about twice the newer one even though electricity use more than doubled over the period.",
+      whatEachMeasured:
+        "Siddik multiplies each facility's energy by a single national cooling-water rate. LBNL models water use separately for each data center type, where large hyperscale sites tend to be more water-efficient per unit of energy.",
+      whyItMatters:
+        "Direct water estimates are highly sensitive to the cooling assumption. The newer, lower figure does not mean data centers use less water than in 2018; it means the older coefficient likely overstated on-site use.",
     },
     {
       domain: "Water Consumption",
       studyA: "Mytton (2021)",
-      claimA: "US data centre water consumption 1.7 billion litres/day (about 620 billion L/yr, x365)",
+      claimA: "US data centre water consumption 1.7 billion litres/day; body text: 626 billion litres in 2014, direct plus electricity-generation water (from the 2016 LBNL report)",
       studyB: "Shehabi et al. (2024)",
-      claimB: "Direct water 66 billion L (2023); indirect water nearly 800 billion L (p. 58)",
+      claimB: "Direct water 66 billion L (2023); indirect water nearly 800 billion L (2023) (pp. 57-58)",
       methodologicalReason:
-        "Unclear system boundary. Whether Mytton's figure is direct-only or includes indirect water is UNKNOWN from the fetched text. It is about 9x LBNL's direct figure and close in magnitude to LBNL's indirect figure.",
+        "System boundary and baseline year. Mytton reports one combined total (direct plus indirect) using 2014 data; Shehabi splits 2023 water into direct (66 billion L) and indirect (nearly 800 billion L). Citing Mytton's total as on-site water would overstate direct use about ninefold.",
+      whatEachMeasured:
+        "Mytton's 1.7 billion litres per day (626 billion litres per year) is the 2016 LBNL estimate for 2014, adding on-site cooling water to the water power plants consumed to generate the electricity. LBNL 2024 reports the same two parts separately for 2023.",
+      whyItMatters:
+        "Read correctly, the two sources roughly agree that indirect water dominates. The error to avoid is quoting Mytton's combined total as on-site water use.",
     },
     {
       domain: "Water Consumption",
       studyA: "Li et al. (2023)",
       claimA: "US data center on-site water about 150-280 billion L in 2028",
       studyB: "Shehabi et al. (2024)",
-      claimB: "Hyperscale data centers 60-124 billion L in 2028 (p. 57); total for 2028 not reported in fetched excerpt",
+      claimB: "Hyperscale data centers 60-124 billion L in 2028 (p. 57); no all-facility 2028 total is reported",
       methodologicalReason:
-        "Partial mismatch only. Li uses location-specific WUE taken from Microsoft disclosures; Shehabi gives a hyperscale-only segment. A like-for-like total is UNKNOWN.",
+        "Partial mismatch only. Li uses location-specific WUE taken from Microsoft disclosures. Shehabi projects only the hyperscale segment for 2028 and reports no all-facility 2028 total, so no like-for-like comparison is possible.",
+      whatEachMeasured:
+        "Li projects on-site water for all US data centers in 2028 from company-reported water efficiency. LBNL projects 2028 water only for hyperscale facilities, leaving out colocation and enterprise data centers.",
+      whyItMatters:
+        "No published like-for-like 2028 total exists in this set. That absence is itself a gap: future water planning lacks an independent all-facility projection.",
     },
     {
       domain: "Water Consumption",
       studyA: "JLARC (2024)",
-      claimA: "Virginia data center water use is currently sustainable but growing (p. vii)",
+      claimA: "Virginia data center water use is currently sustainable but growing (p. vii): about 2.1 billion gallons in 2023, under 0.5% of state withdrawals, but 2%-21% of use at six local utilities (pp. 62-63)",
       studyB: "Siddik et al. (2021)",
       claimB: "About one-fifth of direct water comes from moderately to highly stressed watersheds; nearly half of servers rely partly on plants in water-stressed regions",
       methodologicalReason:
-        "Scale and boundary mismatch. JLARC assesses one state's permitted withdrawals. Siddik maps national HUC-8 watersheds and includes indirect power-plant water.",
+        "Scale and boundary mismatch. JLARC assesses one state's direct withdrawals, with over a third of supply from reclaimed water. Siddik maps national HUC-8 watersheds and includes indirect power-plant water. JLARC's own utility-level figures (up to 21%) show local stress can hide behind a small statewide share.",
+      whatEachMeasured:
+        "JLARC adds up utility-reported water use by Virginia data centers in 2023 and compares it to statewide withdrawals. Siddik estimates national water footprints by watershed, including water consumed at the power plants serving each site.",
+      whyItMatters:
+        "A small statewide share can hide local strain. JLARC's own utility-level data show data centers at up to 21% of some utilities' water use, which supports watershed-level rather than state-level assessment.",
     },
     {
       domain: "Economic & Tax Policy",
@@ -125,6 +163,10 @@ export const GAP_BRIEF: GapBrief = {
       claimB: "Sales and use tax exemption returns 48 cents per $1 spent (Table 2-2, p. 23); $928.6 million in FY23 tax savings (p. 20)",
       methodologicalReason:
         "REMI reports gross revenue and says it is not net fiscal benefit. JLARC nets the exemption cost against the revenue it generates.",
+      whatEachMeasured:
+        "REMI simulates one hypothetical 50 MW facility and totals the taxes it would generate in four counties, before subtracting any exemptions or abatements. JLARC uses actual Virginia tax data and compares revenue generated with sales tax forgone through the exemption.",
+      whyItMatters:
+        "Gross revenue answers 'how much tax flows in'; net return answers 'is the incentive worth it'. Policymakers weighing incentives need the net figure, which in Virginia is 48 cents per dollar.",
     },
     {
       domain: "Economic & Tax Policy",
@@ -134,6 +176,10 @@ export const GAP_BRIEF: GapBrief = {
       claimB: "Cost per job: Illinois $1.4 million average; Nevada Switch $2.1 million (2016); Ohio $1.4 million (Google), $1 million (Meta) (pp. 13-14)",
       methodologicalReason:
         "REMI counts induced economy-wide jobs from an input-output/CGE model. Tarczynska divides disclosed subsidy cost by promised jobs.",
+      whatEachMeasured:
+        "REMI counts every job its model links to the facility across the state economy, including supplier and consumer-spending jobs, while assuming only 50 on-site workers. Tarczynska divides each state's disclosed subsidy cost by the jobs the company promised.",
+      whyItMatters:
+        "Both statistics are accurate within their boundaries, but they answer different questions. Citing 740 jobs alongside a $1-2 million subsidy per promised job without explaining the boundary misleads in either direction.",
     },
   ],
 
@@ -223,7 +269,7 @@ export const GAP_BRIEF: GapBrief = {
         },
         {
           point:
-            "Temporal blind spot: Siddik's baseline is 2018 and Mytton's is 2021, both before AI-era compute; JLARC says its averages likely underestimate recent years (p. 15).",
+            "Temporal blind spot: Siddik's baseline is 2018 and Mytton's US water figure rests on 2014 data, both before AI-era compute; JLARC says its averages likely underestimate recent years (p. 15).",
           citations: ["siddik_2021", "mytton_2021", "jlarc_2024"],
         },
       ],
@@ -231,12 +277,10 @@ export const GAP_BRIEF: GapBrief = {
   },
 
   unresolved: [
-    "mytton_2021: whether the 1.7 billion litres/day figure is direct-only or includes indirect water (UNKNOWN).",
-    "shehabi_2024: reference year for the ~800 billion L indirect water and 74 Mt CO2e figures (UNKNOWN in fetched excerpt).",
-    "shehabi_2024: total US direct water for 2028 (only the hyperscale segment, 60-124 billion L, was retrieved).",
-    "jlarc_2024: water volume figures (not reported in the summary pages).",
-    "remi_2026: explicit economic multipliers (Not reported) and authorship attribution (Department of Commerce vs. U.S. Chamber).",
-    "epri_2026: page numbers (none visible in the ESCA brief).",
+    "epri_2026: the ESCA brief has no page numbers; the full EPRI white paper was not retrieved, so locators cite the brief only.",
+    "shehabi_2024: the report gives 2023 electricity use as 176 TWh (p. 7) and as approximately 178 TWh (p. 58); the source is internally inconsistent.",
+    "shehabi_2024: no 2028 direct-water total for all US data centers is reported (hyperscale only, 60-124 billion L), so the 2028 comparison with li_2023 stays partial.",
+    "remi_2026: authorship differs across the REMI page (U.S. Department of Commerce), the study text (Curtis Dubay, U.S. Chamber), and the Chamber page (no author, dated October 15, 2026).",
   ],
 };
 

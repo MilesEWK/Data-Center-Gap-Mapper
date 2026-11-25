@@ -8,7 +8,7 @@ export function StatStrip() {
     { value: String(PAPERS.length), label: "Studies reviewed", to: "/studies", dom: "dom-grid" },
     { value: yearRange(), label: "Years covered", to: "/studies?sort=year%3Aasc", dom: "dom-water" },
     { value: String(GAP_BRIEF.contradictionMatrix.length), label: "Contradictions found", to: "/contradictions", dom: "dom-fiscal" },
-    { value: String(GAP_BRIEF.unresolved.length), label: "Unresolved items", to: "/methods", state: { scrollTo: "unresolved" }, dom: "dom-multi" },
+    { value: String(GAP_BRIEF.unresolved.length), label: "Open issues", to: "/methods", state: { scrollTo: "open-issues" }, dom: "dom-multi" },
   ];
   return (
     <ul className="stat-strip" aria-label="Key figures">
