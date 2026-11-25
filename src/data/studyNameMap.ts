@@ -16,6 +16,10 @@ export const STUDY_NAME_TO_ID: Readonly<Record<string, string>> = {
   "UT COMPASS (2026)": "compass_2026",
   "Cook / HARC (2026)": "cook_2026",
   "Ceres (2026)": "ceres_2026",
+  "Watten et al. (2026)": "epri_prices_2026",
+  "Kay et al. (2026)": "kay_2026",
+  "Han et al. (2024)": "han_2024",
+  "James et al. / Ceres (2025)": "james_2025",
 };
 
 const ID_TO_STUDY_NAME: ReadonlyMap<string, string> = new Map(

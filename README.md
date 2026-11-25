@@ -1,6 +1,6 @@
 # Literature Review & Citation Gap Mapper: US Hyperscale Data Center Impacts on Grid, Water, and Fiscal Systems
 
-**Version:** 1.1 (Batch 1 + Batch 2 + update v4; n = 15 studies)
+**Version:** 1.2 (Batch 1 + Batch 2 + update v4 + Batch 4; n = 19 studies)
 **Extraction date:** 2026-11-24
 **Repository contents:** `src/data/papers.json` (structured extraction dataset), `src/data/brief.ts` (research gap brief data module), `README.md` (methodology), and a React + TypeScript + Vite app in `src/` that renders both
 
@@ -74,6 +74,11 @@ Full texts were retrieved by web search and direct page fetch. Uploaded project 
 | UT COMPASS (2026) | Living white paper (first published December 2025, last updated August 2026); the August 2026 version was extracted | Only scenario projection of Texas data center water to 2040 |
 | Cook / HARC (2026) | States its 2030 water range three different ways (pp. 4, 6, 12); all three are recorded | Only Texas estimate reporting both withdrawal and consumption at power plants |
 | Justice & Shepherd (2025), Georgia | Full report dated December 2025; the DOAA summary is marked revised January 2026, and a revised full text was not confirmed | Only net fiscal evaluation in the set built on state revenue data for 34 data centers |
+| Watten et al. / EPRI (2026), `epri_prices_2026` | **Working paper** (EPRI white paper posted to arXiv, v1); utility-sector research institute. Coded `Utility / Grid Filings` (EIA Form 861, FERC Form 1) rather than the suggested `Engineering / Top-Down Model`, because the estimates are econometric on utility filings, not engineering models | Only causal (instrumental-variables) estimate of data center effects on retail electricity prices |
+| Kay, Reaser & Taylor (2026), `kay_2026` | **Working paper** (NBER conference paper, draft dated April 28, 2026; not peer-reviewed); printed page numbers used | Only wholesale-market dispatch model of data center price, cost, and CO2 effects |
+| Han et al. (2024; v4 2026), `han_2024` | **Preprint** (arXiv, not peer-reviewed); extracted from v4 (June 8, 2026), retitled from v1 "The Unpaid Toll" | Only estimate of data center public health costs from air pollution |
+| James, Perveen & Jacobson / Ceres (2025), `james_2025` | **Advocacy report** (Ceres, with Bluerisk analysis); pages 6-16 have no text layer and were read from rendered page images | Only Arizona study; combines on-site and electricity-related water at the regional level. Companion to `ceres_2026` |
+| *Not added:* CEPR DP21854; PFM for Prince William County (2022, **consultant report**); Karimi et al. (2025, *Applied Thermal Engineering* 276) | Primary documents returned HTTP 403 or a bot check, so no quote could be verified; skipped under the verify-before-adding rule | Listed in `GAP_BRIEF.unresolved` |
 
 ---
 
@@ -127,7 +132,7 @@ Full texts were retrieved by web search and direct page fetch. Uploaded project 
 3. **Validation.** `src/data/papers.json` was parsed with a JSON parser, and every record was checked for key order, enum membership, tag count (1–3), and integer `year`. `src/data/brief.ts` type-checks under `tsc --strict`.
 4. **Unresolved values.** Items that could not be confirmed from retrieved text are listed as `UNKNOWN` in `GAP_BRIEF.unresolved` and are not imputed.
 
-### 3.4 Included Studies (n = 15)
+### 3.4 Included Studies (n = 19)
 
 | # | `id` | Impact category | Dataset type | Tags |
 |---|---|---|---|---|
@@ -146,6 +151,10 @@ Full texts were retrieved by web search and direct page fetch. Uploaded project 
 | 13 | `compass_2026` | Water Consumption | Engineering / Top-Down Model | Missing or Self-Reported Facility Data; Bottom-Up vs. Queue Modeling Divergence |
 | 14 | `cook_2026` | Water Consumption | Engineering / Top-Down Model | Missing or Self-Reported Facility Data; Bottom-Up vs. Queue Modeling Divergence |
 | 15 | `ceres_2026` | Water Consumption | Utility / Grid Filings | Missing or Self-Reported Facility Data |
+| 16 | `epri_prices_2026` | Economic & Tax Policy | Utility / Grid Filings | Missing or Self-Reported Facility Data |
+| 17 | `kay_2026` | Grid & Emissions | Engineering / Top-Down Model | Missing or Self-Reported Facility Data; Bottom-Up vs. Queue Modeling Divergence |
+| 18 | `han_2024` | Grid & Emissions | Engineering / Top-Down Model | Missing or Self-Reported Facility Data |
+| 19 | `james_2025` | Water Consumption | Engineering / Top-Down Model | Missing or Self-Reported Facility Data; Bottom-Up vs. Queue Modeling Divergence |
 
 ---
 
@@ -160,7 +169,7 @@ A research gap is treated as defensible only when it can be tied to at least one
 | 3 | **Dataset & Transparency Bias** | Conclusions depend on incomplete, non-standardized, or self-reported disclosures rather than audited public filings | Fewer than one-third of operators measure water (Mytton 2021); 11 of at least 36 subsidizing states disclose recipients (Tarczynska 2025) |
 | 4 | **Temporal & Scale Blind Spots** | Baselines predate post-2023 AI compute clustering or omit local municipal and ratepayer costs | 2018 baseline (Siddik 2021); $14–$37/month Dominion residential cost increase by 2040 absent from gross multiplier models (JLARC 2024 vs. REMI 2026) |
 
-The resulting contradiction matrix (11 pairwise clashes) and the consensus, divergence, and primary-gap outline are in `src/data/brief.ts`.
+The resulting contradiction matrix (one row per verified pairwise clash; see the Contradictions page for the current count) and the consensus, divergence, and primary-gap outline are in `src/data/brief.ts`.
 
 ---
 

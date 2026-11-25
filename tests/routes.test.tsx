@@ -155,8 +155,8 @@ describe("gap map", () => {
     </MemoryRouter>,
   );
 
-  it("has one cell per study per tag (15 × 5)", () => {
-    expect(count(map, "data-cell=")).toBe(15 * 5);
+  it("has one cell per study per tag (19 × 5)", () => {
+    expect(count(map, "data-cell=")).toBe(19 * 5);
     expect(count(map, "data-cell=")).toBe(PAPERS.length * LIMITATION_TAGS.length);
   });
 

@@ -18,10 +18,11 @@ const raw = JSON.parse(readFileSync(PAPERS_PATH, "utf8")) as Paper[];
 // The original review had 9 studies; update v4 (Part 2) added 6 verified sources.
 const ORIGINAL_STUDIES = 9;
 const ADDED_IN_V4 = 6;
+const ADDED_IN_V5 = 4;
 
 describe("papers.json", () => {
-  it(`contains ${ORIGINAL_STUDIES + ADDED_IN_V4} papers with unique ids`, () => {
-    expect(PAPERS).toHaveLength(ORIGINAL_STUDIES + ADDED_IN_V4);
+  it(`contains ${ORIGINAL_STUDIES + ADDED_IN_V4 + ADDED_IN_V5} papers with unique ids`, () => {
+    expect(PAPERS).toHaveLength(ORIGINAL_STUDIES + ADDED_IN_V4 + ADDED_IN_V5);
     expect(raw).toHaveLength(PAPERS.length);
     expect(new Set(PAPERS.map((p) => p.id)).size).toBe(PAPERS.length);
   });

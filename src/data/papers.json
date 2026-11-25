@@ -248,5 +248,71 @@
       "Missing or Self-Reported Facility Data"
     ],
     "verbatim_quote_with_page": "\"Powering data centers used an estimated 3.4 trillion gallons of water withdrawals in 2024, applying EPRI state estimates.\" (p. 7)"
+  },
+  {
+    "id": "epri_prices_2026",
+    "citation": "Watten, A., Bistline, J., & Blanford, G. (2026). Have Data Centers Raised Your Electric Bill? Causal Evidence from the United States. EPRI white paper, arXiv:2606.19777v1 (summarized in an EPRI ESCA brief, June 2026).",
+    "year": 2026,
+    "impact_category": "Economic & Tax Policy",
+    "region": "United States (state-level panel; 366 large investor-owned utilities for the cost analysis)",
+    "dataset_type": "Utility / Grid Filings",
+    "research_question": "Did data center growth raise or lower average retail electricity prices in the United States from 2015 to 2024?",
+    "methodology": "Instrumental-variables (two-stage least squares) regression of state residential revenue on data center capacity additions, conditional on residential sales, 2015-2024 (pp. 9, 13-14). The instrument is the length of the 1947 Interstate Highway Plan in each state, conditional on GDP and population (p. 3). Retail revenue and sales from EIA Form 861 bundled providers (93% of residential sales); data center capacity additions from S&P Global; utility cost data from FERC Form 1 for 366 investor-owned utilities (69% of retail sales) (pp. 7-8). Data center power use is not observed and is assumed at 50% of capacity (p. 13).",
+    "key_findings": "A doubling of data center capacity caused residential retail prices to fall by 3.5% for a fixed level of residential demand, with an Anderson-Rubin interval of -12.1% to -1.4% (p. 21); equivalently, about 0.4% lower prices per 10% more capacity (p. 3). From 2019 to 2024 the average residential customer lived in a state where data center capacity grew 160%, which caused rates to fall by 6% (p. 3). Restricting the sample to 2019-2024 halves the estimated effect, and first-difference estimates are precisely zero (p. 21). Effects on commercial and industrial prices are substantially smaller than for residential prices (p. 22). Transmission, distribution, and generation costs show economies of scale (p. 1). Wholesale prices and capacity-market costs: Not reported.",
+    "stated_limitations": "The authors caution that future supply constraints could reverse the effect (p. 1), grouping caveats into supply constraints, durability of demand growth, and fuel costs (p. 22). Data center power use is not observed (p. 13). The instrument is weak in the neighboring-state spillover specification (first-stage F of 0.6) (pp. 21-22). Data end in 2024. The EPRI brief rounds the 3.5% estimate to roughly 4%.",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data"
+    ],
+    "verbatim_quote_with_page": "\"a doubling of data center capacity causes residential retail prices to fall by 3.5% for a fixed level of residential demand\" (p. 21)"
+  },
+  {
+    "id": "kay_2026",
+    "citation": "Kay, O., Reaser, R., & Taylor, R. (2026). Processing Power: The Effect of Data Centers On Wholesale Electricity Markets. NBER conference paper (working draft dated April 28, 2026).",
+    "year": 2026,
+    "impact_category": "Grid & Emissions",
+    "region": "Continental United States (eGRID subregions)",
+    "dataset_type": "Engineering / Top-Down Model",
+    "research_question": "How has data center load growth affected wholesale electricity prices, generation costs, and carbon emissions in the United States, and how could it affect them through 2028?",
+    "methodology": "Hourly, unit-level least-cost dispatch model of wholesale markets in the continental United States, 2021-2025Q3, built from EPA CEMS generator data (combustion units over 25 MW, not nuclear or renewables), EIA fuel-cost data, and eGRID subregions (pp. 1, 5-6, 12). Data center location, timing, and power capacity, with about 67% of facilities reporting capacity and the rest imputed (p. 7). Observed outcomes are compared with no-data-center counterfactuals under several utilization scenarios; projections to 2028 scale announced capacity down by 40% in the mid scenarios (pp. 7, 24). Historic inter-regional trade flows are held fixed (p. 13).",
+    "key_findings": "Existing data centers increased wholesale prices by 2 to 6% on average nationwide, with larger effects in regions hosting major data center corridors (Abstract); the largest effects are in SRVC (northern Virginia) and very little in ERCOT (p. 17). By 2025, data center load increased generation costs by roughly 10 to 15% nationwide under full utilization and at most about 5% under low utilization (p. 15). In the mid-peak scenario, data center demand drove a $12.6 billion transfer from wholesale consumers to suppliers from 2021 to 2025, and production costs rose by over $21 billion (p. 19). By 2025, data centers generated 5 to 16 million additional tons of CO2 per month, or $3 billion to $9.7 billion a year in damages at a $51 social cost of carbon (p. 21). Through 2028, wholesale prices could rise 50% under high utilization or 20% under moderate build-out (Abstract). Retail price effects: Not reported (the paper discusses them as depending on fixed-cost shares, pp. 29-31).",
+    "stated_limitations": "Actual utilization is unknown for all data centers, and behind-the-meter generation is not publicly reported (p. 7). Inter-regional re-dispatch is not captured because trade flows are fixed (p. 13). Power plant entry and exit are treated as exogenous (p. 27). Assuming local generation is marginal may overstate cost and price impacts in importing subregions (p. 35). The analysis covers variable generation costs, not fixed costs (p. 29). CEMS excludes nuclear and renewable generators (p. 5). Working paper, not peer-reviewed.",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data",
+      "Bottom-Up vs. Queue Modeling Divergence"
+    ],
+    "verbatim_quote_with_page": "\"We find that existing data centers have already increased wholesale prices by 2 to 6% on average nationwide\" (Abstract)"
+  },
+  {
+    "id": "han_2024",
+    "citation": "Han, Y., Wu, Z., Li, P., Wierman, A., & Ren, S. (2024; rev. v4 2026). Health-Informed Computing: Estimating and Addressing the Public Health Impact of Data Centers. arXiv:2412.06288v4 (v1 December 2024; v4 June 8, 2026).",
+    "year": 2024,
+    "impact_category": "Grid & Emissions",
+    "region": "Contiguous United States (county level; backup-generator analysis for Virginia)",
+    "dataset_type": "Engineering / Top-Down Model",
+    "research_question": "What criteria air pollutant emissions and public health costs do U.S. data centers cause, and how could computing be managed to reduce them?",
+    "methodology": "Emissions for 2023 and 2028 are entered into EPA's COBRA Desktop v5.1 screening model to estimate county-level health outcomes and costs, in 2023 dollars at a 2% discount rate (pp. 3-4). Scope-1 backup-generator emissions come from Virginia permits, with a reference case at 10% of permitted levels and Virginia's rate applied to other states (pp. 4-5). Scope-2 power-plant emissions are attributed by grid region using EPRI's 2023 state distribution of data center electricity scaled to LBNL national totals (p. 5). 2028 uses LBNL's low- and high-growth scenarios (p. 7).",
+    "key_findings": "In 2023, U.S. data centers caused an estimated $6.67 billion ($5.03-$8.32 billion) in public health costs and 433 deaths, 1.31% of U.S. fuel-combustion health costs; power-plant (scope-2) costs of $6.16 billion dominate backup-generator (scope-1) costs of $0.51 billion (Table 1, p. 7). Costs reach $11.7 billion and $20.9 billion in 2028 under low and high growth, increases of 75% and 213% against a 17% rise for fuel combustion overall (p. 8). The high-growth 2028 case includes about 600,000 asthma symptom cases and 1,300 premature deaths (p. 8). The highest county-level per-household health cost is about seven times the national average and about 200 times the lowest (pp. 2, 6). Virginia backup generators could cause $220-300 million a year in health costs in the reference case (p. 5).",
+    "stated_limitations": "COBRA is a screening model and cannot replace more sophisticated air quality models (p. 3). Baseline emissions come from EPA projections, and regulatory changes since then may introduce substantial uncertainty (p. 5). Scope-1 results assume emissions at 10% of permitted levels and apply Virginia's rate to other states (pp. 4-5). Results are county-level only (p. 7). Preprint, not peer-reviewed; extracted from v4.",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data"
+    ],
+    "verbatim_quote_with_page": "\"Our findings suggest that the total annual public health burden of U.S. data centers could exceed $20 billion in 2028 under the high-growth scenario.\" (p. 11)"
+  },
+  {
+    "id": "james_2025",
+    "citation": "James, K., Perveen, S., & Jacobson, B. (2025). Drained by Data: The Cumulative Impact of Data Centers on Regional Water Stress. Ceres, September 2025 (research and analysis by Bluerisk). Companion to ceres_2026.",
+    "year": 2025,
+    "impact_category": "Water Consumption",
+    "region": "Phoenix, Arizona region (Arizona Public Service and Salt River Project service areas and nearby water basins)",
+    "dataset_type": "Engineering / Top-Down Model",
+    "research_question": "How much direct and indirect water do current and planned data centers in the Phoenix region use, and how much could they raise regional water stress?",
+    "methodology": "Inventory of 124 current and planned Phoenix-area data centers from Data Center Map, company websites, utility websites, and company disclosures, characterized by size, IT capacity, cooling technology, PUE, and WUE, with missing values imputed from facility size, cooling type, and industry averages (pp. 7, 15). Water use equals IT capacity times load factor times on-site WUE, plus electricity-related water from 2023 EIA forms 860 and 923 power mix and withdrawal intensities for APS and SRP (p. 15). Load factors from the 2024 US Data Center Energy Usage Report (p. 15). Water stress from WRI Aqueduct 4.0 baseline data, holding other sectors' demand and supply constant (pp. 15-16).",
+    "key_findings": "Annual water use associated with data center electricity is expected to rise 400%, from an estimated 2.9 billion gallons to over 14.5 billion gallons, if planned data centers come online over the next six years (pp. 3, 7). Direct cooling water is estimated at 385 million gallons a year, rising 870% to more than 3.7 billion gallons (pp. 3, 8). Annual water stress could rise 17% in the Hassayampa basin (22% in August), 2% in the Centennial Wash basin (9% in December and January), and up to 32% in the Chaco basin, which is not currently classed as water-stressed (pp. 8-9). Phoenix-area IT capacity is projected to grow 324%, from 1,193 MW to 5,057 MW (p. 7).",
+    "stated_limitations": "Holding other sectors' demand and water supply constant means the stress increases are likely underestimated (p. 16). Missing PUE and WUE values are imputed (pp. 7, 15). The 2023 power mix and withdrawal intensities are held unchanged for the future (p. 15). Electricity-related water excludes water used to extract, process, and transport coal and gas (p. 7). The executive summary gives water stress increases of up to 17% (p. 3), while p. 8 gives up to 32% for the Chaco basin. Electricity-related water is described as withdrawals (p. 7) and as consumption (p. 15). Pages 6-16 have no text layer and were read from rendered page images. Published by an investor-advocacy nonprofit.",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data",
+      "Bottom-Up vs. Queue Modeling Divergence"
+    ],
+    "verbatim_quote_with_page": "\"annual water use associated with data center electricity consumption is expected to increase by 400%, from an estimated 2.9 billion gallons\" (p. 3)"
   }
 ]

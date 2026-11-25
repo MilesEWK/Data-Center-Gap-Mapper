@@ -220,6 +220,19 @@ export const GAP_BRIEF: GapBrief = {
       whyItMatters:
         "A gross revenue figure cannot show whether an incentive pays for itself. Georgia finds the exemption does not on a fiscal basis, while still reporting about $2.86 of value-added impact per $1 forgone; the two results should be cited together, each with its boundary.",
     },
+    {
+      domain: "Economic & Tax Policy",
+      studyA: "Kay et al. (2026)",
+      claimA: "Existing data centers raised wholesale electricity prices by 2 to 6% on average nationwide, 2021-2025, with larger effects in data center corridors (Abstract; p. 17)",
+      studyB: "Watten et al. (2026)",
+      claimB: "A doubling of data center capacity caused residential retail prices to fall by 3.5% (interval -12.1% to -1.4%), 2015-2024 (p. 21)",
+      methodologicalReason:
+        "Wholesale vs. retail boundary, method, and time window. Kay et al. simulate hourly wholesale dispatch with and without data center load, so prices rise when new load is met by costlier generators; the paper covers variable generation costs only (p. 29). Watten et al. estimate average residential retail prices, which also recover fixed grid costs spread over more sales, using a 1947 highway-plan instrument across states. Kay et al. note retail effects depend on the fixed-cost share of bills (pp. 29-31), and Watten et al. find the price-lowering effect half as large for 2019-2024 (p. 21).",
+      whatEachMeasured:
+        "Kay et al. measure the competitive wholesale price of energy in each eGRID subregion, hour by hour from 2021 to 2025, against a counterfactual without data centers under several utilization assumptions. Watten et al. measure average residential revenue per unit of residential demand in each state from 2015 to 2024 against data center capacity additions.",
+      whyItMatters:
+        "Both results can hold at once: higher wholesale energy prices can coexist with lower average retail rates where fixed costs dominate bills. Watten et al. caution that supply constraints could reverse the retail effect, so neither study supports a blanket claim that data centers raise or lower bills.",
+    },
   ],
 
   evidenceOutline: {
@@ -269,6 +282,16 @@ export const GAP_BRIEF: GapBrief = {
           "Grid costs for data centers reach other customers: PJM's Market Monitor attributes an irreversible $29.4 billion increase in capacity costs to data center load (p. 51); PJM assigned about half of $5 billion in transmission, driven by generator retirements and data center load growth, to Virginia utilities, with Maryland utilities placing an average of 66% of transmission costs on residential ratepayers (p. 15).",
         citations: ["pjm_imm_2026", "martin_2025"],
       },
+      {
+        point:
+          "Grid power is the main source of data center air emissions and their costs: Kay et al. estimate 5 to 16 million additional tons of CO2 per month by 2025 (p. 21), and Han et al. find power-plant emissions account for $6.16 billion of $6.67 billion in 2023 health costs (Table 1, p. 7), extending emissions estimates such as Guidi's 105.59 Mt into public health terms.",
+        citations: ["kay_2026", "han_2024", "guidi_2024"],
+      },
+      {
+        point:
+          "In Phoenix, as in Texas, electricity-related water exceeds on-site cooling water: Ceres estimates 2.9 billion gallons for electricity against 385 million gallons for cooling (pp. 3, 7-8), consistent with its seven-state finding that power generation makes up the bulk of data center water use.",
+        citations: ["james_2025", "ceres_2026"],
+      },
     ],
     divergence: [
       {
@@ -305,6 +328,16 @@ export const GAP_BRIEF: GapBrief = {
         point:
           "Indirect water figures differ by an order of magnitude with the measure used: Ceres reports 3.4 trillion gallons of withdrawals for seven states in 2024, while HARC shows the grid serving Texas data centers withdraws about 1,067 billion gallons but consumes about 17 billion.",
         citations: ["ceres_2026", "cook_2026", "shehabi_2024"],
+      },
+      {
+        point:
+          "Electricity price effects split on boundary: Kay et al. find existing data centers raised wholesale prices 2 to 6% (2021-2025), while Watten et al. find a doubling of capacity lowered residential retail prices 3.5% (2015-2024), with the effect halving for 2019-2024.",
+        citations: ["kay_2026", "epri_prices_2026"],
+      },
+      {
+        point:
+          "Retail price studies and capacity-market accounting measure different costs: Watten et al.'s retail estimates end in 2024 and the authors caution supply constraints could reverse them, while PJM's Market Monitor attributes an irreversible $29.4 billion capacity-cost increase to data center load through the 2028/2029 auction.",
+        citations: ["epri_prices_2026", "pjm_imm_2026"],
       },
     ],
     primaryGap: {
@@ -346,6 +379,16 @@ export const GAP_BRIEF: GapBrief = {
             "Ratepayer costs and fiscal returns are measured in separate studies, never for the same facilities: Georgia's evaluation leaves grid and water strain unquantified (p. 9), PJM's Monitor quantifies capacity costs but not tax effects, and Harvard ELI finds verifying cost isolation all but impossible (pp. 1-2).",
           citations: ["justice_2025", "pjm_imm_2026", "martin_2025"],
         },
+        {
+          point:
+            "Health costs fall unevenly and sit outside fiscal evaluations: Han et al. find the most affected county's per-household health cost is about seven times the national average (pp. 2, 6), while JLARC's economic model omits health and environmental costs (p. 14) and Georgia's evaluation treats grid and water strain as intangible (p. 9).",
+          citations: ["han_2024", "jlarc_2024", "justice_2025"],
+        },
+        {
+          point:
+            "Actual data center power use is not observed in the price studies: Kay et al. state utilization is unknown for all data centers (p. 7), and Watten et al. assume power use at 50% of capacity (p. 13).",
+          citations: ["kay_2026", "epri_prices_2026"],
+        },
       ],
     },
   },
@@ -359,6 +402,10 @@ export const GAP_BRIEF: GapBrief = {
     "cook_2026: the 2030 range is stated three ways in the same report: 29-161 billion gallons (98-494 kAF) on p. 4, 29-161 billion gallons (88-494 kAF) on p. 6, and 23-161 billion gallons (71-494 kAF), 0.4-2.7%, on p. 12.",
     "ceres_2026: drought exposure is given both as 46% of water-using power plants and as 44% of electricity generated using water (p. 3).",
     "justice_2025: the full report reviewed is dated December 2025, while the DOAA summary is marked revised January 2026; whether the full report text was also revised was not confirmed.",
+    "epri_prices_2026: extracted from arXiv v1 (June 18, 2026); the EPRI brief rounds the 3.5% estimate to roughly 4%, and the brief URL given in the update prompt returned a web page rather than the PDF.",
+    "james_2025: pages 6-16 have no text layer and were read from rendered page images; the report gives water stress increases of up to 17% (p. 3) and up to 32% (p. 8), and describes electricity-related water as withdrawals (p. 7) and as consumption (p. 15).",
+    "han_2024: extracted from v4 (June 8, 2026); the title changed between versions, and figures may differ from earlier versions.",
+    "Batch 4 sources not added: CEPR DP21854 (Scalera, Bosetti & Pecci), PFM's Prince William County fiscal impact analysis, and Karimi et al. (2025, Applied Thermal Engineering 276) could not be retrieved (HTTP 403 or bot check), so no quote could be verified.",
   ],
 };
 
