@@ -20,13 +20,29 @@ const US_STATES = [
   "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming",
 ];
 
-/** States a record names in its region or key findings (where its sub-national evidence is reported). */
+const STATE_ABBR: Record<string, string> = {
+  AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California", CO: "Colorado", CT: "Connecticut",
+  DE: "Delaware", FL: "Florida", GA: "Georgia", HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa",
+  KS: "Kansas", KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland", MA: "Massachusetts", MI: "Michigan",
+  MN: "Minnesota", MS: "Mississippi", MO: "Missouri", MT: "Montana", NE: "Nebraska", NV: "Nevada",
+  NH: "New Hampshire", NJ: "New Jersey", NM: "New Mexico", NY: "New York", NC: "North Carolina",
+  ND: "North Dakota", OH: "Ohio", OK: "Oklahoma", OR: "Oregon", PA: "Pennsylvania", RI: "Rhode Island",
+  SC: "South Carolina", SD: "South Dakota", TN: "Tennessee", TX: "Texas", UT: "Utah", VT: "Vermont",
+  VA: "Virginia", WA: "Washington", WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming",
+};
+
+/**
+ * States a record names in its region or key findings (where its sub-national evidence is reported).
+ * Full names match anywhere; two-letter abbreviations only after a comma, as in "Franklin County, OH",
+ * so words such as "IN", "OR", or "CO2" are never read as states.
+ */
 export function statesInPaper(p: { region: string; key_findings: string }): string[] {
   const text = `${p.region} ${p.key_findings}`;
+  const abbrs = new Set([...text.matchAll(/, ([A-Z]{2})\b/g)].map((m) => STATE_ABBR[m[1]]).filter(Boolean));
   return US_STATES.filter((s) => {
     // "Virginia" must not match inside "West Virginia"; "Washington" must not match "Washington, D.C.".
     const re = new RegExp(`(?<!West )\\b${s}\\b(?!,? D\\.?C\\.?)`);
-    return re.test(text);
+    return re.test(text) || abbrs.has(s);
   });
 }
 

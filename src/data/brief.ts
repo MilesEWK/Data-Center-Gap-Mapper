@@ -145,7 +145,7 @@ export const GAP_BRIEF: GapBrief = {
     {
       domain: "Water Consumption",
       studyA: "JLARC (2024)",
-      claimA: "Virginia data center water use is currently sustainable but growing (p. vii): about 2.1 billion gallons in 2023, under 0.5% of state withdrawals, but 2%-21% of use at six local utilities (pp. 62-63)",
+      claimA: "Virginia data center water use is currently sustainable but growing (p. vii): about 2.1 billion gallons in 2023, under 0.5% of state withdrawals, but 0.2%-21% of use at six local utilities (pp. 62-63)",
       studyB: "Siddik et al. (2021)",
       claimB: "About one-fifth of direct water comes from moderately to highly stressed watersheds; nearly half of servers rely partly on plants in water-stressed regions",
       methodologicalReason:

@@ -130,9 +130,13 @@ describe("review-level limitations", () => {
     for (const { state, ids } of stateCoverage()) {
       for (const id of ids) {
         const p = PAPERS.find((x) => x.id === id)!;
-        expect(`${p.region} ${p.key_findings}`).toContain(state);
+        const text = `${p.region} ${p.key_findings}`;
+        const abbr = Object.entries({ Ohio: "OH", Texas: "TX" }).find(([n]) => n === state)?.[1];
+        expect(text.includes(state) || (abbr !== undefined && text.includes(`, ${abbr}`)), `${id} ${state}`).toBe(true);
       }
     }
     expect(statesInPaper({ region: "West Virginia", key_findings: "" })).toEqual(["West Virginia"]);
+    expect(statesInPaper({ region: "Franklin County, OH and Dallas County, TX", key_findings: "" })).toEqual(["Ohio", "Texas"]);
+    expect(statesInPaper({ region: "IN OR CO2 emissions, CO2", key_findings: "" })).toEqual([]);
   });
 });
