@@ -143,8 +143,8 @@ Full texts were retrieved by web search and direct page fetch. Uploaded project 
 | 10 | `martin_2025` | Economic & Tax Policy | Utility / Grid Filings | Gross vs. Net Fiscal & Ratepayer Accounting; Missing or Self-Reported Facility Data |
 | 11 | `pjm_imm_2026` | Multi-Impact | Utility / Grid Filings | Bottom-Up vs. Queue Modeling Divergence; Missing or Self-Reported Facility Data |
 | 12 | `justice_2025` | Economic & Tax Policy | Public Fiscal / Tax Records | Gross vs. Net Fiscal & Ratepayer Accounting; Missing or Self-Reported Facility Data |
-| 13 | `compass_2026` | Water Consumption | Engineering / Top-Down Model | Missing or Self-Reported Facility Data |
-| 14 | `cook_2026` | Water Consumption | Engineering / Top-Down Model | Missing or Self-Reported Facility Data |
+| 13 | `compass_2026` | Water Consumption | Engineering / Top-Down Model | Missing or Self-Reported Facility Data; Bottom-Up vs. Queue Modeling Divergence |
+| 14 | `cook_2026` | Water Consumption | Engineering / Top-Down Model | Missing or Self-Reported Facility Data; Bottom-Up vs. Queue Modeling Divergence |
 | 15 | `ceres_2026` | Water Consumption | Utility / Grid Filings | Missing or Self-Reported Facility Data |
 
 ---

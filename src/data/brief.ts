@@ -171,11 +171,11 @@ export const GAP_BRIEF: GapBrief = {
     {
       domain: "Water Consumption",
       studyA: "Ceres (2026)",
-      claimA: "Electricity for data centers in seven states drew an estimated 3.4 trillion gallons of water withdrawals in 2024, including hydropower (pp. 2, 7)",
+      claimA: "Electricity for data centers in seven states drew an estimated 12.9 trillion liters (3.4 trillion gallons) of water withdrawals in 2024, including hydropower (pp. 2, 7; liters converted)",
       studyB: "Shehabi et al. (2024)",
       claimB: "Indirect water footprint of nearly 800 billion liters for all US data centers in 2023 (p. 58)",
       methodologicalReason:
-        "Withdrawal vs. footprint boundary. Ceres counts every gallon power plants withdraw, including water passing through hydropower dams, and assigns data centers each state's EPRI electricity share. LBNL reports an indirect water footprint calculated with a single grid mix. Seven states holding about half of US data centers come out many times larger than LBNL's national figure.",
+        "Withdrawal vs. footprint boundary. Ceres counts every gallon power plants withdraw, including water passing through hydropower dams, and assigns data centers each state's EPRI electricity share. LBNL reports an indirect water footprint calculated with a single grid mix. Seven states holding about half of US data centers come out at about 12.9 trillion liters (3.4 trillion gallons), roughly 16 times LBNL's national figure of nearly 800 billion liters.",
       whatEachMeasured:
         "Ceres adds up 2024 withdrawals at 1,434 water-using power plants in seven states, using EIA-reported data where available and WRI estimates for the rest, then attributes a share to data centers. LBNL estimates the water associated with US data center electricity in 2023 by applying one grid mix to its national electricity estimate.",
       whyItMatters:
