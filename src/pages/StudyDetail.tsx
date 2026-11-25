@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import { PAPERS, PAPERS_BY_ID } from "../data";
 import { studyLabel } from "../data/studyNameMap";
-import { domClass, slugFor } from "../domains";
+import { domClass } from "../domains";
+import { ContradictionList } from "../components/ContradictionCard";
 import { CopyButton } from "../components/CopyButton";
 import { DomainChip } from "../components/DomainChip";
 import { Marked } from "../components/Marked";
@@ -98,16 +99,7 @@ export function StudyDetail() {
               {refs.contradictions.length > 0 && (
                 <div>
                   <h3>Contradictions ({refs.contradictions.length})</h3>
-                  <ul className="appears">
-                    {refs.contradictions.map((c) => (
-                      <li key={`${c.studyA}|${c.claimA}|${c.studyB}|${c.claimB}`}>
-                        <DomainChip category={c.domain} />
-                        <Link to={`/contradictions?domain=${slugFor(c.domain)}`}>
-                          {c.studyA} vs {c.studyB}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <ContradictionList rows={refs.contradictions} />
                 </div>
               )}
               {refs.evidence.length > 0 && (

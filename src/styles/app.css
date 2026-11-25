@@ -954,12 +954,87 @@ a.name-link:focus-visible {
 .disclosure[aria-expanded="true"] .disclosure-mark {
   transform: rotate(45deg);
 }
-.contra-reason {
-  margin-top: var(--s2);
-  padding-top: var(--s3);
+/* "Why the numbers differ" panel: height animates via grid rows (150ms), disabled for reduced motion. */
+.why-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--speed) ease-out;
+}
+.why-wrap.is-open {
+  grid-template-rows: 1fr;
+}
+.why-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+.why {
+  display: grid;
+  gap: var(--s5);
+  margin-top: var(--s3);
+  padding-top: var(--s4);
   border-top: 1px solid var(--rule);
+}
+.why h4 {
+  font-family: var(--serif);
+  font-size: var(--fs-1);
+  font-weight: 600;
+  margin: 0 0 var(--s1);
+}
+.why p {
   color: var(--ink-2);
   max-width: var(--measure);
+}
+.facts-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s4);
+}
+.facts {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: var(--s4);
+}
+.facts-title {
+  margin: 0 0 var(--s2);
+  font-family: var(--sans);
+  font-size: var(--fs-1);
+  font-weight: 600;
+}
+.facts dl {
+  display: grid;
+  gap: var(--s2);
+  margin: 0;
+}
+.facts dt {
+  font-size: var(--fs-0);
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.facts dd {
+  margin: 0;
+  font-size: var(--fs-0);
+}
+.facts-tags {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--s1);
+}
+.facts-link {
+  margin-top: auto;
+  padding-top: var(--s3);
+  font-size: var(--fs-0);
+  font-weight: 600;
+}
+.why-matters {
+  background: var(--band);
+  border-left: 4px solid var(--dom);
+  padding: var(--s4) var(--s5);
+}
+.why-matters p {
+  color: var(--ink);
 }
 
 /* ---------- Domain pages ---------- */
@@ -1330,6 +1405,8 @@ th[aria-sort="descending"] .sort-btn {
 .study-detail section > h2 {
   font-size: var(--fs-3);
   margin-bottom: var(--s2);
+  /* Clear the sticky top bar when a link scrolls straight to a section (e.g. the quote). */
+  scroll-margin-top: calc(var(--s8) + var(--s5));
 }
 .study-detail .muted.small {
   margin-top: var(--s2);
@@ -1538,6 +1615,9 @@ th[aria-sort="descending"] .sort-btn {
   }
   .contra-head {
     display: grid;
+  }
+  .facts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .contra-grid {
     grid-template-columns: minmax(0, 1fr) var(--s7) minmax(0, 1fr);
