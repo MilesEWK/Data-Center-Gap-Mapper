@@ -162,7 +162,7 @@ export const GAP_BRIEF: GapBrief = {
       studyB: "UT COMPASS (2026)",
       claimB: "About 33 billion gallons in 2025 (0.6% of statewide demand); averages of 225 billion gallons in 2030 (3.7%) and 348 billion gallons in 2040 (5.8%) (Table 7, pp. 24-25)",
       methodologicalReason:
-        "Capacity and rate assumptions. HARC scales 9,567 MW of existing capacity and ERCOT's 22,175-77,965 MW 2030 forecasts by national LBNL water rates and EIA power-plant water data. COMPASS assumes 8 GW for 2025 and 40-70 GW for 2030, and varies facility efficiency and grid mix. COMPASS calls the two 2025 totals consistent in magnitude; the gap opens in the projections.",
+        "Capacity and rate assumptions. HARC scales 9,567 MW of existing capacity and ERCOT's 22,175-77,965 MW 2030 forecasts by national LBNL water rates and EIA power-plant water data. COMPASS assumes 8 GW for 2025 and 40-70 GW for 2030, and varies facility efficiency and grid mix. COMPASS calls the two 2025 totals consistent in magnitude; the gap opens in the projections. At ~78 GW, COMPASS estimates about 319 billion gallons; HARC's highest stated total, 161, assumes onsite gas plants (Scenario 3), and its current-grid figures imply about 227 (derived: 87 on-site + 140 power-plant; HARC does not state this total).",
       whatEachMeasured:
         "HARC multiplies current and forecast data center power demand by LBNL cooling-water rates, then adds the water Texas power plants consumed per MWh in 2023, under four power-supply scenarios. COMPASS models scenarios from assumed capacity, facility efficiency (utilization, PUE, and WUE), and three representative grid mixes, and reports the average across them.",
       whyItMatters:
