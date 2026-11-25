@@ -14,8 +14,10 @@ export function Methods() {
     <>
       <PageHeader title="Methods" lede="How studies were chosen, coded, and checked." />
       <div className="wrap page-body">
-        <section aria-labelledby="m-how" className="section-block reading">
+        <section aria-labelledby="m-how" className="section-block">
           <h2 id="m-how">How the review was done</h2>
+          <div className="lf-grid">
+          <div className="lf-panel">
           <h3>Search and inclusion</h3>
           <p>
             Targeted retrieval of primary sources from peer-reviewed journals, preprint servers, national-laboratory and
@@ -24,18 +26,34 @@ export function Methods() {
             their primary finding with a verbatim quote and locator. Marketing material, opinion pieces, and news coverage
             are excluded.
           </p>
+          </div>
+          <div className="lf-panel">
           <h3>Extraction</h3>
           <p>
             Each of the {PAPERS.length} records follows a fixed schema with controlled vocabularies. Values come only from
             explicit source statements. Absent metrics are recorded as “Not reported”, and anything that could not be
             confirmed is listed under Open issues rather than imputed.
           </p>
+          </div>
+          <div className="lf-panel">
           <h3>Gap detection</h3>
           <p>
             A gap counts only if it ties to one of the review’s analytical lenses (methodological divergence,
             system-boundary and accounting mismatches, dataset and transparency bias, or temporal and scale blind spots)
             and is supported by verbatim evidence from more than one study.
           </p>
+          </div>
+          <div className="lf-panel">
+            <h3 id="m-limits">Limitations</h3>
+            <ul>
+              <li>A small, purposive sample rather than an exhaustive database search.</li>
+              <li>Heavy reliance on preprints and institutional or policy reports.</li>
+              <li>Partial full-text access, and missing page locators for some sources.</li>
+              <li>Sub-national evidence is concentrated in Virginia.</li>
+              <li>No model or audit was independently re-run; values are reported as published.</li>
+            </ul>
+          </div>
+          </div>
         </section>
 
         <section aria-labelledby="m-vocab" className="section-block">
@@ -109,17 +127,6 @@ export function Methods() {
               </tbody>
             </table>
           </div>
-        </section>
-
-        <section aria-labelledby="m-limits" className="section-block reading">
-          <h2 id="m-limits">Limitations of this review</h2>
-          <ul className="plain-list">
-            <li>A small, purposive sample rather than an exhaustive database search.</li>
-            <li>Heavy reliance on preprints and institutional or policy reports.</li>
-            <li>Partial full-text access, and missing page locators for some sources.</li>
-            <li>Sub-national evidence is concentrated in Virginia.</li>
-            <li>No model or audit was independently re-run; values are reported as published.</li>
-          </ul>
         </section>
 
         <section aria-labelledby="open-issues-title" id="open-issues" className="section-block">
