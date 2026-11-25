@@ -1814,3 +1814,14 @@ th[aria-sort="descending"] .sort-btn {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Final-check fixes */
+/* Domain labels inside tables match the surrounding cell text. */
+.data-table .domain-mark {
+  font-size: inherit;
+  color: var(--ink);
+}
+/* On a study page, contradiction cards keep to the same reading width as the rest of the record. */
+.study-detail .contra-list {
+  max-width: var(--measure);
+}
