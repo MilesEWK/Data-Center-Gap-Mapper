@@ -1,0 +1,47 @@
+import { useSearchParams } from "react-router-dom";
+import { GAP_BRIEF } from "../data";
+import { DOMAIN_SLUGS, SHORT_NAME, domClass } from "../domains";
+import { ContradictionList } from "../components/ContradictionCard";
+import { PageHeader } from "../components/PageHeader";
+import { contradictionsInDomain } from "../lib/derive";
+import { useTitle } from "../lib/useTitle";
+
+export function Contradictions() {
+  useTitle("Contradictions");
+  const [params, setParams] = useSearchParams();
+  const slug = params.get("domain") ?? "";
+  const domain = DOMAIN_SLUGS[slug] ?? null;
+  const rows = contradictionsInDomain(domain);
+
+  return (
+    <>
+      <PageHeader
+        title="Contradictions"
+        lede="Pairs of studies whose estimates conflict, and the methodological reason for each conflict."
+      />
+      <div className="wrap page-body">
+        <div className="segmented" role="group" aria-label="Filter by domain">
+          <button type="button" aria-pressed={domain === null} onClick={() => setParams({}, { replace: true })}>
+            All <span className="seg-count">{GAP_BRIEF.contradictionMatrix.length}</span>
+          </button>
+          {Object.entries(DOMAIN_SLUGS).map(([s, d]) => (
+            <button
+              key={s}
+              type="button"
+              className={domClass(d)}
+              aria-pressed={domain === d}
+              onClick={() => setParams({ domain: s }, { replace: true })}
+            >
+              <span className="dot" aria-hidden="true" />
+              {SHORT_NAME[d]} <span className="seg-count">{contradictionsInDomain(d).length}</span>
+            </button>
+          ))}
+        </div>
+        <p className="result-count" aria-live="polite">
+          Showing {rows.length} of {GAP_BRIEF.contradictionMatrix.length}
+        </p>
+        <ContradictionList rows={rows} />
+      </div>
+    </>
+  );
+}

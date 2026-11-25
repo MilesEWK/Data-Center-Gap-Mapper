@@ -1,0 +1,22 @@
+// UI-only lookup: contradictionMatrix display names (studyA / studyB in brief.ts) → papers.json ids.
+// Lives outside brief.ts so the data file stays untouched. validate.ts checks every entry.
+export const STUDY_NAME_TO_ID: Readonly<Record<string, string>> = {
+  "Guidi et al. (2024)": "guidi_2024",
+  "Shehabi et al. (2024)": "shehabi_2024",
+  "EPRI (2026)": "epri_2026",
+  "Siddik et al. (2021)": "siddik_2021",
+  "Mytton (2021)": "mytton_2021",
+  "Li et al. (2023)": "li_2023",
+  "JLARC (2024)": "jlarc_2024",
+  "REMI / U.S. Chamber (2026)": "remi_2026",
+  "Tarczynska (2025)": "tarczynska_2025",
+};
+
+const ID_TO_STUDY_NAME: ReadonlyMap<string, string> = new Map(
+  Object.entries(STUDY_NAME_TO_ID).map(([name, id]) => [id, name]),
+);
+
+/** Short label for a paper id (e.g. "Guidi et al. (2024)"); falls back to the id itself. */
+export function studyLabel(id: string): string {
+  return ID_TO_STUDY_NAME.get(id) ?? id;
+}

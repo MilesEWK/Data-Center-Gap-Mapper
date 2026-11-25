@@ -1,0 +1,65 @@
+/* Design tokens: brief v3 (white base, domain colour as the accent). */
+:root {
+  --bg: #ffffff;
+  --band: #f4f6f8;
+  --ink: #17202a;
+  --ink-2: #5a6470;
+  --rule: #dde2e7;
+  --brand: #1b3a5c;
+  --link: #1f5fa8;
+
+  /* Domain colours. Always paired with a text label. */
+  --grid: #c77d12;
+  --water: #1f7fb8;
+  --fiscal: #2e8b4e;
+  --multi: #7b55c7;
+
+  --grid-tint: color-mix(in srgb, var(--grid) 10%, white);
+  --water-tint: color-mix(in srgb, var(--water) 10%, white);
+  --fiscal-tint: color-mix(in srgb, var(--fiscal) 10%, white);
+  --multi-tint: color-mix(in srgb, var(--multi) 10%, white);
+
+  /* UNKNOWN items only, and always with the word "Unknown". */
+  --unknown: #b42318;
+  --unknown-tint: color-mix(in srgb, var(--unknown) 7%, white);
+
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Type scale: 15 / 17 / 20 / 26 / 34 / 44 */
+  --fs-1: 15px;
+  --fs-2: 17px;
+  --fs-3: 20px;
+  --fs-4: 26px;
+  --fs-5: 34px;
+  --fs-6: 44px;
+
+  --wide: 1120px;
+  --measure: 720px;
+  --radius: 4px;
+  --shadow: 0 1px 2px rgb(23 32 42 / 0.06);
+  --speed: 150ms;
+}
+
+/* Each domain class sets --dom and --dom-tint for the elements inside it. */
+.dom-grid {
+  --dom: var(--grid);
+  --dom-tint: var(--grid-tint);
+}
+.dom-water {
+  --dom: var(--water);
+  --dom-tint: var(--water-tint);
+}
+.dom-fiscal {
+  --dom: var(--fiscal);
+  --dom-tint: var(--fiscal-tint);
+}
+.dom-multi {
+  --dom: var(--multi);
+  --dom-tint: var(--multi-tint);
+}
+.dom-none {
+  --dom: var(--rule);
+  --dom-tint: var(--band);
+}
