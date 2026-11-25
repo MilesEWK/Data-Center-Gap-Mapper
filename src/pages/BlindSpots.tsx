@@ -25,9 +25,7 @@ export function BlindSpots() {
 
         <section aria-labelledby="bs-xtab" className="section-block">
           <h2 id="bs-xtab">Dataset type by impact category</h2>
-          <p className="section-lede">
-            A zero is a combination no study in this set covers. Select a number to list those studies.
-          </p>
+          <p className="section-lede">Select a number to list those studies.</p>
           <CrossTab />
         </section>
       </div>

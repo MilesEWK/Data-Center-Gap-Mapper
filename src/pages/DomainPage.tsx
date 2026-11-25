@@ -80,7 +80,6 @@ export function DomainPage() {
 
         <section aria-labelledby="d-evidence" className="domain-section">
           <h2 id="d-evidence">Related evidence</h2>
-          <p className="section-lede">Consensus and divergence points that cite at least one study in this domain.</p>
           <ol className="evidence">
             {evidence.map(({ kind, point }) => (
               <li key={point.point}>
@@ -93,7 +92,7 @@ export function DomainPage() {
                 <p className="sources">
                   <span className="sources-label">Sources</span>
                   {point.citations.map((id) => (
-                    <StudyLink key={id} id={id} asId />
+                    <StudyLink key={id} id={id} variant="inline" />
                   ))}
                 </p>
               </li>

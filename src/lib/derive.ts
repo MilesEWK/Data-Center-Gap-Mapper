@@ -2,7 +2,7 @@
 import { GAP_BRIEF, PAPERS, PAPERS_BY_ID } from "../data";
 import type { Contradiction, Domain, EvidencePoint } from "../data";
 import { STUDY_NAME_TO_ID } from "../data/studyNameMap";
-import type { ImpactCategory, LimitationTag, Paper } from "../types";
+import type { DatasetType, ImpactCategory, LimitationTag, Paper } from "../types";
 import { IMPACT_CATEGORIES, LIMITATION_TAGS } from "../types";
 
 /** Short column labels for the gap map. The full tag name is always available alongside. */
@@ -12,6 +12,14 @@ export const SHORT_TAG: Record<LimitationTag, string> = {
   "Gross vs. Net Fiscal & Ratepayer Accounting": "Fiscal accounting",
   "Pre-AI Compute Baseline": "Pre-AI baseline",
   "Bottom-Up vs. Queue Modeling Divergence": "Model divergence",
+};
+
+/** Short labels for dataset types in the studies table. The full name is used everywhere else. */
+export const DATASET_SHORT: Record<DatasetType, string> = {
+  "Engineering / Top-Down Model": "Model",
+  "Corporate Sustainability Reports": "Corporate reports",
+  "Public Fiscal / Tax Records": "Fiscal records",
+  "Utility / Grid Filings": "Grid filings",
 };
 
 export function studiesInCategory(category: ImpactCategory): Paper[] {

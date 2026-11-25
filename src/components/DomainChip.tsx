@@ -7,23 +7,28 @@ interface Props {
   short?: boolean;
 }
 
-/** Tinted chip with a coloured dot. Text stays ink, so colour is never the only signal. */
+/** 8px square in the domain colour plus a text label, so colour is never the only signal. */
 export function DomainChip({ category, short = false }: Props) {
   const label = short ? (SHORT_NAME[category as ImpactCategory] ?? category) : category;
   return (
-    <span className={`chip ${domClass(category)}`}>
-      <span className="dot" aria-hidden="true" />
+    <span className={`domain-mark ${domClass(category)}`}>
+      <span className="sq" aria-hidden="true" />
       {label}
     </span>
   );
 }
 
-/** Coloured dot followed by a text label, for headers and filters. */
+/** Square followed by a label, for headers and filters (same mark, label inherits text colour). */
 export function DomainDot({ category, label }: { category: string; label?: string }) {
   return (
-    <span className={`dot-label ${domClass(category)}`}>
-      <span className="dot" aria-hidden="true" />
+    <span className={`domain-mark domain-mark-inherit ${domClass(category)}`}>
+      <span className="sq" aria-hidden="true" />
       {label ?? category}
     </span>
   );
+}
+
+/** The bare square, for placing before a study name. Hidden from assistive tech; pair it with text. */
+export function DomainSquare({ category }: { category: string }) {
+  return <span className={`sq ${domClass(category)}`} title={category} aria-hidden="true" />;
 }

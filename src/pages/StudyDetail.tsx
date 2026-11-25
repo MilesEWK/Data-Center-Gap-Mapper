@@ -34,6 +34,7 @@ export function StudyDetail() {
           <span className="study-meta">
             <DomainChip category={paper.impact_category} />
             <span>{paper.year}</span>
+            <code className="study-id">{paper.id}</code>
             <span>
               <Marked text={paper.region} />
             </span>
@@ -100,10 +101,10 @@ export function StudyDetail() {
                   <ul className="appears">
                     {refs.contradictions.map((c) => (
                       <li key={`${c.studyA}|${c.claimA}|${c.studyB}|${c.claimB}`}>
+                        <DomainChip category={c.domain} />
                         <Link to={`/contradictions?domain=${slugFor(c.domain)}`}>
                           {c.studyA} vs {c.studyB}
                         </Link>
-                        <span className="muted">{c.domain}</span>
                       </li>
                     ))}
                   </ul>

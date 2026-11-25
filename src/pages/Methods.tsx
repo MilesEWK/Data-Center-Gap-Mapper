@@ -124,7 +124,6 @@ export function Methods() {
 
         <section aria-labelledby="unresolved-title" id="unresolved" className="section-block">
           <h2 id="unresolved-title">Unresolved items</h2>
-          <p className="section-lede">Pending full-text verification. Nothing here was imputed.</p>
           <ul className="unresolved">
             {GAP_BRIEF.unresolved.map((u) => {
               const id = unresolvedStudyId(u);
@@ -136,7 +135,7 @@ export function Methods() {
                   </span>
                   {id && (
                     <span className="unresolved-link">
-                      <StudyLink id={id} label="Open study" />
+                      <StudyLink id={id} label="Open study" variant="inline" />
                     </span>
                   )}
                 </li>

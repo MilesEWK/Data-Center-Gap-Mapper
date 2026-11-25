@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { GAP_BRIEF, PAPERS } from "../data";
 import { DOMAIN_SLUGS } from "../domains";
 import { DomainCard } from "../components/DomainCard";
+import { DomainStripe } from "../components/DomainStripe";
 import { GapMap } from "../components/GapMap";
 import { StatStrip } from "../components/StatStrip";
 import { useTitle } from "../lib/useTitle";
@@ -21,6 +22,7 @@ export function Overview() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="wrap">
           <h1 id="hero-title">Where the evidence on U.S. hyperscale data centers runs out</h1>
+          <DomainStripe variant="title" />
           <p className="hero-gap">{GAP_BRIEF.evidenceOutline.primaryGap.statement}</p>
           <div className="hero-actions">
             <button type="button" className="btn btn-primary" onClick={goToGapMap}>
@@ -44,7 +46,6 @@ export function Overview() {
       <section className="band section-band" aria-labelledby="domains-title">
         <div className="wrap">
           <h2 id="domains-title">Impact domains</h2>
-          <p className="section-lede">Studies and contradictions in each domain. Multi-impact studies cover more than one domain and are counted separately.</p>
           <div className="domain-cards">
             {Object.entries(DOMAIN_SLUGS).map(([slug, domain]) => (
               <DomainCard key={slug} slug={slug} domain={domain} />

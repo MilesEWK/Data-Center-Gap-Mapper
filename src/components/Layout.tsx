@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { DomainStripe } from "./DomainStripe";
 import { Footer } from "./Footer";
 import { TopNav } from "./TopNav";
 import { ValidationBanner } from "./ValidationBanner";
@@ -28,6 +29,7 @@ export function Layout({ violations }: { violations: string[] }) {
       </a>
       {import.meta.env.DEV && <ValidationBanner violations={violations} />}
       <ScrollManager />
+      <DomainStripe />
       <TopNav />
       <main id="main" tabIndex={-1}>
         <Outlet />

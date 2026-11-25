@@ -1,4 +1,4 @@
-/* Design tokens: brief v3 (white base, domain colour as the accent). */
+/* Design tokens: brief v3 + polish pass. */
 :root {
   --bg: #ffffff;
   --band: #f4f6f8;
@@ -7,6 +7,7 @@
   --rule: #dde2e7;
   --brand: #1b3a5c;
   --link: #1f5fa8;
+  --empty: #eef1f4;
 
   /* Domain colours. Always paired with a text label. */
   --grid: #c77d12;
@@ -23,17 +24,28 @@
   --unknown: #b42318;
   --unknown-tint: color-mix(in srgb, var(--unknown) 7%, white);
 
-  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --serif: "Source Serif 4 Variable", "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  /* Type scale: 15 / 17 / 20 / 26 / 34 / 44 */
+  /* Type scale: 15 / 17 / 20 / 26 / 34 / 44 (14 for table headers and labels). */
+  --fs-0: 14px;
   --fs-1: 15px;
   --fs-2: 17px;
   --fs-3: 20px;
   --fs-4: 26px;
   --fs-5: 34px;
   --fs-6: 44px;
+
+  /* Spacing scale: 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 only. */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
 
   --wide: 1120px;
   --measure: 720px;

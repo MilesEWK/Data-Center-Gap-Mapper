@@ -6,14 +6,17 @@ interface Props {
   id: string;
   /** Text to show; defaults to the short label, e.g. "Guidi et al. (2024)". */
   label?: string;
-  /** Show the label as a paper id in monospace. */
-  asId?: boolean;
+  /**
+   * "name": ink, semibold, underline only on hover/focus (tables, maps, cards).
+   * "inline": standard blue underlined link (inside paragraphs).
+   */
+  variant?: "name" | "inline";
 }
 
 /** Link to a study's detail page. Unknown ids render as plain text. */
-export function StudyLink({ id, label, asId = false }: Props) {
-  const text = label ?? (asId ? id : studyLabel(id));
-  const cls = asId ? "study-id" : undefined;
+export function StudyLink({ id, label, variant = "name" }: Props) {
+  const text = label ?? studyLabel(id);
+  const cls = variant === "name" ? "name-link" : undefined;
   if (!PAPERS_BY_ID.has(id)) return <span className={cls}>{text}</span>;
   return (
     <Link to={`/studies/${encodeURIComponent(id)}`} className={cls}>

@@ -11,7 +11,7 @@ export function EvidenceList({ points }: { points: EvidencePoint[] }) {
           <p className="sources">
             <span className="sources-label">Sources</span>
             {pt.citations.map((id) => (
-              <StudyLink key={id} id={id} asId />
+              <StudyLink key={id} id={id} variant="inline" />
             ))}
           </p>
         </li>
