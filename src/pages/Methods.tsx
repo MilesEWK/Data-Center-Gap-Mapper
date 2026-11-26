@@ -119,7 +119,7 @@ export function Methods() {
             <li className="flow-step">
               <span className="flow-n">{flow.retrieved}</span>
               <span className="flow-label">
-                records retrieved from {flow.runsRun} searches ({queries.length} queries × {SEARCH_DATABASES.length}{" "}
+                Records retrieved from {flow.runsRun} searches ({queries.length} queries × {SEARCH_DATABASES.length}{" "}
                 databases)
               </span>
               {flow.runsNotRun.length > 0 && (
@@ -128,17 +128,17 @@ export function Methods() {
             </li>
             <li className="flow-step">
               <span className="flow-n">{flow.screened}</span>
-              <span className="flow-label">unique records screened on title and abstract</span>
+              <span className="flow-label">Unique records screened on title and abstract</span>
               <span className="flow-side">{flow.duplicates} duplicates removed</span>
             </li>
             <li className="flow-step">
               <span className="flow-n">{flow.eligible}</span>
-              <span className="flow-label">eligible</span>
+              <span className="flow-label">Eligible</span>
               <span className="flow-side">{flow.excluded} excluded (reasons below)</span>
             </li>
             <li className="flow-step flow-final">
               <span className="flow-n">{flow.extracted}</span>
-              <span className="flow-label">extracted into the review</span>
+              <span className="flow-label">Extracted into the review</span>
               <span className="flow-side">
                 {flow.alreadyInReview} already in the review; {flow.notYetExtracted} eligible, not yet extracted
               </span>
