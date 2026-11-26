@@ -6,6 +6,7 @@ import { SEARCH_LOG } from "../lib/searchFlow";
 import { useTitle } from "../lib/useTitle";
 
 const AUTHOR = "Wofford-Kao, M.";
+const SITE_URL = "https://milesewk.github.io/Data-Center-Gap-Mapper/";
 const SITE_TITLE = "Data Center Gap Mapper: A Structured Review of U.S. Hyperscale Data Center Impacts";
 
 export function Data() {
@@ -37,7 +38,7 @@ export function Data() {
       run: () => download("citations.bib", bibtex(), "application/x-bibtex"),
     },
   ];
-  const citation = `${AUTHOR} (${__BUILD_YEAR__}). ${SITE_TITLE}. {SITE_URL}`;
+  const citation = `${AUTHOR} (${__BUILD_YEAR__}). ${SITE_TITLE}. ${SITE_URL}`;
   return (
     <>
       <PageHeader title="Data" lede="Download the review's records, contradictions, and search log, generated from the same files the site reads." />
