@@ -1,7 +1,7 @@
 {
   "description": "Logged literature search for the review, run through public APIs. Counts are as returned by each API on the run date.",
   "screeningMethod": "Top 50 records per query and database (by each API's relevance ranking) were retrieved and deduplicated by DOI and normalized title. Records were screened on title and abstract against the README inclusion criteria: an automatic first pass excluded records outside 2020-2026, records whose title and abstract never mention data centers, and records outside the three impact domains; every remaining record was screened by hand.",
-  "queryNotes": "OpenAlex and Crossref received the query strings as written; OpenAlex applies its own Boolean parsing and Crossref ranks free text without Boolean operators, so their total-hit counts are very large. arXiv requires field syntax, so each query was translated (see the query field) and limited to submissions from 2020 to 2026.",
+  "queryNotes": "The queries were entered into OpenAlex and Crossref exactly as written. Neither treats them as a strict search: OpenAlex interprets the OR terms its own way, and Crossref ignores them and matches any of the words, which is why their hit counts run into the hundreds of thousands or millions. arXiv only accepts searches in its own format, so each query was rewritten for it (the exact versions are in the search log) and limited to papers posted from 2020 to 2026.",
   "runs": [
     {
       "queryId": "q1",
