@@ -17,7 +17,9 @@ const queries = queryTable();
 const fmt = (n: number | null) => (n === null ? "Not run" : n.toLocaleString("en-US"));
 const [peer, preprint, report] = types;
 const states = stateCoverage();
-const [top, second] = states;
+const top = states[0];
+const leaders = states.filter((st) => st.ids.length === top.ids.length);
+const next = states[leaders.length];
 const partial = partialAccess();
 const noPage = missingPageLocators();
 
@@ -75,8 +77,10 @@ export function Methods() {
             <h3 id="m-limits">Limitations</h3>
             <ul>
               <li>
-                {PAPERS.length} studies, a purposive sample from targeted retrieval rather than an exhaustive database
-                search; there are no PRISMA screening counts.
+                {PAPERS.length} studies: {flow.handSelected} hand-selected by targeted retrieval and {flow.extracted}{" "}
+                added from a logged search of {SEARCH_DATABASES.length} databases, which screened the top 50 records per
+                query. The search is not exhaustive, and the hand-selected studies did not pass through its screening;{" "}
+                {flow.notYetExtracted} eligible records are not yet extracted.
               </li>
               <li>
                 {peer.ids.length} of {PAPERS.length} are peer-reviewed journal articles; {preprint.ids.length} are
@@ -88,10 +92,15 @@ export function Methods() {
                 <IdList ids={partial} />; quotes without a page number for <IdList ids={noPage} />.
               </li>
               <li>
-                Sub-national evidence covers {states.length} states, led by {top.state} ({top.ids.length} of{" "}
-                {PAPERS.length} studies){second && <>, then {second.state} ({second.ids.length})</>}.
+                Sub-national evidence covers {states.length} states, led by{" "}
+                {leaders.map((l) => l.state).join(" and ")} ({top.ids.length} of {PAPERS.length} studies
+                {leaders.length > 1 ? " each" : ""}){next && <>, then {next.state} ({next.ids.length})</>}.
               </li>
               <li>No model or audit was independently re-run; values are reported as published.</li>
+              <li>
+                {GAP_BRIEF.unresolved.length} open issues remain, listed under{" "}
+                <a href="#/methods" onClick={(e) => { e.preventDefault(); document.getElementById("open-issues")?.scrollIntoView(); }}>Open issues</a>.
+              </li>
             </ul>
           </div>
           </div>

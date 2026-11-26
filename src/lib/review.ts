@@ -40,8 +40,9 @@ export function statesInPaper(p: { region: string; key_findings: string }): stri
   const text = `${p.region} ${p.key_findings}`;
   const abbrs = new Set([...text.matchAll(/, ([A-Z]{2})\b/g)].map((m) => STATE_ABBR[m[1]]).filter(Boolean));
   return US_STATES.filter((s) => {
-    // "Virginia" must not match inside "West Virginia"; "Washington" must not match "Washington, D.C.".
-    const re = new RegExp(`(?<!West )\\b${s}\\b(?!,? D\\.?C\\.?)`);
+    // "Virginia" must not match inside "West Virginia"; "Washington" must not match "Washington, D.C.";
+    // a city named after a state ("New York City", "Kansas City") is a comparison, not state evidence.
+    const re = new RegExp(`(?<!West )\\b${s}\\b(?!,? D\\.?C\\.?)(?! City)`);
     return re.test(text) || abbrs.has(s);
   });
 }

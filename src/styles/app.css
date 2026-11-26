@@ -1740,6 +1740,10 @@ th[aria-sort="descending"] .sort-btn {
   .desktop-nav {
     display: block;
   }
+  /* Nine nav items: keep them inside the 900-1023px range. */
+  .desktop-nav ul {
+    gap: var(--s3);
+  }
   .menu-button,
   .mobile-menu {
     display: none;
@@ -2098,4 +2102,7 @@ th .doc-link {
   .gloss-link::after {
     content: none !important;
   }
+}
+.glossary-cite .sources-label {
+  margin-right: var(--s2);
 }

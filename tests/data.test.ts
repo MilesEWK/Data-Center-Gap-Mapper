@@ -139,6 +139,7 @@ describe("review-level limitations", () => {
     expect(statesInPaper({ region: "West Virginia", key_findings: "" })).toEqual(["West Virginia"]);
     expect(statesInPaper({ region: "Franklin County, OH and Dallas County, TX", key_findings: "" })).toEqual(["Ohio", "Texas"]);
     expect(statesInPaper({ region: "IN OR CO2 emissions, CO2", key_findings: "" })).toEqual([]);
+    expect(statesInPaper({ region: "", key_findings: "comparable to New York City's supply; Kansas City" })).toEqual([]);
   });
 });
 
