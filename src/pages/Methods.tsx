@@ -14,6 +14,8 @@ import { DATASET_TYPES, IMPACT_CATEGORIES, LIMITATION_TAGS } from "../types";
 const types = sourceTypeCounts();
 const flow = searchFlow();
 const queries = queryTable();
+/** "A, B, and C". */
+const listAnd = (xs: string[]) => (xs.length < 3 ? xs.join(" and ") : `${xs.slice(0, -1).join(", ")}, and ${xs.at(-1)}`);
 const fmt = (n: number | null) => (n === null ? "Not run" : n.toLocaleString("en-US"));
 const [peer, preprint, report] = types;
 const states = stateCoverage();
@@ -49,12 +51,12 @@ export function Methods() {
           <div className="lf-panel">
           <h3>Search and inclusion</h3>
           <p>
-            Of the {PAPERS.length} studies, {flow.handSelected} were hand-selected by targeted retrieval before a logged
-            search, and {flow.extracted} were added from a logged search of {SEARCH_DATABASES.join(", ")} (see{" "}
+            Of the {PAPERS.length} studies, {flow.handSelected} were hand-selected by targeted retrieval, and{" "}
+            {flow.extracted} were added later from a logged search of {listAnd(SEARCH_DATABASES)} (see{" "}
             <a href="#/methods" onClick={(e) => { e.preventDefault(); document.getElementById("m-found")?.scrollIntoView(); }}>How studies were found</a>).
-            Included studies cover the United States, report at least one original quantitative estimate, address grid
-            and emissions, water, or fiscal impacts, and support their primary finding with a verbatim quote and
-            locator. Marketing material, opinion pieces, and news coverage are excluded.
+            Included studies covered the United States of America, reported at least one original quantitative
+            estimate, addressed grid and emissions, water, or fiscal impacts, and supported their primary finding with a
+            quote and locator. Marketing material, opinion pieces, and news coverage were all excluded.
           </p>
           </div>
           <div className="lf-panel">

@@ -10,9 +10,9 @@ export function Footer() {
           <section aria-labelledby="f-about">
             <h2 id="f-about">About this review</h2>
             <p>
-              A structured review of {PAPERS.length} studies, from the years {yearRange()} on how the United States&rsquo;
-              hyperscale data centers affect the grid, water, and local finances. Also highlighting where the evidence
-              disagrees, or is missing.
+              A structured review of {PAPERS.length} studies, from the years {yearRange()}, on how the United States&rsquo;
+              hyperscale data centers affect the grid, water, and local finances. It also highlights where the evidence
+              disagrees or is missing.
             </p>
           </section>
           <section aria-labelledby="f-data">
