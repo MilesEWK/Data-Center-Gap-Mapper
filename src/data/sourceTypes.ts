@@ -33,4 +33,9 @@ export const SOURCE_TYPE_BY_ID: Record<string, SourceType> = {
   kay_2026: PREPRINT, // Dallas Fed working paper (earlier NBER conference draft)
   han_2024: PREPRINT, // arXiv
   james_2025: REPORT, // Ceres (advocacy)
+  iqbal_2026: PEER, // Frontiers in Environmental Science
+  hicks_2026: PEER, // Journal of Regional Analysis & Policy
+  zhou_2026: PREPRINT, // arXiv
+  han_2026: PREPRINT, // arXiv
+  muller_2026: PREPRINT, // NBER working paper
 };

@@ -6,11 +6,15 @@ import { StudyLink } from "../components/StudyLink";
 import { unresolvedStudyId } from "../lib/derive";
 import { missingPageLocators, partialAccess, sourceTypeCounts, stateCoverage } from "../lib/review";
 import { studyLabel } from "../data/studyNameMap";
+import { SEARCH_DATABASES, SEARCH_LOG, queryTable, searchFlow } from "../lib/searchFlow";
 import { TAG_DEFINITIONS } from "../lib/vocabulary";
 import { useTitle } from "../lib/useTitle";
 import { DATASET_TYPES, IMPACT_CATEGORIES, LIMITATION_TAGS } from "../types";
 
 const types = sourceTypeCounts();
+const flow = searchFlow();
+const queries = queryTable();
+const fmt = (n: number | null) => (n === null ? "Not run" : n.toLocaleString("en-US"));
 const [peer, preprint, report] = types;
 const states = stateCoverage();
 const [top, second] = states;
@@ -43,11 +47,12 @@ export function Methods() {
           <div className="lf-panel">
           <h3>Search and inclusion</h3>
           <p>
-            Targeted retrieval of primary sources from peer-reviewed journals, preprint servers, national-laboratory and
-            government audit reports, and research-institute studies. Included studies cover the United States, report at
-            least one original quantitative estimate, address grid and emissions, water, or fiscal impacts, and support
-            their primary finding with a verbatim quote and locator. Marketing material, opinion pieces, and news coverage
-            are excluded.
+            {flow.handSelected} studies were hand-selected by targeted retrieval before a logged search;{" "}
+            {flow.extracted} more were added from a logged search of {SEARCH_DATABASES.join(", ")} (see{" "}
+            <a href="#/methods" onClick={(e) => { e.preventDefault(); document.getElementById("m-found")?.scrollIntoView(); }}>How studies were found</a>).
+            Included studies cover the United States, report at least one original quantitative estimate, address grid
+            and emissions, water, or fiscal impacts, and support their primary finding with a verbatim quote and
+            locator. Marketing material, opinion pieces, and news coverage are excluded.
           </p>
           </div>
           <div className="lf-panel">
@@ -90,6 +95,101 @@ export function Methods() {
             </ul>
           </div>
           </div>
+        </section>
+
+        <section aria-labelledby="m-found" className="section-block" id="how-found">
+          <h2 id="m-found">How studies were found</h2>
+          <p className="section-lede">
+            The original {flow.handSelected} studies were hand-selected before the logged search. The search below was
+            run on {flow.runDates.join(", ")}, keeping the top 50 records per query and database.
+          </p>
+          <ol className="flow" aria-label="Search and screening flow">
+            <li className="flow-step">
+              <span className="flow-n">{flow.retrieved}</span>
+              <span className="flow-label">
+                records retrieved from {flow.runsRun} searches ({queries.length} queries × {SEARCH_DATABASES.length}{" "}
+                databases)
+              </span>
+              {flow.runsNotRun.length > 0 && (
+                <span className="flow-side">{flow.runsNotRun.length} searches not run</span>
+              )}
+            </li>
+            <li className="flow-step">
+              <span className="flow-n">{flow.screened}</span>
+              <span className="flow-label">unique records screened on title and abstract</span>
+              <span className="flow-side">{flow.duplicates} duplicates removed</span>
+            </li>
+            <li className="flow-step">
+              <span className="flow-n">{flow.eligible}</span>
+              <span className="flow-label">eligible</span>
+              <span className="flow-side">{flow.excluded} excluded (reasons below)</span>
+            </li>
+            <li className="flow-step flow-final">
+              <span className="flow-n">{flow.extracted}</span>
+              <span className="flow-label">extracted into the review</span>
+              <span className="flow-side">
+                {flow.alreadyInReview} already in the review; {flow.notYetExtracted} eligible, not yet extracted
+              </span>
+            </li>
+          </ol>
+          <p className="flow-total">
+            Studies in the review: {flow.handSelected} hand-selected + {flow.extracted} from the logged search ={" "}
+            {PAPERS.length}.
+          </p>
+          <div className="vocab-grid">
+            <div className="scroll-x">
+              <table className="data-table">
+                <caption>Exclusion reasons</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Reason</th>
+                    <th scope="col" className="num">
+                      Records
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {flow.exclusionReasons.map((r) => (
+                    <tr key={r.reason}>
+                      <th scope="row">{r.reason}</th>
+                      <td className="num">{r.count}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="scroll-x">
+              <table className="data-table">
+                <caption>Total hits by query and database</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Query</th>
+                    {SEARCH_DATABASES.map((db) => (
+                      <th key={db} scope="col" className="num">
+                        {db}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {queries.map((q) => (
+                    <tr key={q.queryId}>
+                      <th scope="row" className="query-cell">
+                        {q.label}
+                      </th>
+                      {SEARCH_DATABASES.map((db) => (
+                        <td key={db} className="num">
+                          {fmt(q.cells[db]?.totalHits ?? null)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p className="table-note">{SEARCH_LOG.screeningMethod}</p>
+          <p className="table-note">{SEARCH_LOG.queryNotes}</p>
         </section>
 
         <section aria-labelledby="m-coverage" className="section-block">

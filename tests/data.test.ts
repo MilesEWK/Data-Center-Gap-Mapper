@@ -19,10 +19,11 @@ const raw = JSON.parse(readFileSync(PAPERS_PATH, "utf8")) as Paper[];
 const ORIGINAL_STUDIES = 9;
 const ADDED_IN_V4 = 6;
 const ADDED_IN_V5 = 4;
+const ADDED_IN_V6 = 5; // logged search, batch 6
 
 describe("papers.json", () => {
-  it(`contains ${ORIGINAL_STUDIES + ADDED_IN_V4 + ADDED_IN_V5} papers with unique ids`, () => {
-    expect(PAPERS).toHaveLength(ORIGINAL_STUDIES + ADDED_IN_V4 + ADDED_IN_V5);
+  it(`contains ${ORIGINAL_STUDIES + ADDED_IN_V4 + ADDED_IN_V5 + ADDED_IN_V6} papers with unique ids`, () => {
+    expect(PAPERS).toHaveLength(ORIGINAL_STUDIES + ADDED_IN_V4 + ADDED_IN_V5 + ADDED_IN_V6);
     expect(raw).toHaveLength(PAPERS.length);
     expect(new Set(PAPERS.map((p) => p.id)).size).toBe(PAPERS.length);
   });
@@ -148,5 +149,22 @@ describe("primary gap statement", () => {
     const tagged = PAPERS.filter((p) => p.limitation_tags.includes("Missing or Self-Reported Facility Data")).length;
     expect(Number(m![1])).toBe(tagged);
     expect(Number(m![2])).toBe(PAPERS.length);
+  });
+});
+
+describe("search log", () => {
+  it("is internally consistent and links only to studies in papers.json", async () => {
+    const { SEARCH_LOG, searchFlow } = await import("../src/lib/searchFlow");
+    const ids = new Set(PAPERS.map((p) => p.id));
+    for (const r of SEARCH_LOG.records) {
+      if (r.studyId) expect(ids.has(r.studyId), r.studyId).toBe(true);
+      if (r.decision === "exclude") expect(r.exclusionReason, r.id).toBeTruthy();
+      if (r.decision === "include") expect(r.status, r.id).toBeTruthy();
+    }
+    const f = searchFlow();
+    expect(f.retrieved).toBe(f.duplicates + f.screened);
+    expect(f.screened).toBe(f.excluded + f.eligible);
+    expect(f.eligible).toBe(f.extracted + f.alreadyInReview + f.notYetExtracted);
+    expect(f.handSelected + f.extracted).toBe(PAPERS.length);
   });
 });

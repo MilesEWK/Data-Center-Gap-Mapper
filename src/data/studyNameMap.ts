@@ -20,6 +20,11 @@ export const STUDY_NAME_TO_ID: Readonly<Record<string, string>> = {
   "Kay et al. (2026)": "kay_2026",
   "Han et al. (2024)": "han_2024",
   "James et al. / Ceres (2025)": "james_2025",
+  "Iqbal et al. (2026)": "iqbal_2026",
+  "Hicks et al. (2026)": "hicks_2026",
+  "Zhou et al. (2026)": "zhou_2026",
+  "Han et al. (2026)": "han_2026",
+  "Muller (2026)": "muller_2026",
 };
 
 const ID_TO_STUDY_NAME: ReadonlyMap<string, string> = new Map(

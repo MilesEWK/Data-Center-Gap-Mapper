@@ -132,7 +132,7 @@ Full texts were retrieved by web search and direct page fetch. Uploaded project 
 3. **Validation.** `src/data/papers.json` was parsed with a JSON parser, and every record was checked for key order, enum membership, tag count (1–3), and integer `year`. `src/data/brief.ts` type-checks under `tsc --strict`.
 4. **Unresolved values.** Items that could not be confirmed from retrieved text are listed as `UNKNOWN` in `GAP_BRIEF.unresolved` and are not imputed.
 
-### 3.4 Included Studies (n = 19)
+### 3.4 Included Studies (n = 24)
 
 | # | `id` | Impact category | Dataset type | Tags |
 |---|---|---|---|---|
@@ -155,6 +155,11 @@ Full texts were retrieved by web search and direct page fetch. Uploaded project 
 | 17 | `kay_2026` | Grid & Emissions | Engineering / Top-Down Model | Missing or Self-Reported Facility Data; Bottom-Up vs. Queue Modeling Divergence |
 | 18 | `han_2024` | Grid & Emissions | Engineering / Top-Down Model | Missing or Self-Reported Facility Data |
 | 19 | `james_2025` | Water Consumption | Engineering / Top-Down Model | Missing or Self-Reported Facility Data; Bottom-Up vs. Queue Modeling Divergence |
+| 20 | `iqbal_2026` | Grid & Emissions | Utility / Grid Filings | Missing or Self-Reported Facility Data |
+| 21 | `hicks_2026` | Economic & Tax Policy | Public Fiscal / Tax Records | Missing or Self-Reported Facility Data; Pre-AI Compute Baseline |
+| 22 | `zhou_2026` | Economic & Tax Policy | Engineering / Top-Down Model | Missing or Self-Reported Facility Data; Bottom-Up vs. Queue Modeling Divergence |
+| 23 | `han_2026` | Water Consumption | Corporate Sustainability Reports | Missing or Self-Reported Facility Data; Indirect Power-Plant Water Excluded |
+| 24 | `muller_2026` | Grid & Emissions | Engineering / Top-Down Model | Missing or Self-Reported Facility Data |
 
 ---
 

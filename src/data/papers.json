@@ -316,5 +316,88 @@
       "Bottom-Up vs. Queue Modeling Divergence"
     ],
     "verbatim_quote_with_page": "\"annual water use associated with data center electricity consumption is expected to increase by 400%, from an estimated 2.9 billion gallons\" (p. 3)"
+  },
+  {
+    "id": "iqbal_2026",
+    "citation": "Iqbal, K., Moharrak, M., Ahmed, A., & Khurshaid (2026). Beyond the AI energy hype? Data-center-related establishment growth, electricity demand, and emissions across U.S. states. Frontiers in Environmental Science, 14, 1939591. https://doi.org/10.3389/fenvs.2026.1939591",
+    "year": 2026,
+    "impact_category": "Grid & Emissions",
+    "region": "50 U.S. states (state-level panel)",
+    "dataset_type": "Utility / Grid Filings",
+    "research_question": "Is growth in data-center-related establishments associated with measurable changes in aggregate state electricity demand and power-sector CO2 emissions?",
+    "methodology": "Balanced panel of 50 states, 2010-2023 (700 state-years), with two-way (state and year) fixed-effects regressions and state-clustered standard errors (pp. 1, 4-5). Data-center activity is proxied by Census County Business Patterns establishment counts for NAICS 518210; electricity prices and generation come from the U.S. Energy Information Administration (p. 3). Outcomes are retail electricity sales, total power-sector CO2 emissions, and average generation CO2 intensity (p. 4). Robustness checks include population normalization, grid-investment controls, state trends, lags, winsorization, population weighting, excluding top states, and first differences (p. 6).",
+    "key_findings": "No evidence of a positive within-state association between data-center establishment growth and aggregate electricity demand: the baseline coefficient is -0.0266 (SE 0.0278), and establishments per million residents give -0.0500 (SE 0.0260), marginally significant at 10% (p. 6). The coefficient is -0.1190 (SE 0.0811) for total power-sector CO2 emissions and 0.0423 (SE 0.0681) for average CO2 intensity, neither significant (p. 6). The authors say the results do not mean data centers have no energy or environmental consequences, and attribute the null result to state-level aggregation and establishment-based measures (pp. 1, 8). Facility electricity use and fiscal effects: Not reported.",
+    "stated_limitations": "Establishment counts do not measure facility capacity, actual electricity consumption, utilization, efficiency, or AI-specific computing (pp. 8, 10). Annual state-level data may conceal finer-scale effects, and endogenous facility location prevents a causal interpretation (p. 10). Annual average emissions intensity cannot identify marginal emissions from incremental data center load (p. 10). Establishment counts jump between 2016 and 2017, when they rise in 49 of 50 states with the 2017 NAICS vintage change (p. 3). The authors state that generative AI was used for language editing (p. 10).",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data"
+    ],
+    "verbatim_quote_with_page": "\"The baseline estimates provide no evidence of a positive within-state association between growth in data-center-related establishments and aggregate electricity demand.\" (p. 1)"
+  },
+  {
+    "id": "hicks_2026",
+    "citation": "Hicks, M., Boyce, M., Whitacre, B., & Faulk, D. (2026). Data Centers and Local Labor Markets: Evidence from the Texas Experience. Journal of Regional Analysis & Policy, 56(3), 34-61. https://doi.org/10.68479/001c.172680",
+    "year": 2026,
+    "impact_category": "Economic & Tax Policy",
+    "region": "Texas (254 counties)",
+    "dataset_type": "Public Fiscal / Tax Records",
+    "research_question": "Did data center arrivals in Texas counties increase local employment growth, including in information, professional and technical services, and construction?",
+    "methodology": "Staggered difference-in-differences and event-study models on a panel of 254 Texas counties, 2000-2024, with Callaway and Sant'Anna diagnostics (p. 34). Treatment is the effective date of data center tax exemptions recorded by the Texas Comptroller of Public Accounts (pp. 39-41). Employment comes from the Quarterly Census of Employment and Wages (p. 53).",
+    "key_findings": "Data centers show negligible long-term increases in labor demand, with no statistically significant effect on employment growth in Information (NAICS 51) or Professional and Technical Services (NAICS 54) beyond a transient pre-operational pulse, and only a short-term rise in construction employment growth (p. 34). Each new data center adds only 0.08 percentage points to county employment growth in the two-way fixed-effects model (p. 44), a result that proved non-robust (p. 53). In one specification a new data center raises construction employment by 16%, or 43 workers in the median county (p. 58). In Taylor County (Abilene), four sectors added about 320 jobs from Q4 2020 to Q4 2024, under 5% of the county's job growth (p. 52). Texas data center tax incentives are projected to cost $9 billion by 2030 (p. 34); the authors did not directly assess subsidy cost per job (p. 54).",
+    "stated_limitations": "The conclusion must be viewed with caution because data center construction and use are at an early stage (p. 53). Administrative limitations on the data may prevent an effect from being detected (p. 51), and short-duration construction workers may not appear in the Quarterly Census of Employment and Wages (p. 53). Treatment timing comes from tax exemption dates rather than operation dates (p. 41). Some event-study coefficients should be read with caution (p. 47), and post-treatment confidence intervals are wide (p. 49).",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data",
+      "Pre-AI Compute Baseline"
+    ],
+    "verbatim_quote_with_page": "\"our causal estimates find that data centers experience negligible long-term increases in labor demand\" (p. 34)"
+  },
+  {
+    "id": "zhou_2026",
+    "citation": "Zhou, L., Xia, W., Wang, J., Ding, F., & Zhu, X. (2026). Data-center growth impacts household electricity costs more through wholesale prices than through grid reinforcement. arXiv:2611.16095 (Oregon State University; National Laboratory of the Rockies).",
+    "year": 2026,
+    "impact_category": "Economic & Tax Policy",
+    "region": "Texas (ERCOT)",
+    "dataset_type": "Engineering / Top-Down Model",
+    "research_question": "How would serving 371 announced Texas data center projects by 2030 affect residential electricity costs, and through which channels?",
+    "methodology": "PyPSA-USA capacity-expansion and dispatch model of 182 ERCOT buses, linked to transmission reinforcement and retail cost allocation (pp. 1, 12). An announced-development scenario of 371 Texas data center projects totaling 38.9 GW by 2030 at high utilization is evaluated with five historical weather years (2019-2023), May through October (p. 2). Pathways compare generation and storage expansion alone with coordinated generation and transmission expansion (p. 2).",
+    "key_findings": "In one representative case, accommodating the announced demand raises modeled residential electricity costs by 1.64 cents/kWh, 68% from higher wholesale prices and 32% from regulated transmission charges (p. 1). Allowing new gas generation near data centers reduces the 2023 increase to 0.92 cents/kWh, while excluding data centers from the transmission cost-sharing base raises it to 1.87 cents/kWh (p. 1). Transmission reinforcement requires $32.42 billion in initial investment (p. 8). Coordinated generation and transmission expansion reduces annualized investment by 73% compared with generation and storage alone (p. 2). Actual household bills: Not reported.",
+    "stated_limitations": "Results depend on future realization of announced projects and do not capture winter conditions (p. 12). Wholesale price estimates depend on temporal resolution, perfect-foresight assumptions, and scarcity-pricing rules (p. 12). The reported increases are modeled impacts under the specified assumptions, not forecasts of actual household bills (p. 12). Preprint, not peer-reviewed.",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data",
+      "Bottom-Up vs. Queue Modeling Divergence"
+    ],
+    "verbatim_quote_with_page": "\"accommodating this demand increases modeled residential electricity costs in one representative case by 1.64 cents/kWh\" (p. 1)"
+  },
+  {
+    "id": "han_2026",
+    "citation": "Han, Y., Li, P., Wierman, A., & Ren, S. (2026). Small Bottle, Big Pipe: Quantifying and Addressing the Impact of Data Centers on Public Water Systems. arXiv:2603.02705v2 (March 18, 2026).",
+    "year": 2026,
+    "impact_category": "Water Consumption",
+    "region": "United States (national; public water systems)",
+    "dataset_type": "Corporate Sustainability Reports",
+    "research_question": "How much new peak water capacity will U.S. data centers need from public water systems through 2030, and what is it worth?",
+    "methodology": "Projection of direct (on-site cooling) water withdrawal for U.S. data centers, 2024-2030, using LBNL IT energy estimates (p. 32) and water intensities from the 2024 sustainability reports of five hyperscale and seven colocation operators (about 86% and 22% of U.S. hyperscale and colocation IT load) (p. 4). Peaking factors for peak daily demand are set from government records, water utility data, and planning documents (p. 4). Scenarios assume baseline water intensity or compound annual reductions of 5% or 10% (p. 4). Fire and domestic water are excluded (p. 6).",
+    "key_findings": "If 2024 water use intensity persists, U.S. data centers could require 697-1,451 million gallons per day (MGD) of new water capacity through 2030, comparable to New York City's average supply of about 1,000 MGD; with 10% annual intensity reductions, 227-604 MGD (p. 1). In 2030 under the baseline, data centers could withdraw 80-150 billion gallons and consume 60-110 billion gallons a year (p. 4). The new water capacity is valued at $7-28 billion in the low-growth case and $15-58 billion in the high-growth case under the baseline (p. 4). Off-site water for electricity generation: Not reported (excluded by design).",
+    "stated_limitations": "The analysis covers direct on-site withdrawal for cooling only (p. 1). Projection uncertainties remain because of rapid industry growth and limited industrial data (p. 17). Parameter choices are described as conservative to avoid overestimation (p. 17). Operators rarely disclose peak water requirements, so peaking factors are inferred from public records (p. 4). Preprint, not peer-reviewed.",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data",
+      "Indirect Power-Plant Water Excluded"
+    ],
+    "verbatim_quote_with_page": "\"U.S. data centers could collectively require 697–1,451 million gallons per day (MGD) of new water capacity through 2030\" (p. 1)"
+  },
+  {
+    "id": "muller_2026",
+    "citation": "Muller, N. Z. (2026). Measuring the Impact of Data Centers in the United States Economy: Monetary Damage from Air Pollution and Greenhouse Gas Emissions. NBER Working Paper 35100, April 2026. https://doi.org/10.3386/w35100",
+    "year": 2026,
+    "impact_category": "Grid & Emissions",
+    "region": "United States (facility level, aggregated to states and eGRID subregions)",
+    "dataset_type": "Engineering / Top-Down Model",
+    "research_question": "What are the monetary damages from local air pollution and greenhouse gas emissions caused by electricity use at U.S. data centers?",
+    "methodology": "Facility-level location and power data for about 2,800 operational data centers in 2025 from S&P Global (Abstract; p. 2), with a load factor of 55% in the default scenario (range 50-60%) (p. 5). Electricity is attributed to the plant mix of each eGRID subregion, which assumes data centers are average load met mostly by baseload generation (pp. 5-6). Local air pollution damages are estimated with the AP4 integrated assessment model, and greenhouse gases with the social cost of carbon (Abstract; pp. 6-8).",
+    "key_findings": "Data centers consume roughly 250 TWh, about 5-6% of U.S. generation (Abstract). Damages from data center electricity use in 2025 amount to $25 billion ($10 to $33 billion) (p. 4), and greenhouse gases make up 80% of the total, a share sensitive to modeling assumptions (p. 10). Virginia and Texas account for 30% of national damages (p. 4). Planned expansion could raise electricity demand and damages by up to 85% in the near term, with particularly large increases in Virginia, Ohio, and Texas (Abstract; p. 4).",
+    "stated_limitations": "Data centers are treated as average load met mainly by baseload generation, not as marginal load (p. 6). The load factor is assumed (p. 5). Results are sensitive to the social cost of carbon, with damages falling under the lower $50/ton value (p. 10). The share of damages attributable to AI training and inference cannot be determined (p. 14). Comparisons with GDP do not capture spillovers or positive externalities (p. 9). Working paper, not peer-reviewed.",
+    "limitation_tags": [
+      "Missing or Self-Reported Facility Data"
+    ],
+    "verbatim_quote_with_page": "\"damages from electricity consumption at data centers in 2025 amount to $25 billion ($10 to $33 billion)\" (p. 4)"
   }
 ]

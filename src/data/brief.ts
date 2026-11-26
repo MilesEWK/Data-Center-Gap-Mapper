@@ -210,6 +210,19 @@ export const GAP_BRIEF: GapBrief = {
     {
       domain: "Economic & Tax Policy",
       studyA: "REMI / U.S. Chamber (2026)",
+      claimA: "740 operational-phase jobs per facility (economy-wide); 50 on-site workers assumed",
+      studyB: "Hicks et al. (2026)",
+      claimB: "Negligible long-term increases in labor demand across 254 Texas counties, 2000-2024; each new data center adds 0.08 percentage points to county employment growth, a non-robust result (pp. 34, 44, 53)",
+      methodologicalReason:
+        "Modeled multiplier vs. observed outcome. REMI runs an input-output style model that assigns supplier and consumer-spending jobs to a representative facility. Hicks et al. compare employment growth in Texas counties before and after data center tax exemptions take effect, against counties without them, and note that input-output models often project significant job multipliers (p. 34).",
+      whatEachMeasured:
+        "REMI counts every job its model links to one 50 MW facility across the state economy. Hicks et al. measure realized quarterly employment growth in host counties, by sector, using Quarterly Census of Employment and Wages data.",
+      whyItMatters:
+        "Job counts are a main justification for data center incentives. A modeled 740 jobs and an observed effect too small to detect cannot both describe the same local benefit, and Texas incentives are projected to cost $9 billion by 2030 (Hicks et al., p. 34).",
+    },
+    {
+      domain: "Economic & Tax Policy",
+      studyA: "REMI / U.S. Chamber (2026)",
       claimA: "Five-year gross county tax revenue of about $96 million (Franklin County, OH) to $174 million (Dallas County, TX) per 50 MW facility",
       studyB: "Justice & Shepherd (2025)",
       claimB: "Net fiscal impact of -$432.6 million in 2025: $474.2 million in forgone state tax revenue against $34.6 million (construction) and $6.9 million (operations) in added collections after a 30% 'but for' attribution (pp. 4-5)",
@@ -305,6 +318,16 @@ export const GAP_BRIEF: GapBrief = {
           "In Phoenix, as in Texas, electricity-related water exceeds on-site cooling water: Ceres estimates 2.9 billion gallons for electricity against 385 million gallons for cooling (pp. 3, 7-8), consistent with its seven-state finding that power generation makes up the bulk of data center water use.",
         citations: ["james_2025", "ceres_2026"],
       },
+      {
+        point:
+          "Data center electricity carries billions of dollars a year in pollution damages: Han et al. estimate $6.67 billion in 2023 public health costs (Table 1, p. 7), and Muller estimates $25 billion ($10-$33 billion) in 2025 damages, 80% from greenhouse gases (pp. 4, 10).",
+        citations: ["han_2024", "muller_2026"],
+      },
+      {
+        point:
+          "Incentives deliver little measurable local benefit: Hicks et al. find negligible long-term employment gains from Texas data centers, whose incentives are projected to cost $9 billion by 2030 (p. 34), consistent with Georgia's net fiscal loss and Virginia's 48 cents returned per $1.",
+        citations: ["hicks_2026", "justice_2025", "jlarc_2024"],
+      },
     ],
     divergence: [
       {
@@ -352,10 +375,20 @@ export const GAP_BRIEF: GapBrief = {
           "Retail price studies and capacity-market accounting measure different costs: Watten et al.'s retail estimates end in 2024 and the authors caution supply constraints could reverse them, while PJM's Market Monitor attributes an irreversible $29.4 billion capacity-cost increase to data center load through the 2028/2029 auction.",
         citations: ["epri_prices_2026", "pjm_imm_2026"],
       },
+      {
+        point:
+          "Bottom-up counts and statewide statistics measure different things: LBNL estimates 176 TWh of data center electricity in 2023, while Iqbal et al. find no positive within-state association between data-center establishment growth and aggregate state electricity demand, 2010-2023 (p. 6), and say the two are not contradictory (p. 9).",
+        citations: ["shehabi_2024", "iqbal_2026"],
+      },
+      {
+        point:
+          "Forward-looking models and historical estimates split on household bills: Zhou et al. model a 1.64 cents/kWh residential cost increase from 38.9 GW of announced Texas data centers by 2030 (p. 1), while Watten et al. estimate that retail prices fell with data center growth through 2024.",
+        citations: ["zhou_2026", "epri_prices_2026"],
+      },
     ],
     primaryGap: {
       statement:
-        "No study in the set combines (a) metered, facility-level post-2023 electricity data, (b) direct plus indirect water at watershed scale, and (c) net fiscal accounting that includes ratepayer and municipal infrastructure costs for the same facilities. No study meets all three conditions as defined; JLARC comes closest but uses modeled rather than metered electricity and counts only direct water. Most (16 of 19) depend on undisclosed or self-reported facility data.",
+        "No study in the set combines (a) metered, facility-level post-2023 electricity data, (b) direct plus indirect water at watershed scale, and (c) net fiscal accounting that includes ratepayer and municipal infrastructure costs for the same facilities. No study meets all three conditions as defined; JLARC comes closest but uses modeled rather than metered electricity and counts only direct water. Most (21 of 24) depend on undisclosed or self-reported facility data.",
       supportingEvidence: [
         {
           point:
@@ -402,6 +435,11 @@ export const GAP_BRIEF: GapBrief = {
             "Actual data center power use is not observed in the price studies: Kay et al. state actual utilization factors are unknown (p. 15), and Watten et al. assume power use at 50% of capacity (p. 13).",
           citations: ["kay_2026", "epri_prices_2026"],
         },
+        {
+          point:
+            "Annual water totals hide peak demand on public water systems: Han et al. (2026) project 697-1,451 million gallons per day of new water capacity through 2030, valued at up to $58 billion, but count only direct on-site withdrawal (pp. 1, 4).",
+          citations: ["han_2026", "jlarc_2024"],
+        },
       ],
     },
   },
@@ -422,6 +460,8 @@ export const GAP_BRIEF: GapBrief = {
     "han_2024: extracted from v4 (June 8, 2026); the title changed between versions, and figures may differ from earlier versions.",
     "han_2024: the paper reports 2023 public health costs of $6.67 billion ($5.03-$8.32 billion) (Table 1, p. 7), while the authors' IEEE Spectrum article gives \"an estimated $6 billion\" for 2023 (wording confirmed from a repost, not the Spectrum page itself); the record keeps the paper's figure.",
     "Batch 4 sources not added: CEPR DP21854 (Scalera, Bosetti & Pecci), PFM's Prince William County fiscal impact analysis, and Karimi et al. (2025, Applied Thermal Engineering 276) could not be retrieved (HTTP 403 or bot check), so no quote could be verified.",
+    "Logged search: 20 records judged eligible on title and abstract are not yet extracted (status \"eligible, not yet extracted\" in searchLog.json); two of them could not be retrieved in full (an Energy & Fuels carbon-capture study returned HTTP 403, and the Resources, Conservation & Recycling PUE/WUE study was available only as a differently titled 2021 preprint).",
+    "iqbal_2026: data-center establishment counts rise in 49 of 50 states between 2016 and 2017, coinciding with the 2017 NAICS vintage change (p. 3), so part of the measured growth may reflect classification rather than new facilities.",
   ],
 };
 

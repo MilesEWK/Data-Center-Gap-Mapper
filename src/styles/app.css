@@ -1825,3 +1825,89 @@ th[aria-sort="descending"] .sort-btn {
 .study-detail .contra-list {
   max-width: var(--measure);
 }
+
+/* Search flow (Methods: How studies were found). */
+.flow {
+  list-style: none;
+  margin: var(--s5) 0 var(--s4);
+  padding: 0;
+  max-width: var(--measure);
+  counter-reset: none;
+}
+.flow-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: var(--s1) var(--s4);
+  align-items: baseline;
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--brand);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+.flow-step + .flow-step {
+  margin-top: var(--s6);
+}
+.flow-step + .flow-step::before {
+  content: "";
+  position: absolute;
+  left: 50px;
+  top: calc(-1 * var(--s6));
+  height: var(--s6);
+  border-left: 2px solid var(--rule);
+}
+.flow-step + .flow-step::after {
+  content: "";
+  position: absolute;
+  left: 45px;
+  top: -9px;
+  border: 6px solid transparent;
+  border-top-color: var(--ink-2);
+}
+.flow-n {
+  font-family: var(--serif);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.flow-label {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--ink);
+}
+.flow-side {
+  grid-column: 2;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--ink-2);
+}
+.flow-final {
+  background: var(--band);
+}
+.flow-total {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-medium);
+  margin: 0 0 var(--s5);
+}
+.query-cell {
+  min-width: 15em;
+  font-family: var(--mono);
+  font-size: var(--fs-meta);
+  line-height: var(--lh-meta);
+  font-weight: var(--fw-regular);
+}
+@media (max-width: 767px) {
+  .flow-step {
+    grid-template-columns: 64px 1fr;
+  }
+  .flow-step + .flow-step::before {
+    left: 38px;
+  }
+  .flow-step + .flow-step::after {
+    left: 33px;
+  }
+}

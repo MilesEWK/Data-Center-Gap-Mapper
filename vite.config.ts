@@ -7,6 +7,14 @@ export default defineConfig({
   // Relative asset paths so the build works from any sub-path (e.g. GitHub Pages project sites).
   base: './',
   plugins: [react()],
+  build: {
+    rolldownOptions: {
+      output: {
+        // Keep the 200 kB search log in its own chunk so the app code stays small and caches separately.
+        codeSplitting: { groups: [{ name: 'search-log', test: /searchLog\.json/ }] },
+      },
+    },
+  },
   test: {
     include: ['tests/**/*.test.{ts,tsx}'],
     environment: 'node',
