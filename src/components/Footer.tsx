@@ -29,6 +29,10 @@ export function Footer() {
           <section aria-labelledby="f-cite">
             <h2 id="f-cite">Citation note</h2>
             <p>Cite this repository and the underlying primary studies, not this site alone.</p>
+            <p className="maintainer">
+              Maintained by Miles Wofford-Kao,{" "}
+              <a href="mailto:mwoffordkao@cfsnc.org">mwoffordkao@cfsnc.org</a>
+            </p>
           </section>
         </div>
         <p className="footer-small">All figures computed from papers.json and brief.ts.</p>
