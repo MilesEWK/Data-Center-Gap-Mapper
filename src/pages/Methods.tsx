@@ -49,8 +49,8 @@ export function Methods() {
           <div className="lf-panel">
           <h3>Search and inclusion</h3>
           <p>
-            {flow.handSelected} studies were hand-selected by targeted retrieval before a logged search;{" "}
-            {flow.extracted} more were added from a logged search of {SEARCH_DATABASES.join(", ")} (see{" "}
+            Of the {PAPERS.length} studies, {flow.handSelected} were hand-selected by targeted retrieval before a logged
+            search, and {flow.extracted} were added from a logged search of {SEARCH_DATABASES.join(", ")} (see{" "}
             <a href="#/methods" onClick={(e) => { e.preventDefault(); document.getElementById("m-found")?.scrollIntoView(); }}>How studies were found</a>).
             Included studies cover the United States, report at least one original quantitative estimate, address grid
             and emissions, water, or fiscal impacts, and support their primary finding with a verbatim quote and
@@ -109,7 +109,8 @@ export function Methods() {
         <section aria-labelledby="m-found" className="section-block" id="how-found">
           <h2 id="m-found">How studies were found</h2>
           <p className="section-lede">
-            The original {flow.handSelected} studies were hand-selected before the logged search. The search below was
+            Of the {PAPERS.length} studies in the review, {flow.handSelected} were hand-selected before the logged search
+            and {flow.extracted} came from it. The search below was
             run on {flow.runDates.join(", ")}, keeping the top 50 records per query and database.
           </p>
           <ol className="flow" aria-label="Search and screening flow">
