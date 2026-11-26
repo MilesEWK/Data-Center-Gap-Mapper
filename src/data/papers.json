@@ -84,7 +84,7 @@
   },
   {
     "id": "li_2023",
-    "citation": "Li, P., Yang, J., Islam, M. A., & Ren, S. (2023; rev. v5 2025). Making AI Less \"Thirsty\": Uncovering and Addressing the Secret Water Footprint of AI Models. arXiv:2304.03271 (UC Riverside); accepted by Communications of the ACM.",
+    "citation": "Li, P., Yang, J., Islam, M. A., & Ren, S. (2023; rev. v5 2025). Making AI Less \"Thirsty\": Uncovering and Addressing the Secret Water Footprint of AI Models. arXiv:2304.03271 (UC Riverside). Published as Li, P., Yang, J., Islam, M. A., & Ren, S. (2025). Making AI Less 'Thirsty'. Communications of the ACM, 68(7), 54-61. https://doi.org/10.1145/3724499. Extracted from the arXiv version; the published version could not be retrieved.",
     "year": 2023,
     "impact_category": "Water Consumption",
     "region": "Global, with US state-level case studies (US average, Arizona, Washington) and Ireland",
@@ -262,26 +262,27 @@
     "key_findings": "A doubling of data center capacity caused residential retail prices to fall by 3.5% for a fixed level of residential demand, with an Anderson-Rubin interval of -12.1% to -1.4% (p. 21); equivalently, about 0.4% lower prices per 10% more capacity (p. 3). From 2019 to 2024 the average residential customer lived in a state where data center capacity grew 160%, which caused rates to fall by 6% (p. 3). Restricting the sample to 2019-2024 halves the estimated effect, and first-difference estimates are precisely zero (p. 21). Effects on commercial and industrial prices are substantially smaller than for residential prices (p. 22). Transmission, distribution, and generation costs show economies of scale (p. 1). Wholesale prices and capacity-market costs: Not reported.",
     "stated_limitations": "The authors caution that future supply constraints could reverse the effect (p. 1), grouping caveats into supply constraints, durability of demand growth, and fuel costs (p. 22). Data center power use is not observed (p. 13). The instrument is weak in the neighboring-state spillover specification (first-stage F of 0.6) (pp. 21-22). Data end in 2024. The EPRI brief rounds the 3.5% estimate to roughly 4%.",
     "limitation_tags": [
-      "Missing or Self-Reported Facility Data"
+      "Missing or Self-Reported Facility Data",
+      "Pre-AI Compute Baseline"
     ],
     "verbatim_quote_with_page": "\"a doubling of data center capacity causes residential retail prices to fall by 3.5% for a fixed level of residential demand\" (p. 21)"
   },
   {
     "id": "kay_2026",
-    "citation": "Kay, O., Reaser, R., & Taylor, R. (2026). Processing Power: The Effect of Data Centers On Wholesale Electricity Markets. NBER conference paper (working draft dated April 28, 2026).",
+    "citation": "Kay, O., Reaser, R., & Taylor, R. (2026). Processing Power: The Effect of Data Centers on Wholesale Electricity Markets. Federal Reserve Bank of Dallas Working Paper 2606, March 2026, revised October 2026. https://doi.org/10.24149/wp2606r1 (an earlier draft, dated April 28, 2026, circulated as an NBER conference paper).",
     "year": 2026,
     "impact_category": "Grid & Emissions",
-    "region": "Continental United States (eGRID subregions)",
+    "region": "Continental United States (23 regional markets based on eGRID subregions)",
     "dataset_type": "Engineering / Top-Down Model",
-    "research_question": "How has data center load growth affected wholesale electricity prices, generation costs, and carbon emissions in the United States, and how could it affect them through 2028?",
-    "methodology": "Hourly, unit-level least-cost dispatch model of wholesale markets in the continental United States, 2021-2025Q3, built from EPA CEMS generator data (combustion units over 25 MW, not nuclear or renewables), EIA fuel-cost data, and eGRID subregions (pp. 1, 5-6, 12). Data center location, timing, and power capacity, with about 67% of facilities reporting capacity and the rest imputed (p. 7). Observed outcomes are compared with no-data-center counterfactuals under several utilization scenarios; projections to 2028 scale announced capacity down by 40% in the mid scenarios (pp. 7, 24). Historic inter-regional trade flows are held fixed (p. 13).",
-    "key_findings": "Existing data centers increased wholesale prices by 2 to 6% on average nationwide, with larger effects in regions hosting major data center corridors (Abstract); the largest effects are in SRVC (northern Virginia) and very little in ERCOT (p. 17). By 2025, data center load increased generation costs by roughly 10 to 15% nationwide under full utilization and at most about 5% under low utilization (p. 15). In the mid-peak scenario, data center demand drove a $12.6 billion transfer from wholesale consumers to suppliers from 2021 to 2025, and production costs rose by over $21 billion (p. 19). By 2025, data centers generated 5 to 16 million additional tons of CO2 per month, or $3 billion to $9.7 billion a year in damages at a $51 social cost of carbon (p. 21). Through 2028, wholesale prices could rise 50% under high utilization or 20% under moderate build-out (Abstract). Retail price effects: Not reported (the paper discusses them as depending on fixed-cost shares, pp. 29-31).",
-    "stated_limitations": "Actual utilization is unknown for all data centers, and behind-the-meter generation is not publicly reported (p. 7). Inter-regional re-dispatch is not captured because trade flows are fixed (p. 13). Power plant entry and exit are treated as exogenous (p. 27). Assuming local generation is marginal may overstate cost and price impacts in importing subregions (p. 35). The analysis covers variable generation costs, not fixed costs (p. 29). CEMS excludes nuclear and renewable generators (p. 5). Working paper, not peer-reviewed.",
+    "research_question": "How has data center load growth affected wholesale electricity prices, generator payments, and carbon emissions in the United States, how could it affect them through 2028, and when can load growth lower retail rates?",
+    "methodology": "Hourly, unit-level dispatch model in which 23 U.S. regional markets trade over capacity-constrained interfaces (Abstract), covering 2021-2025 and a 2026-2028 forecast (p. 37). Supply comes from EPA CEMS combustion units over 25 MW, not nuclear or renewable generators (p. 10). Because utilization is not observed, outcomes are compared with no-data-center counterfactuals under several utilization scenarios (pp. 2, 15); new capacity is scaled to 40% of announced capacity in the mid-range and low scenarios (p. 17). A fixed-cost-spreading framework derives when load growth can lower retail rates (pp. 51-56).",
+    "key_findings": "Data centers raised wholesale prices by 6.9% nationally by 2025 and by 15.0% in northern Virginia; under the preferred scenario the national effect reaches 12.3% by 2028 (Abstract). ERCOT has a smaller price effect despite the second-highest data center capacity (p. 28). Data centers increased total payments to generators by $96.5 billion over 2021-2025 (p. 34); in restructured markets, wholesale consumers paid generators $62.6 billion more from 2021 to 2025 in the mid-peak scenario (p. 35). Over 2021-2028, payments rise by about $186.7 billion, of which $94.5 billion (about 50%) are inframarginal rents (p. 3), and production costs rise by $87.9 billion (p. 35). By the end of 2025, data centers generated 8.9 to 28.1 million additional tons of CO2 per month (p. 36; short tons per Figure 8), or $24 billion to $75 billion in damages a year at a $224 social cost of carbon (pp. 36-37). Accounting for spillovers, many regions have offset ratios above one, meaning load growth cannot lower retail rates there even without added system costs (p. 56).",
+    "stated_limitations": "Actual utilization factors are unknown (p. 15). Power plant entry and exit are treated as exogenous (p. 42); against an endogenous-supply case, the main result overstates price effects by at most 2.44 percentage points (p. 43). Only grid emissions are counted; behind-the-meter and backup generation are excluded (p. 37). The retail analysis assumes no added fixed costs and likely understates retail price effects (p. 51). CEMS excludes nuclear and renewable generators (p. 10). Working paper, not peer-reviewed; the revised figures differ from the April 2026 NBER draft.",
     "limitation_tags": [
       "Missing or Self-Reported Facility Data",
       "Bottom-Up vs. Queue Modeling Divergence"
     ],
-    "verbatim_quote_with_page": "\"We find that existing data centers have already increased wholesale prices by 2 to 6% on average nationwide\" (Abstract)"
+    "verbatim_quote_with_page": "\"Data centers raised wholesale prices by 6.9 percent nationally by 2025 and by 15.0 percent in northern Virginia\" (Abstract)"
   },
   {
     "id": "han_2024",

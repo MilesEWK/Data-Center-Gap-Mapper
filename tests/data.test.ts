@@ -140,3 +140,13 @@ describe("review-level limitations", () => {
     expect(statesInPaper({ region: "IN OR CO2 emissions, CO2", key_findings: "" })).toEqual([]);
   });
 });
+
+describe("primary gap statement", () => {
+  it("states the computed count of studies tagged Missing or Self-Reported Facility Data", () => {
+    const m = GAP_BRIEF.evidenceOutline.primaryGap.statement.match(/\((\d+) of (\d+)\)/);
+    expect(m, "statement must contain '(N of M)'").not.toBeNull();
+    const tagged = PAPERS.filter((p) => p.limitation_tags.includes("Missing or Self-Reported Facility Data")).length;
+    expect(Number(m![1])).toBe(tagged);
+    expect(Number(m![2])).toBe(PAPERS.length);
+  });
+});

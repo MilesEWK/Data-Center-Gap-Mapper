@@ -19,7 +19,7 @@ export const SOURCE_TYPE_BY_ID: Record<string, SourceType> = {
   epri_2026: REPORT, // EPRI
   siddik_2021: PEER, // Environmental Research Letters
   mytton_2021: PEER, // npj Clean Water
-  li_2023: PREPRINT, // arXiv
+  li_2023: PEER, // Communications of the ACM 68(7), 2025 (arXiv version extracted)
   jlarc_2024: REPORT, // Virginia legislative audit
   tarczynska_2025: REPORT, // Good Jobs First (advocacy)
   remi_2026: REPORT, // REMI / U.S. Chamber (consultant, industry-sponsored)
@@ -30,7 +30,7 @@ export const SOURCE_TYPE_BY_ID: Record<string, SourceType> = {
   cook_2026: REPORT, // HARC
   ceres_2026: REPORT, // Ceres (advocacy)
   epri_prices_2026: PREPRINT, // EPRI white paper on arXiv (working paper)
-  kay_2026: PREPRINT, // NBER conference paper (working paper)
+  kay_2026: PREPRINT, // Dallas Fed working paper (earlier NBER conference draft)
   han_2024: PREPRINT, // arXiv
   james_2025: REPORT, // Ceres (advocacy)
 };

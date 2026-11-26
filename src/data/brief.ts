@@ -223,15 +223,28 @@ export const GAP_BRIEF: GapBrief = {
     {
       domain: "Economic & Tax Policy",
       studyA: "Kay et al. (2026)",
-      claimA: "Existing data centers raised wholesale electricity prices by 2 to 6% on average nationwide, 2021-2025, with larger effects in data center corridors (Abstract; p. 17)",
+      claimA: "Data centers raised wholesale prices by 6.9% nationally by 2025 and 15.0% in northern Virginia (Abstract); with spillovers, many regions cannot see lower retail rates from load growth even without added system costs (p. 56)",
       studyB: "Watten et al. (2026)",
       claimB: "A doubling of data center capacity caused residential retail prices to fall by 3.5% (interval -12.1% to -1.4%), 2015-2024 (p. 21)",
       methodologicalReason:
-        "Wholesale vs. retail boundary, method, and time window. Kay et al. simulate hourly wholesale dispatch with and without data center load, so prices rise when new load is met by costlier generators; the paper covers variable generation costs only (p. 29). Watten et al. estimate average residential retail prices, which also recover fixed grid costs spread over more sales, using a 1947 highway-plan instrument across states. Kay et al. note retail effects depend on the fixed-cost share of bills (pp. 29-31), and Watten et al. find the price-lowering effect half as large for 2019-2024 (p. 21).",
+        "Simulation vs. statistical estimate, and time window. Kay et al. simulate hourly wholesale dispatch with and without data center load across 23 trading regions, then derive retail effects from an offset ratio that assumes no added fixed costs (pp. 51-56). Watten et al. estimate realized average residential retail prices across states with a 1947 highway-plan instrument, so fixed costs spread over more sales are included by construction. Watten et al. find the price-lowering effect half as large for 2019-2024 (p. 21), and Kay et al.'s effects grow through 2025.",
       whatEachMeasured:
-        "Kay et al. measure the competitive wholesale price of energy in each eGRID subregion, hour by hour from 2021 to 2025, against a counterfactual without data centers under several utilization assumptions. Watten et al. measure average residential revenue per unit of residential demand in each state from 2015 to 2024 against data center capacity additions.",
+        "Kay et al. measure the competitive wholesale price in each of 23 regions, hour by hour from 2021 to 2025, against a counterfactual without data centers under several utilization assumptions, and compute retail effects from a model. Watten et al. measure average residential revenue per unit of residential demand in each state from 2015 to 2024 against data center capacity additions.",
       whyItMatters:
-        "Both results can hold at once: higher wholesale energy prices can coexist with lower average retail rates where fixed costs dominate bills. Watten et al. caution that supply constraints could reverse the retail effect, so neither study supports a blanket claim that data centers raise or lower bills.",
+        "The two studies now reach opposite retail conclusions for much of the country: Kay et al.'s model implies load growth cannot lower retail rates in many regions, while Watten et al.'s estimates show lower retail rates through 2024. The different periods and methods mean neither result settles whether data centers raise or lower bills today.",
+    },
+    {
+      domain: "Grid & Emissions",
+      studyA: "Kay et al. (2026)",
+      claimA: "By the end of 2025, data centers generated 8.9 to 28.1 million additional tons of CO2 per month (p. 36); about 97-306 million metric tons a year (derived, converting short tons)",
+      studyB: "Guidi et al. (2024)",
+      claimB: "105.59 million metric tons CO2e from 2,132 data centers, September 2023 to August 2024 (101.21 million in the consequential analysis)",
+      methodologicalReason:
+        "Marginal vs. average emissions, utilization, and timing. Kay et al. remove all data center load from an hourly dispatch model and count the emissions of the fossil-fuel generators that would have run less, under utilization scenarios from low to full (pp. 15-17, 36). Guidi et al. multiply estimated consumption at a uniform 0.75 uptime by the average carbon intensity of each facility's grid region. Kay's monthly figure is for the end of 2025, while Guidi's covers September 2023 to August 2024.",
+      whatEachMeasured:
+        "Kay et al. measure incremental CO2 at thermal generators each month, 2021-2025, relative to a no-data-center counterfactual, in short tons. Guidi et al. measure annual attributional CO2e for facilities in their inventory, using eGRID 2022 plant data, in metric tons.",
+      whyItMatters:
+        "Annualized, Kay's range runs from about 0.9 to 2.9 times Guidi's total (derived), so the national emissions figure depends on whether marginal or average emissions are counted, on how fully data centers are assumed to run, and on the year. Neither study observes actual utilization.",
     },
   ],
 
@@ -284,7 +297,7 @@ export const GAP_BRIEF: GapBrief = {
       },
       {
         point:
-          "Grid power is the main source of data center air emissions and their costs: Kay et al. estimate 5 to 16 million additional tons of CO2 per month by 2025 (p. 21), and Han et al. find power-plant emissions account for $6.16 billion of $6.67 billion in 2023 health costs (Table 1, p. 7), extending emissions estimates such as Guidi's 105.59 Mt into public health terms.",
+          "Grid power is the main source of data center air emissions and their costs: Kay et al. estimate 8.9 to 28.1 million additional tons of CO2 per month by the end of 2025 (p. 36), and Han et al. find power-plant emissions account for $6.16 billion of $6.67 billion in 2023 health costs (Table 1, p. 7), extending emissions estimates such as Guidi's 105.59 Mt into public health terms.",
         citations: ["kay_2026", "han_2024", "guidi_2024"],
       },
       {
@@ -331,7 +344,7 @@ export const GAP_BRIEF: GapBrief = {
       },
       {
         point:
-          "Electricity price effects split on boundary: Kay et al. find existing data centers raised wholesale prices 2 to 6% (2021-2025), while Watten et al. find a doubling of capacity lowered residential retail prices 3.5% (2015-2024), with the effect halving for 2019-2024.",
+          "Electricity price effects split on boundary: Kay et al. find data centers raised wholesale prices 6.9% nationally by 2025, while Watten et al. find a doubling of capacity lowered residential retail prices 3.5% (2015-2024), with the effect halving for 2019-2024.",
         citations: ["kay_2026", "epri_prices_2026"],
       },
       {
@@ -342,7 +355,7 @@ export const GAP_BRIEF: GapBrief = {
     ],
     primaryGap: {
       statement:
-        "No study in the set combines (a) metered, facility-level post-2023 electricity data, (b) direct plus indirect water at watershed scale, and (c) net fiscal accounting that includes ratepayer and municipal infrastructure costs for the same facilities. Each paper captures at most one or two of these, and every one depends on undisclosed or self-reported facility data.",
+        "No study in the set combines (a) metered, facility-level post-2023 electricity data, (b) direct plus indirect water at watershed scale, and (c) net fiscal accounting that includes ratepayer and municipal infrastructure costs for the same facilities. No study meets all three conditions as defined; JLARC comes closest but uses modeled rather than metered electricity and counts only direct water. Most (16 of 19) depend on undisclosed or self-reported facility data.",
       supportingEvidence: [
         {
           point:
@@ -386,7 +399,7 @@ export const GAP_BRIEF: GapBrief = {
         },
         {
           point:
-            "Actual data center power use is not observed in the price studies: Kay et al. state utilization is unknown for all data centers (p. 7), and Watten et al. assume power use at 50% of capacity (p. 13).",
+            "Actual data center power use is not observed in the price studies: Kay et al. state actual utilization factors are unknown (p. 15), and Watten et al. assume power use at 50% of capacity (p. 13).",
           citations: ["kay_2026", "epri_prices_2026"],
         },
       ],
@@ -404,6 +417,8 @@ export const GAP_BRIEF: GapBrief = {
     "justice_2025: the full report reviewed is dated December 2025, while the DOAA summary is marked revised January 2026; whether the full report text was also revised was not confirmed.",
     "epri_prices_2026: extracted from arXiv v1 (June 18, 2026); the EPRI brief rounds the 3.5% estimate to roughly 4%, and the brief URL given in the update prompt returned a web page rather than the PDF.",
     "james_2025: pages 6-16 have no text layer and were read from rendered page images; the report gives water stress increases of up to 17% (p. 3) and up to 32% (p. 8), and describes electricity-related water as withdrawals (p. 7) and as consumption (p. 15).",
+    "kay_2026: extracted from the Dallas Fed revision (October 2026), which replaces the April 2026 NBER draft; the revision changes the headline figures (wholesale prices 6.9% by 2025, not 2 to 6%; 8.9-28.1 million tons of CO2 per month by the end of 2025, not 5-16 million). Emissions are per month in short tons; annualized, about 97-306 million metric tons (derived), against Guidi et al.'s 105.59 million metric tons a year.",
+    "li_2023: published in Communications of the ACM 68(7), 54-61 (2025), but the published version returned HTTP 403, so the quote and figures still come from the arXiv version and page numbers are not available.",
     "han_2024: extracted from v4 (June 8, 2026); the title changed between versions, and figures may differ from earlier versions.",
     "han_2024: the paper reports 2023 public health costs of $6.67 billion ($5.03-$8.32 billion) (Table 1, p. 7), while the authors' IEEE Spectrum article gives \"an estimated $6 billion\" for 2023 (wording confirmed from a repost, not the Spectrum page itself); the record keeps the paper's figure.",
     "Batch 4 sources not added: CEPR DP21854 (Scalera, Bosetti & Pecci), PFM's Prince William County fiscal impact analysis, and Karimi et al. (2025, Applied Thermal Engineering 276) could not be retrieved (HTTP 403 or bot check), so no quote could be verified.",
