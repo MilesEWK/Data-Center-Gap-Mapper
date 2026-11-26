@@ -1,5 +1,6 @@
 # Literature Review & Citation Gap Mapper: US Hyperscale Data Center Impacts on Grid, Water, and Fiscal Systems
 
+**Author:** Miles Wofford-Kao
 **Version:** 1.3 (Batches 1-4 hand-selected, plus Batch 6 from a logged search; n = 24 studies)
 **Extraction date:** 2026-11-24 (Batches 1-4); 2026-11-25 (Batch 6 and the logged search)
 **Repository contents:** `src/data/papers.json` (structured extraction dataset), `src/data/brief.ts` (research gap brief data module), `README.md` (methodology), and a React + TypeScript + Vite app in `src/` that renders both
