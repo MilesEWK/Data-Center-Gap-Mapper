@@ -388,7 +388,7 @@ export const GAP_BRIEF: GapBrief = {
     ],
     primaryGap: {
       statement:
-        "No study in the set combines (a) metered, facility-level post-2023 electricity data, (b) direct plus indirect water at watershed scale, and (c) net fiscal accounting that includes ratepayer and municipal infrastructure costs for the same facilities. No study meets all three conditions as defined; JLARC comes closest but uses modeled rather than metered electricity and counts only direct water. Most (21 of 24) depend on undisclosed or self-reported facility data.",
+        "No study in this review brings together the three things needed to judge a data center's full local cost for the same set of facilities: metered electricity use for individual sites after 2023, direct and indirect water use measured at the watershed level, and net fiscal accounting that includes costs to ratepayers and local infrastructure. JLARC's Virginia study comes closest, but its electricity figures are modeled rather than metered, and it counts only the water used on site. Most of the studies (21 of 24) also rely on facility data that operators either keep private or report themselves.",
       supportingEvidence: [
         {
           point:
