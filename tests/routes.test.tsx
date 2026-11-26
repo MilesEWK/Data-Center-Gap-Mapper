@@ -9,6 +9,8 @@ import { studiesInCategory } from "../src/lib/derive";
 import { AppRoutes } from "../src/routes";
 import type { Paper } from "../src/types";
 import { LIMITATION_TAGS } from "../src/types";
+import { SOURCE_LINKS } from "../src/data/sourceLinks";
+import { GLOSSARY } from "../src/lib/glossary";
 
 const raw = JSON.parse(readFileSync(new URL("../src/data/papers.json", import.meta.url), "utf8")) as Paper[];
 
@@ -43,6 +45,8 @@ describe("routes", () => {
     ["/studies", "Studies"],
     [`/studies/${firstId}`, firstId],
     ["/methods", "Methods"],
+    ["/data", "How to cite this review"],
+    ["/glossary", "Glossary"],
   ];
 
   it.each(cases)("%s renders its page", (path, heading) => {
@@ -83,6 +87,8 @@ describe("resolved data", () => {
       "/blind-spots",
       "/studies",
       "/methods",
+      "/data",
+      "/glossary",
       ...raw.map((p) => `/studies/${p.id}`),
     ];
     for (const path of paths) expect(render(path), path).not.toContain("UNKNOWN");
@@ -171,5 +177,39 @@ describe("gap map", () => {
       const callout = `no study in this set is tagged ${tag.replace(/&/g, "&amp;")}.`;
       expect(map.includes(callout)).toBe(!used);
     }
+  });
+});
+
+describe("glossary links", () => {
+  const titleOf = (html: string) => [...html.matchAll(/class="gloss-link" title="Glossary: ([^"]+)"/g)].map((m) => m[1]);
+
+  it.each(["/contradictions", ...Object.keys(DOMAIN_SLUGS).map((s) => `/domains/${s}`)])(
+    "%s links each glossary term at most once, on its first use",
+    (path) => {
+      const terms = titleOf(render(path));
+      expect(terms.length, path).toBeGreaterThan(0);
+      expect(new Set(terms).size).toBe(terms.length);
+    },
+  );
+
+  it("every glossary entry has a definition and an anchor", () => {
+    const html = render("/glossary");
+    for (const g of GLOSSARY) {
+      expect(html).toContain(`id="g-${g.slug}"`);
+      expect(g.definition.split(/(?<=[a-z0-9)]\.)\s+(?=[A-Z])/).length).toBeLessThanOrEqual(2);
+    }
+  });
+});
+
+describe("source links", () => {
+  it("point only to studies in the set, over https, and render on study pages", () => {
+    const ids = new Set(raw.map((p) => p.id));
+    for (const [id, url] of Object.entries(SOURCE_LINKS)) {
+      expect(ids.has(id), id).toBe(true);
+      expect(url.startsWith("https://"), url).toBe(true);
+      expect(render(`/studies/${id}`)).toContain(url.replace(/&/g, "&amp;"));
+    }
+    const unlinked = raw.find((p) => !SOURCE_LINKS[p.id]);
+    if (unlinked) expect(render(`/studies/${unlinked.id}`)).toContain("Original document link: Not recorded.");
   });
 });

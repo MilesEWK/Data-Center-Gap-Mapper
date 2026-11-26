@@ -2,6 +2,8 @@ import { useSearchParams } from "react-router-dom";
 import { GAP_BRIEF } from "../data";
 import { DOMAIN_SLUGS, SHORT_NAME, domClass } from "../domains";
 import { ContradictionList } from "../components/ContradictionCard";
+import { contradictionTexts, firstUses } from "../lib/glossary";
+import { GlossaryPlan } from "../lib/glossaryContext";
 import { PageHeader } from "../components/PageHeader";
 import { contradictionsInDomain } from "../lib/derive";
 import { useTitle } from "../lib/useTitle";
@@ -40,7 +42,9 @@ export function Contradictions() {
         <p className="result-count" aria-live="polite">
           Showing {rows.length} of {GAP_BRIEF.contradictionMatrix.length}
         </p>
-        <ContradictionList rows={rows} />
+        <GlossaryPlan.Provider value={firstUses(contradictionTexts(rows))}>
+          <ContradictionList rows={rows} />
+        </GlossaryPlan.Provider>
       </div>
     </>
   );

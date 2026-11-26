@@ -4,6 +4,7 @@ import { studyLabel } from "../data/studyNameMap";
 import { domClass } from "../domains";
 import { ContradictionList } from "../components/ContradictionCard";
 import { CopyButton } from "../components/CopyButton";
+import { SOURCE_LINKS } from "../data/sourceLinks";
 import { DomainChip } from "../components/DomainChip";
 import { Marked } from "../components/Marked";
 import { PageHeader } from "../components/PageHeader";
@@ -47,6 +48,15 @@ export function StudyDetail() {
           <h2 id="s-citation">Citation</h2>
           <p className="reading">{paper.citation}</p>
           <CopyButton text={paper.citation} label="Copy citation" />
+          {SOURCE_LINKS[paper.id] ? (
+            <p className="doc-line">
+              <a className="doc-link" href={SOURCE_LINKS[paper.id]} target="_blank" rel="noopener noreferrer">
+                Open original document<span className="visually-hidden"> (opens in a new tab)</span>
+              </a>
+            </p>
+          ) : (
+            <p className="doc-line muted">Original document link: Not recorded.</p>
+          )}
         </section>
         <section aria-labelledby="s-rq">
           <h2 id="s-rq">Research question</h2>

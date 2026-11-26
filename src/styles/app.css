@@ -292,6 +292,10 @@ a.name-link:focus-visible {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
+/* Dropdown lists stack vertically (the nav's own list is a flex row). */
+.desktop-nav .dropdown-menu {
+  display: block;
+}
 .dropdown-link {
   display: flex;
   align-items: center;
@@ -1909,5 +1913,189 @@ th[aria-sort="descending"] .sort-btn {
   }
   .flow-step + .flow-step::after {
     left: 33px;
+  }
+}
+
+/* Source links to primary documents. */
+.doc-link {
+  display: inline-block;
+  font-size: var(--fs-meta);
+  line-height: var(--lh-meta);
+  font-weight: var(--fw-regular);
+  color: var(--link);
+}
+th .doc-link {
+  display: block;
+  margin-top: var(--s1);
+  padding-left: 20px;
+}
+.doc-line {
+  margin: var(--s3) 0 0;
+}
+
+/* Glossary links: first use of a term on Contradictions and domain pages. */
+.gloss-link {
+  color: inherit;
+  text-decoration: underline dotted var(--ink-2);
+  text-underline-offset: 3px;
+}
+.gloss-link:hover {
+  color: var(--link);
+  text-decoration-color: var(--link);
+}
+
+/* Glossary page. */
+.glossary {
+  max-width: var(--measure);
+  margin: 0;
+}
+.glossary-entry {
+  padding: var(--s4) 0;
+  border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 88px;
+}
+.glossary-entry:target,
+.glossary-entry:focus {
+  outline: none;
+}
+.glossary dt {
+  font-family: var(--serif);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+}
+.glossary dd {
+  margin: var(--s2) 0 0;
+}
+.glossary dd p {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+.glossary .glossary-cite {
+  margin-top: var(--s2);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--ink-2);
+}
+
+/* Data page. */
+.download-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: var(--measure);
+}
+.download-list li {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--s4);
+  align-items: center;
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--rule);
+}
+.download-button {
+  justify-self: start;
+  font-family: var(--sans);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: var(--fw-medium);
+  color: var(--brand);
+  background: var(--bg);
+  border: 1px solid var(--brand);
+  border-radius: var(--radius);
+  padding: var(--s2) var(--s3);
+  cursor: pointer;
+}
+.download-button:hover {
+  background: var(--band);
+}
+.download-button .mono {
+  font-family: var(--mono);
+  font-size: var(--fs-meta);
+}
+.download-what {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--ink-2);
+}
+.cite-box {
+  max-width: var(--measure);
+  padding: var(--s4) var(--s5);
+  background: var(--band);
+  border-left: 4px solid var(--brand);
+  border-radius: var(--radius);
+}
+.cite-text {
+  margin: 0 0 var(--s3);
+  font-family: var(--serif);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+.dropdown-menu-right {
+  left: auto;
+  right: calc(-1 * var(--s3));
+}
+@media (max-width: 767px) {
+  .download-list li {
+    grid-template-columns: 1fr;
+    gap: var(--s2);
+  }
+}
+
+/* Print: Findings, Contradictions, and study pages print without navigation, with panels open and link URLs shown. */
+@media print {
+  .topbar,
+  .mobile-menu,
+  .skip-link,
+  .site-footer,
+  footer,
+  .domain-stripe,
+  .tabs-list,
+  [role="tablist"],
+  .disclosure,
+  .copy,
+  .breadcrumbs,
+  .filter-sidebar,
+  .segmented,
+  .result-count,
+  .section-link {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .wrap {
+    max-width: none;
+    padding-inline: 0;
+  }
+  .why-wrap {
+    display: block !important;
+    grid-template-rows: 1fr !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .why-inner {
+    overflow: visible !important;
+  }
+  .contra-card,
+  .evidence li,
+  .facts,
+  .glossary-entry {
+    break-inside: avoid;
+  }
+  main a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #444;
+    word-break: break-all;
+  }
+  main a[href^="#"]::after {
+    content: " (" attr(href) ")";
+  }
+  .gloss-link::after {
+    content: none !important;
   }
 }

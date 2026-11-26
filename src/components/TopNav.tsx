@@ -12,6 +12,10 @@ const TAIL_LINKS: { to: string; label: string }[] = [
   { to: "/studies", label: "Studies" },
   { to: "/methods", label: "Methods" },
 ];
+const MORE_LINKS: { to: string; label: string }[] = [
+  { to: "/data", label: "Data" },
+  { to: "/glossary", label: "Glossary" },
+];
 const DOMAIN_LINKS = Object.entries(DOMAIN_SLUGS).map(([slug, category]) => ({
   to: `/domains/${slug}`,
   label: SHORT_NAME[category],
@@ -24,15 +28,18 @@ export function TopNav() {
   const location = useLocation();
   const { pathname } = location;
   const [domainsOpen, setDomainsOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   // Close both menus on any navigation, including back/forward (state adjusted during render, no effect).
   const [seenLocation, setSeenLocation] = useState(location);
   if (location !== seenLocation) {
     setSeenLocation(location);
     setDomainsOpen(false);
+    setMoreOpen(false);
     setMenuOpen(false);
   }
   const domainsRef = useRef<HTMLLIElement>(null);
+  const moreRef = useRef<HTMLLIElement>(null);
 
   // Close the Domains dropdown on outside click or Escape.
   useEffect(() => {
@@ -51,7 +58,25 @@ export function TopNav() {
     };
   }, [domainsOpen]);
 
+  // Same for the More dropdown.
+  useEffect(() => {
+    if (!moreOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (!moreRef.current?.contains(e.target as Node)) setMoreOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMoreOpen(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [moreOpen]);
+
   const inDomains = pathname.startsWith("/domains/");
+  const inMore = MORE_LINKS.some((l) => pathname === l.to);
 
   return (
     <header className="topbar">
@@ -110,6 +135,29 @@ export function TopNav() {
                 </NavLink>
               </li>
             ))}
+            <li className="dropdown" ref={moreRef}>
+              <button
+                type="button"
+                className={`nav-link nav-button${inMore ? " is-active" : ""}`}
+                aria-expanded={moreOpen}
+                aria-controls="more-menu"
+                onClick={() => setMoreOpen(!moreOpen)}
+              >
+                More
+                <span className="caret" aria-hidden="true" />
+              </button>
+              {moreOpen && (
+                <ul id="more-menu" className="dropdown-menu dropdown-menu-right">
+                  {MORE_LINKS.map((l) => (
+                    <li key={l.to}>
+                      <NavLink to={l.to} className={({ isActive }) => `dropdown-link${isActive ? " is-active" : ""}`}>
+                        {l.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
           </ul>
         </nav>
       </div>
@@ -133,7 +181,7 @@ export function TopNav() {
                 </NavLink>
               </li>
             ))}
-            {TAIL_LINKS.map((l) => (
+            {[...TAIL_LINKS, ...MORE_LINKS].map((l) => (
               <li key={l.to}>
                 <NavLink to={l.to} className={navClass}>
                   {l.label}

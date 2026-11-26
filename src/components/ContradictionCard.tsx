@@ -5,17 +5,18 @@ import type { Contradiction } from "../data";
 import { STUDY_NAME_TO_ID, studyLabel } from "../data/studyNameMap";
 import { domClass } from "../domains";
 import { DomainChip } from "./DomainChip";
+import { GlossText } from "./GlossText";
 import { Marked } from "./Marked";
 import { StudyLink } from "./StudyLink";
 
-function Side({ label, name, claim }: { label: string; name: string; claim: string }) {
+function Side({ label, name, claim, planKey }: { label: string; name: string; claim: string; planKey?: string }) {
   const id = STUDY_NAME_TO_ID[name];
   return (
     <div className="contra-side">
       <span className="side-label">{label}</span>
       <p className="contra-study">{id ? <StudyLink id={id} label={name} /> : name}</p>
       <p className="contra-claim">
-        <Marked text={claim} />
+        <GlossText text={claim} planKey={planKey} />
       </p>
     </div>
   );
@@ -63,7 +64,7 @@ function StudyFacts({ name }: { name: string }) {
 }
 
 /** "Why the numbers differ": reason, what each counted, side-by-side records, and why it matters. */
-function WhyPanel({ c }: { c: Contradiction }) {
+function WhyPanel({ c, k }: { c: Contradiction; k?: string }) {
   const hasA = Boolean(STUDY_NAME_TO_ID[c.studyA] && PAPERS_BY_ID.has(STUDY_NAME_TO_ID[c.studyA]));
   const hasB = Boolean(STUDY_NAME_TO_ID[c.studyB] && PAPERS_BY_ID.has(STUDY_NAME_TO_ID[c.studyB]));
   return (
@@ -72,7 +73,7 @@ function WhyPanel({ c }: { c: Contradiction }) {
         <section className="why-block">
           <h4>In short</h4>
           <p>
-            <Marked text={c.methodologicalReason} />
+            <GlossText text={c.methodologicalReason} planKey={k && `${k}|methodologicalReason`} />
           </p>
         </section>
       )}
@@ -80,7 +81,7 @@ function WhyPanel({ c }: { c: Contradiction }) {
         <section className="why-block">
           <h4>What each study counted</h4>
           <p>
-            <Marked text={c.whatEachMeasured} />
+            <GlossText text={c.whatEachMeasured} planKey={k && `${k}|whatEachMeasured`} />
           </p>
         </section>
       )}
@@ -96,7 +97,7 @@ function WhyPanel({ c }: { c: Contradiction }) {
         <section className="why-matters">
           <h4>Why it matters</h4>
           <p>
-            <Marked text={c.whyItMatters} />
+            <GlossText text={c.whyItMatters} planKey={k && `${k}|whyItMatters`} />
           </p>
         </section>
       )}
@@ -104,18 +105,18 @@ function WhyPanel({ c }: { c: Contradiction }) {
   );
 }
 
-export function ContradictionCard({ c, showDomain = true }: { c: Contradiction; showDomain?: boolean }) {
+export function ContradictionCard({ c, showDomain = true, k }: { c: Contradiction; showDomain?: boolean; k?: string }) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
   return (
     <li className={`contra-card ${domClass(c.domain)}`}>
       {showDomain && <DomainChip category={c.domain} />}
       <div className="contra-grid">
-        <Side label="Study A" name={c.studyA} claim={c.claimA} />
+        <Side label="Study A" name={c.studyA} claim={c.claimA} planKey={k && `${k}|claimA`} />
         <span className="vs" aria-hidden="true">
           vs
         </span>
-        <Side label="Study B" name={c.studyB} claim={c.claimB} />
+        <Side label="Study B" name={c.studyB} claim={c.claimB} planKey={k && `${k}|claimB`} />
       </div>
       <button
         type="button"
@@ -130,7 +131,7 @@ export function ContradictionCard({ c, showDomain = true }: { c: Contradiction; 
       {/* Always rendered so the height can animate; inert while closed so nothing inside is focusable. */}
       <div id={panelId} className={`why-wrap${open ? " is-open" : ""}`} inert={!open}>
         <div className="why-inner">
-          <WhyPanel c={c} />
+          <WhyPanel c={c} k={k} />
         </div>
       </div>
     </li>
@@ -147,8 +148,8 @@ export function ContradictionList({ rows, showDomain = true }: { rows: Contradic
         <span>Study B</span>
       </div>
       <ol>
-        {rows.map((c) => (
-          <ContradictionCard key={`${c.domain}|${c.studyA}|${c.claimA}|${c.studyB}|${c.claimB}`} c={c} showDomain={showDomain} />
+        {rows.map((c, i) => (
+          <ContradictionCard key={`${c.domain}|${c.studyA}|${c.claimA}|${c.studyB}|${c.claimB}`} c={c} showDomain={showDomain} k={`c${i}`} />
         ))}
       </ol>
     </div>

@@ -2,8 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { BlindSpots } from "./pages/BlindSpots";
 import { Contradictions } from "./pages/Contradictions";
+import { Data } from "./pages/Data";
 import { DomainPage } from "./pages/DomainPage";
 import { Findings } from "./pages/Findings";
+import { Glossary } from "./pages/Glossary";
 import { Methods } from "./pages/Methods";
 import { NotFound } from "./pages/NotFound";
 import { Overview } from "./pages/Overview";
@@ -23,6 +25,8 @@ export function AppRoutes({ violations = [] }: { violations?: string[] }) {
         <Route path="studies" element={<Studies />} />
         <Route path="studies/:id" element={<StudyDetail />} />
         <Route path="methods" element={<Methods />} />
+        <Route path="data" element={<Data />} />
+        <Route path="glossary" element={<Glossary />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

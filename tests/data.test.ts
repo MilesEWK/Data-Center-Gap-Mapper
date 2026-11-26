@@ -168,3 +168,23 @@ describe("search log", () => {
     expect(f.handSelected + f.extracted).toBe(PAPERS.length);
   });
 });
+
+describe("downloads", () => {
+  it("papers.json download is byte-identical to the stored file", async () => {
+    const { papersJson } = await import("../src/lib/exports");
+    expect(papersJson()).toBe(readFileSync(PAPERS_PATH, "utf8"));
+  });
+
+  it("CSV and BibTeX exports have one entry per record", async () => {
+    const { bibtex, contradictionsCsv, doiOf, papersCsv } = await import("../src/lib/exports");
+    const csv = papersCsv();
+    expect(csv.startsWith("id,citation,year,")).toBe(true);
+    for (const p of PAPERS) expect(csv).toContain(`\r\n${p.id},`);
+    expect(contradictionsCsv().split("\r\n").filter((l) => /^(Grid|Water|Economic|Multi)/.test(l)).length).toBe(
+      GAP_BRIEF.contradictionMatrix.length,
+    );
+    const bib = bibtex();
+    expect(bib.match(/^@misc\{/gm)?.length).toBe(PAPERS.length);
+    expect(doiOf("Front. Environ. Sci. 14, 1939591. https://doi.org/10.3389/fenvs.2026.1939591")).toBe("10.3389/fenvs.2026.1939591");
+  });
+});

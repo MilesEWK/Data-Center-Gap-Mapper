@@ -7,6 +7,7 @@ export default defineConfig({
   // Relative asset paths so the build works from any sub-path (e.g. GitHub Pages project sites).
   base: './',
   plugins: [react()],
+  define: { __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()) },
   build: {
     rolldownOptions: {
       output: {

@@ -1,6 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import { DOMAIN_SLUGS, SHORT_NAME, domClass } from "../domains";
 import { ContradictionList } from "../components/ContradictionCard";
+import { GlossText } from "../components/GlossText";
+import { contradictionTexts, firstUses } from "../lib/glossary";
+import { GlossaryPlan } from "../lib/glossaryContext";
 import { PageHeader } from "../components/PageHeader";
 import { StudyLink } from "../components/StudyLink";
 import { studyLabel } from "../data/studyNameMap";
@@ -67,6 +70,7 @@ export function DomainPage() {
   const contradictions = contradictionsInDomain(domain);
   const evidence = relatedEvidence(studies.map((p) => p.id));
   const copy = COPY[slug];
+  const plan = firstUses([...contradictionTexts(contradictions), ...evidence.map((e, i): [string, string] => [`ev${i}`, e.point.point])]);
 
   return (
     <div className={domClass(domain)}>
@@ -76,6 +80,7 @@ export function DomainPage() {
         breadcrumbs={[{ label: "Overview", to: "/" }, { label: SHORT_NAME[domain] }]}
         lede={copy.intro}
       />
+      <GlossaryPlan.Provider value={plan}>
       <div className="wrap page-body domain-body">
         <section aria-labelledby="d-studies" className="domain-section">
           <h2 id="d-studies">{copy.studies}</h2>
@@ -103,13 +108,13 @@ export function DomainPage() {
         <section aria-labelledby="d-evidence" className="domain-section">
           <h2 id="d-evidence">What the evidence shows</h2>
           <ol className="evidence">
-            {evidence.map(({ kind, point }) => (
+            {evidence.map(({ kind, point }, i) => (
               <li key={point.point}>
                 <p>
                   <Link to={`/findings?tab=${kind}`} className="kind-label">
                     {kind === "agree" ? "Agreement" : "Divergence"}
                   </Link>
-                  {point.point}
+                  <GlossText text={point.point} planKey={`ev${i}`} />
                 </p>
                 <p className="sources">
                   <span className="sources-label">Sources</span>
@@ -122,6 +127,7 @@ export function DomainPage() {
           </ol>
         </section>
       </div>
+      </GlossaryPlan.Provider>
     </div>
   );
 }

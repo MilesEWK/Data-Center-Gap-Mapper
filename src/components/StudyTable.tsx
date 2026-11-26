@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { SOURCE_LINKS } from "../data/sourceLinks";
 import { studyLabel } from "../data/studyNameMap";
 import { SHORT_NAME } from "../domains";
 import { DATASET_SHORT } from "../lib/derive";
@@ -75,6 +76,12 @@ export function StudyTable({ papers, filters, onFiltersChange }: Props) {
                   <DomainSquare category={p.impact_category} />
                   <StudyLink id={p.id} label={studyLabel(p.id)} />
                 </span>
+                {SOURCE_LINKS[p.id] && (
+                  <a className="doc-link" href={SOURCE_LINKS[p.id]} target="_blank" rel="noopener noreferrer">
+                    Open original document
+                    <span className="visually-hidden"> for {studyLabel(p.id)} (opens in a new tab)</span>
+                  </a>
+                )}
               </th>
               <td className="num-left">{p.year}</td>
               <td className="cell-muted hide-sm">{SHORT_NAME[p.impact_category]}</td>
