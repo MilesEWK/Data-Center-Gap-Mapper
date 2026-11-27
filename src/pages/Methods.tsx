@@ -85,7 +85,7 @@ export function Methods() {
               <li>
                 {PAPERS.length} studies: {flow.handSelected} hand-selected by targeted retrieval and {flow.extracted}{" "}
                 added from a logged search of {SEARCH_DATABASES.length} databases, which screened the top 50 records per
-                query. The search is not exhaustive, and the hand-selected studies did not pass through its screening;{" "}
+                query. The search is not exhaustive (it did not try to find every study ever published on the topic), and the hand-selected studies did not pass through its screening;{" "}
                 {flow.notYetExtracted} eligible records are not yet extracted.
               </li>
               <li>
