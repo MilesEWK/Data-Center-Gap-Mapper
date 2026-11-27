@@ -62,9 +62,13 @@ export function Methods() {
           <div className="lf-panel">
           <h3>Extraction</h3>
           <p>
-            Each of the {PAPERS.length} records follows a fixed schema with controlled vocabularies. Values come only from
-            explicit source statements. Absent metrics are recorded as “Not reported”, and anything that could not be
-            confirmed is listed under Open issues rather than imputed.
+            All {PAPERS.length} studies were recorded the same way, using the same set of fields: the citation, year,
+            impact area, region, type of data, research question, methods, key findings, the authors’ own stated
+            limitations, and a word-for-word quote with its page or section number. Fields such as impact area and
+            limitation tags use a short, fixed list of labels so studies can be compared directly. Every value comes
+            from something the source actually states. If a study does not report a number, it is marked “Not
+            reported.” If something could not be confirmed, it is listed under Open issues instead of being filled in
+            with a guess.
           </p>
           </div>
           <div className="lf-panel">
